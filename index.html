@@ -1,0 +1,714 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Micronode LLP | Deep-Tech Embedded Engineering</title>
+    <meta name="description" content="Micronode LLP â€” Embedded Systems, Edge AI, and Embedded Engineering for Healthcare Technology, 
+     Electronics, Machine Vision, and Industrial sectors.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Micronode_Website.css">
+</head>
+<body>
+
+<div class="scroll-progress" id="scrollProgress"></div>
+<canvas id="nodeCanvas" aria-hidden="true"></canvas>
+
+<nav class="side-dots" id="sideDots" aria-label="Page navigation">
+    <a href="#hero"          class="side-dot" data-label="Home"><span></span></a>
+    <a href="#whatwedo"      class="side-dot" data-label="What We Do"><span></span></a>
+    <a href="#industries"    class="side-dot" data-label="Industries"><span></span></a>
+    <a href="#technologies"  class="side-dot" data-label="Technologies"><span></span></a>
+    <a href="#projects"      class="side-dot" data-label="Projects"><span></span></a>
+    <a href="#products"      class="side-dot" data-label="Products"><span></span></a>
+    <a href="#why-us"        class="side-dot" data-label="Why Us"><span></span></a>
+    <a href="#process"       class="side-dot" data-label="Process"><span></span></a>
+    <a href="#contact"       class="side-dot" data-label="Contact"><span></span></a>
+</nav>
+
+<!-- HEADER-->
+<header class="site-header" id="siteHeader">
+    <div class="container navbar">
+        <a href="#hero" class="logo">
+            <img src="images/micronode_logo.png" class="logo-icon" alt="Micronode"/>
+        </a>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+        <nav class="nav-links" id="navLinks">
+            <a href="#hero">Home</a>
+            <a href="#products">Products</a>
+            <a href="#technologies">Technologies</a>
+            <a href="#industries">Industries</a>
+            <a href="#why-us">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <button type="button" class="btn btn-nav" id="openConsultModalNav">Consultation</button>
+    </div>
+</header>
+
+<!-- 01 HERO -->
+<section class="section hero-section" id="hero">
+    <div class="container hero-inner">
+
+        <div class="hero-content reveal">
+            <p class="eyebrow">
+                <span class="eyebrow-dot"></span>
+                Embedded Systems &bull; Edge AI &bull; Product Engineering
+            </p>
+            <h1>We turn <span class="gradient-text">ideas</span> into <span class="gradient-text">working hardware<br></span></h1>
+            <p class="hero-desc">From concept to production, we design and build intelligent embedded products that power the future.</p>
+            <div class="hero-cta">
+                <button type="button" class="btn btn-primary" id="openConsultModalHero">Book Consultation</button>
+                <a href="#products" class="btn btn-ghost">View Products &nbsp;&rarr;</a>
+            </div>
+            <div class="hero-stats">
+                <div class="hstat">
+                    <span class="hstat-val" data-target="160"  data-suffix="+">50+</span>
+                    <span class="hstat-lbl">Products Developed</span>
+                </div>
+                <div class="hstat">
+                    <span class="hstat-val" data-target="8" data-suffix="+">8+</span>
+                    <span class="hstat-lbl">MCU Platforms</span>
+                </div>
+                <div class="hstat">
+                    <span class="hstat-val" data-target="3" data-suffix="x">3x</span>
+                    <span class="hstat-lbl">Faster Than Traditional Design Houses</span>
+                </div>
+                <div class="hstat">
+                    <span class="hstat-val" data-target="4"   data-suffix="+">8+</span>
+                    <span class="hstat-lbl">Years of Experience</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-visual reveal" data-dir="right">
+            <canvas id="heroCanvas" class="mn-hero-canvas" aria-hidden="true"></canvas>
+            <div class="mn-hero-logo-wrap">
+                <img src="images/micronode_logo_white.png" class="mn-hero-logo" alt="Micronode logo"/>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- 02 WHAT WE DO -->
+<section class="section wwd-section" id="whatwedo">
+    <div class="container wwd-inner">
+
+        <div class="sec-left reveal" data-dir="left">
+            <span class="sec-label">WHAT WE DO</span>
+            <h2>Full-stack Product<br>Development</h2>
+            <p>From concept to certified product - we handle every layer of the stack so you don't have to.</p>
+            <a href="#consultation" class="link-arrow">Discuss Your Project</a>
+        </div>
+
+        <div class="wwd-grid">
+            <div class="wwd-card glass reveal">
+                <div class="wwd-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="9" y="2" width="6" height="6" rx="1"/><rect x="9" y="16" width="6" height="6" rx="1"/>
+                        <rect x="2" y="9" width="6" height="6" rx="1"/><rect x="16" y="9" width="6" height="6" rx="1"/>
+                        <line x1="15" y1="5" x2="16" y2="5"/><line x1="15" y1="12" x2="16" y2="12"/><line x1="8" y1="12" x2="9" y2="12"/>
+                    </svg>
+                </div>
+                <h3>Hardware Design</h3>
+                <p>Power systems, analog, RF front-ends, mixed-signal circuits.</p>
+            </div>
+            <div class="wwd-card glass reveal reveal-delay-1">
+                <div class="wwd-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+                    </svg>
+                </div>
+                <h3>Firmware Development</h3>
+                <p>Bare metal, RTOS, Linux, device drivers and connectivity stack development and more.</p>
+            </div>
+            <div class="wwd-card glass reveal reveal-delay-2">
+                <div class="wwd-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="2" width="20" height="20" rx="2"/>
+                        <circle cx="7" cy="7" r="1.2" fill="currentColor"/>
+                        <circle cx="17" cy="7" r="1.2" fill="currentColor"/>
+                        <circle cx="7" cy="17" r="1.2" fill="currentColor"/>
+                        <circle cx="17" cy="17" r="1.2" fill="currentColor"/>
+                        <circle cx="12" cy="12" r="1.5" fill="currentColor"/>
+                        <path d="M7 8.2 L7 12 L10.5 12"/>
+                        <path d="M17 8.2 L17 12 L13.5 12"/>
+                        <path d="M7 15.8 L7 14 L10.5 14"/>
+                        <path d="M17 15.8 L17 14 L13.5 14"/>
+                        <line x1="10.5" y1="14" x2="10.5" y2="12"/>
+                    </svg>
+                </div>
+                <h3>PCB Design</h3>
+                <p>Multi-layer boards, signal integrity, impedance control, DFM-ready Gerbers for any fab.</p>
+            </div>
+            <div class="wwd-card glass reveal">
+                <div class="wwd-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 12l2 2 4-4"/><path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9c1.66 0 3.21.45 4.55 1.23"/>
+                    </svg>
+                </div>
+                <h3>Testing &amp; Validation</h3>
+                <p>Functional testing, debugging, hardware validation, firmware verification and prototype qualification.</p>
+            </div>
+            <div class="wwd-card glass reveal reveal-delay-1">
+                <div class="wwd-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="7" y="7" width="10" height="10" rx="1"/>
+                        <line x1="9" y1="7" x2="9" y2="4"/><line x1="12" y1="7" x2="12" y2="4"/><line x1="15" y1="7" x2="15" y2="4"/>
+                        <line x1="9" y1="17" x2="9" y2="20"/><line x1="12" y1="17" x2="12" y2="20"/><line x1="15" y1="17" x2="15" y2="20"/>
+                        <line x1="7" y1="9" x2="4" y2="9"/><line x1="7" y1="12" x2="4" y2="12"/><line x1="7" y1="15" x2="4" y2="15"/>
+                        <line x1="17" y1="9" x2="20" y2="9"/><line x1="17" y1="12" x2="20" y2="12"/><line x1="17" y1="15" x2="20" y2="15"/>
+                    </svg>
+                </div>
+                <h3>Rapid Prototyping</h3>
+                <p>Rapid prototyping, PCB assembly, board bring-up, debugging and iterative product development.</p>
+            </div>
+            <div class="wwd-card glass reveal reveal-delay-2">
+                <div class="wwd-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                    </svg>
+                </div>
+                <h3>End-to-End Products</h3>
+                <p>Own a product idea? We take it from napkin sketch to factory.</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!--  03 INDUSTRIES  -->
+<section class="section ind-section" id="industries">
+    <div class="container ind-inner">
+
+        <div class="sec-left reveal" data-dir="left">
+            <span class="sec-label">INDUSTRIES</span>
+            <h2>Experience Across<br>Industries</h2>
+            <p>We build reliable and intelligent solutions for mission-critical applications.</p>
+            <a href="#consultation" class="link-arrow">View All Industries </a>
+        </div>
+
+        <div class="ind-grid">
+            <div class="ind-card glass reveal">
+                <div class="ind-photo ind-health">
+                    <img src="images/ind_healthcare.jpg" class="ind-img" alt="Healthcare embedded systems"/>
+                    <svg viewBox="0 0 280 180" class="ind-art ind-art-overlay" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                        <defs>
+                            <linearGradient id="hc-bg" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" stop-color="#001C24" stop-opacity="0"/><stop offset="100%" stop-color="#000810" stop-opacity="0.55"/>
+                            </linearGradient>
+                        </defs>
+                        <rect width="280" height="180" fill="url(#hc-bg)"/>
+                    </svg>
+                </div>
+                <div class="ind-info">
+                    <h3>Healthcare</h3>
+                    <p>Healthcare electronics, diagnostics and connected medical systems.</p>
+                </div>
+            </div>
+
+            <div class="ind-card glass reveal reveal-delay-1">
+                <div class="ind-photo ind-defense">
+                    <svg viewBox="0 0 280 180" class="ind-art" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                        <defs>
+                            <radialGradient id="df-bg" cx="50%" cy="50%" r="60%">
+                                <stop offset="0%" stop-color="#1A0800"/><stop offset="100%" stop-color="#080400"/>
+                            </radialGradient>
+                            <filter id="df-glow"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+                        </defs>
+                        <rect width="280" height="180" fill="url(#df-bg)"/>
+                        <circle cx="140" cy="90" r="75" fill="none" stroke="rgba(255,110,40,0.12)" stroke-width="0.8"/>
+                        <circle cx="140" cy="90" r="55" fill="none" stroke="rgba(255,110,40,0.15)" stroke-width="0.8"/>
+                        <circle cx="140" cy="90" r="35" fill="none" stroke="rgba(255,110,40,0.2)" stroke-width="1"/>
+                        <circle cx="140" cy="90" r="15" fill="none" stroke="rgba(255,110,40,0.3)" stroke-width="1.2"/>
+                        <line x1="65" y1="90" x2="215" y2="90" stroke="rgba(255,110,40,0.18)" stroke-width="0.8"/>
+                        <line x1="140" y1="15" x2="140" y2="165" stroke="rgba(255,110,40,0.18)" stroke-width="0.8"/>
+                        <line x1="87" y1="37" x2="193" y2="143" stroke="rgba(255,110,40,0.1)" stroke-width="0.6"/>
+                        <line x1="193" y1="37" x2="87" y2="143" stroke="rgba(255,110,40,0.1)" stroke-width="0.6"/>
+                        <path d="M65,90 A75,75 0 0,1 140,15" fill="none" stroke="rgba(255,130,50,0.5)" stroke-width="1.5" filter="url(#df-glow)"/>
+                        <g fill="rgba(255,140,60,0.7)" filter="url(#df-glow)">
+                            <circle cx="168" cy="54" r="3.5"/><circle cx="105" cy="72" r="2.5"/>
+                            <circle cx="175" cy="118" r="3"/><circle cx="112" cy="130" r="2"/>
+                            <circle cx="190" cy="88" r="2.5"/>
+                        </g>
+                        <g stroke="rgba(255,140,60,0.4)" stroke-width="0.8" fill="none">
+                            <circle cx="168" cy="54" r="8"/><circle cx="175" cy="118" r="6"/>
+                        </g>
+                        <path d="M128,94 L136,82 L140,78 L144,82 L152,94 L148,94 L148,106 L132,106 L132,94 Z" fill="rgba(255,110,40,0.18)" stroke="rgba(255,130,50,0.7)" stroke-width="1" stroke-linejoin="round"/>
+                        <path d="M130,78 L136,60 L140,55 L144,60 L150,78" fill="none" stroke="rgba(255,130,50,0.6)" stroke-width="1" stroke-linejoin="round"/>
+                        <line x1="140" y1="55" x2="140" y2="40" stroke="rgba(255,130,50,0.5)" stroke-width="1.5" stroke-linecap="round"/>
+                        <path d="M124,94 L112,90 M156,94 L168,90" stroke="rgba(255,130,50,0.45)" stroke-width="1.5" stroke-linecap="round"/>
+                        <circle cx="140" cy="90" r="6" fill="rgba(255,110,40,0.2)" stroke="rgba(255,130,50,0.8)" stroke-width="1.2" filter="url(#df-glow)"/>
+                        <circle cx="140" cy="90" r="2.5" fill="rgba(255,160,80,0.9)" filter="url(#df-glow)"/>
+                        <g fill="rgba(255,110,40,0.5)" font-size="6" font-family="monospace">
+                            <text x="148" y="19">000Â°</text><text x="218" y="93">090Â°</text>
+                            <text x="134" y="171">180Â°</text><text x="60" y="93">270Â°</text>
+                        </g>
+                        <rect x="5" y="5" width="60" height="36" rx="2" fill="rgba(255,100,30,0.06)" stroke="rgba(255,100,30,0.2)" stroke-width="1"/>
+                        <text x="10" y="16" fill="rgba(255,130,50,0.6)" font-size="6" font-family="monospace" font-weight="700">RADAR</text>
+                        <text x="10" y="26" fill="rgba(255,110,40,0.5)" font-size="6" font-family="monospace">RNG: 100km</text>
+                        <text x="10" y="36" fill="rgba(255,110,40,0.5)" font-size="6" font-family="monospace">TGT: 3</text>
+                        <rect x="215" y="5" width="60" height="36" rx="2" fill="rgba(255,100,30,0.06)" stroke="rgba(255,100,30,0.2)" stroke-width="1"/>
+                        <text x="220" y="16" fill="rgba(255,130,50,0.6)" font-size="6" font-family="monospace" font-weight="700">STATUS</text>
+                        <text x="220" y="26" fill="rgba(255,110,40,0.5)" font-size="6" font-family="monospace">ALT: 8,500m</text>
+                        <text x="220" y="36" fill="rgba(255,110,40,0.5)" font-size="6" font-family="monospace">SPD: 820kn</text>
+                        <rect x="5" y="150" width="270" height="25" rx="2" fill="rgba(255,100,30,0.06)" stroke="rgba(255,100,30,0.15)" stroke-width="1"/>
+                        <circle cx="15" cy="162" r="3" fill="rgba(255,180,60,0.8)" filter="url(#df-glow)"/>
+                        <text x="23" y="165" fill="rgba(255,110,40,0.5)" font-size="6" font-family="monospace">TRACKING ACTIVE  ENCRYPTED  LINK-16 ARMED: STANDBY</text>
+                    </svg>
+                </div>
+                <div class="ind-info">
+                    <h3>Defense Electronics</h3>
+                    <p>Embedded computing, communication and sensing solutions for mission-critical applications.</p>
+                </div>
+            </div>
+
+            <div class="ind-card glass reveal reveal-delay-2">
+                <div class="ind-photo ind-vision">
+                    <img src="images/ind_machinevision.png" class="ind-img" alt="Machine vision AI camera system"/>
+                    <svg viewBox="0 0 280 180" class="ind-art ind-art-overlay" aria-hidden="true">
+                        <defs>
+                            <linearGradient id="mv-ov" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" stop-color="#050318" stop-opacity="0"/>
+                                <stop offset="100%" stop-color="#050318" stop-opacity="0.55"/>
+                            </linearGradient>
+                        </defs>
+                        <rect width="280" height="180" fill="url(#mv-ov)"/>
+                    </svg>
+                </div>
+                <div class="ind-info">
+                    <h3>Machine Vision</h3>
+                    <p>AI vision systems, automated inspection and production test jigs.</p>
+                </div>
+            </div>
+
+            <div class="ind-card glass reveal reveal-delay-3">
+                <div class="ind-photo ind-auto">
+                    <img src="images/ind_automation.jpg (2).jpg" class="ind-img" alt="Industrial automation robotic arm"/>
+                    <svg viewBox="0 0 280 180" class="ind-art ind-art-overlay" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                        <defs>
+                            <linearGradient id="ia-bg" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" stop-color="#001220" stop-opacity="0"/><stop offset="100%" stop-color="#000810" stop-opacity="0.55"/>
+                            </linearGradient>
+                        </defs>
+                        <rect width="280" height="180" fill="url(#ia-bg)"/>
+                    </svg>
+                </div>
+                <div class="ind-info">
+                    <h3>Industrial Automation</h3>
+                    <p>Industrial automation, process control and connected monitoring systems.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- 03 TECHNOLOGIES  -->
+<section class="section tech-section" id="technologies">
+    <div class="container">
+        <div class="tech-header reveal">
+            <h2>Technologies We Have Worked With</h2>
+            <p>We work with leading platforms, microcontrollers, tools and frameworks to build future-ready products.</p>
+        </div>
+    </div>
+
+    <!-- Single row — moves left -->
+    <div class="tpill-wrap">
+        <div class="tpill-track tpill-left">
+            <div class="tlogo-item"><img src="images/logo_stm32.jfif" class="tlogo-img" alt="STM32"/><span class="tlogo-name">STM32</span></div>
+            <div class="tlogo-item"><img src="images/Esp32_logo.png" class="tlogo-img" alt="ESP32"/><span class="tlogo-name">ESP32</span></div>
+            <div class="tlogo-item"><img src="images/Renesas_logo.png" class="tlogo-img" alt="Renesas" style="background:#fff; border-radius:4px;"/><span class="tlogo-name">Renesas</span></div>
+            <div class="tlogo-item"><img src="images/microchip_logo.png" class="tlogo-img" alt="Microchip" style="background:#fff; border-radius:4px;"/><span class="tlogo-name">Microchip</span></div>
+            <div class="tlogo-item"><img src="images/logo_rpi.jpg" class="tlogo-img" alt="Raspberry Pi"/><span class="tlogo-name">Raspberry Pi</span></div>
+            <div class="tlogo-item"><img src="images/quectel_logo.png" class="tlogo-img" alt="Quectel"/><span class="tlogo-name">Quectel</span></div>
+            <div class="tlogo-item"><img src="images/simcom_logo.png" class="tlogo-img" alt="SIMCom"/><span class="tlogo-name">SIMCom</span></div>
+            <div class="tlogo-item"><img src="images/mqtt-logo.jpg" class="tlogo-img" alt="MQTT"/><span class="tlogo-name">MQTT</span></div>
+            <div class="tlogo-item"><svg viewBox="0 0 72 48" class="tlogo-svg"><rect x="4" y="10" width="40" height="28" rx="3" fill="none" stroke="#0078D7" stroke-width="2"/><text x="24" y="29" text-anchor="middle" fill="#0078D7" font-size="9" font-weight="800" font-family="sans-serif">ETH</text><line x1="44" y1="24" x2="54" y2="24" stroke="#0078D7" stroke-width="2"/><line x1="54" y1="24" x2="54" y2="18" stroke="#0078D7" stroke-width="1.5"/><line x1="54" y1="24" x2="54" y2="30" stroke="#0078D7" stroke-width="1.5"/></svg><span class="tlogo-name">Ethernet</span></div>
+            <div class="tlogo-item"><img src="images/ble_logo.png" class="tlogo-img" alt="BLE"/><span class="tlogo-name">BLE</span></div>
+            <div class="tlogo-item"><img src="images/lora_logo.png" class="tlogo-img" alt="LoRa"/><span class="tlogo-name">LoRa</span></div>
+            <div class="tlogo-item"><img src="images/linux_logo.png" class="tlogo-img" alt="Linux"/><span class="tlogo-name">Linux</span></div>
+            <div class="tlogo-item"><img src="images/freertos_logo.png" class="tlogo-img" alt="FreeRTOS"/><span class="tlogo-name">FreeRTOS</span></div>
+            <div class="tlogo-item"><svg viewBox="0 0 72 48" class="tlogo-svg"><rect x="4" y="8" width="40" height="30" rx="3" fill="none" stroke="#7B61FF" stroke-width="1.5"/><text x="24" y="22" text-anchor="middle" fill="#B388FF" font-size="7.5" font-weight="700" font-family="monospace">EMI/EMC</text><path d="M8,32 L14,26 L20,34 L26,20 L32,30 L38,24" fill="none" stroke="#7B61FF" stroke-width="1.2" stroke-linecap="round"/></svg><span class="tlogo-name">EMI / EMC</span></div>
+            <div class="tlogo-item"><svg viewBox="0 0 72 48" class="tlogo-svg"><rect x="4" y="6" width="40" height="34" rx="3" fill="none" stroke="#00C896" stroke-width="1.5"/><circle cx="12" cy="14" r="2.5" fill="#00C896"/><circle cx="12" cy="26" r="2.5" fill="#00C896"/><line x1="14.5" y1="14" x2="36" y2="14" stroke="#00C896" stroke-width="1"/><line x1="14.5" y1="26" x2="36" y2="26" stroke="#00C896" stroke-width="1"/><line x1="24" y1="6" x2="24" y2="2" stroke="#00C896" stroke-width="1.2"/><line x1="32" y1="6" x2="32" y2="2" stroke="#00C896" stroke-width="1.2"/><line x1="24" y1="40" x2="24" y2="44" stroke="#00C896" stroke-width="1.2"/></svg><span class="tlogo-name">PCB Design</span></div>
+            <!-- duplicate set for seamless loop -->
+            <div class="tlogo-item" aria-hidden="true"><img src="images/logo_stm32.jfif" class="tlogo-img" alt=""/><span class="tlogo-name">STM32</span></div>
+            <div class="tlogo-item" aria-hidden="true"><img src="images/Esp32_logo.png" class="tlogo-img" alt=""/><span class="tlogo-name">ESP32</span></div>
+            <div class="tlogo-item" aria-hidden="true"><img src="images/Renesas_logo.png" class="tlogo-img" alt="" style="background:#fff; border-radius:4px;"/><span class="tlogo-name">Renesas</span></div>
+            <div class="tlogo-item" aria-hidden="true"><img src="images/microchip_logo.png" class="tlogo-img" alt="" style="background:#fff; border-radius:4px;"/><span class="tlogo-name">Microchip</span></div>
+            <div class="tlogo-item" aria-hidden="true"><img src="images/logo_rpi.jpg" class="tlogo-img" alt=""/><span class="tlogo-name">Raspberry Pi</span></div>
+            <div class="tlogo-item" aria-hidden="true"><img src="images/quectel_logo.png" class="tlogo-img" alt=""/><span class="tlogo-name">Quectel</span></div>
+            <div class="tlogo-item" aria-hidden="true"><img src="images/simcom_logo.png" class="tlogo-img" alt=""/><span class="tlogo-name">SIMCom</span></div>
+            <div class="tlogo-item" aria-hidden="true"><img src="images/mqtt-logo.jpg" class="tlogo-img" alt=""/><span class="tlogo-name">MQTT</span></div>
+            <div class="tlogo-item" aria-hidden="true"><svg viewBox="0 0 72 48" class="tlogo-svg"><rect x="4" y="10" width="40" height="28" rx="3" fill="none" stroke="#0078D7" stroke-width="2"/><text x="24" y="29" text-anchor="middle" fill="#0078D7" font-size="9" font-weight="800" font-family="sans-serif">ETH</text><line x1="44" y1="24" x2="54" y2="24" stroke="#0078D7" stroke-width="2"/><line x1="54" y1="24" x2="54" y2="18" stroke="#0078D7" stroke-width="1.5"/><line x1="54" y1="24" x2="54" y2="30" stroke="#0078D7" stroke-width="1.5"/></svg><span class="tlogo-name">Ethernet</span></div>
+            <div class="tlogo-item" aria-hidden="true"><img src="images/ble_logo.png" class="tlogo-img" alt=""/><span class="tlogo-name">BLE</span></div>
+            <div class="tlogo-item" aria-hidden="true"><img src="images/lora_logo.png" class="tlogo-img" alt=""/><span class="tlogo-name">LoRa</span></div>
+            <div class="tlogo-item" aria-hidden="true"><img src="images/linux_logo.png" class="tlogo-img" alt=""/><span class="tlogo-name">Linux</span></div>
+            <div class="tlogo-item" aria-hidden="true"><img src="images/freertos_logo.png" class="tlogo-img" alt=""/><span class="tlogo-name">FreeRTOS</span></div>
+            <div class="tlogo-item" aria-hidden="true"><svg viewBox="0 0 72 48" class="tlogo-svg"><rect x="4" y="8" width="40" height="30" rx="3" fill="none" stroke="#7B61FF" stroke-width="1.5"/><text x="24" y="22" text-anchor="middle" fill="#B388FF" font-size="7.5" font-weight="700" font-family="monospace">EMI/EMC</text><path d="M8,32 L14,26 L20,34 L26,20 L32,30 L38,24" fill="none" stroke="#7B61FF" stroke-width="1.2" stroke-linecap="round"/></svg><span class="tlogo-name">EMI / EMC</span></div>
+            <div class="tlogo-item" aria-hidden="true"><svg viewBox="0 0 72 48" class="tlogo-svg"><rect x="4" y="6" width="40" height="34" rx="3" fill="none" stroke="#00C896" stroke-width="1.5"/><circle cx="12" cy="14" r="2.5" fill="#00C896"/><circle cx="12" cy="26" r="2.5" fill="#00C896"/><line x1="14.5" y1="14" x2="36" y2="14" stroke="#00C896" stroke-width="1"/><line x1="14.5" y1="26" x2="36" y2="26" stroke="#00C896" stroke-width="1"/><line x1="24" y1="6" x2="24" y2="2" stroke="#00C896" stroke-width="1.2"/><line x1="32" y1="6" x2="32" y2="2" stroke="#00C896" stroke-width="1.2"/><line x1="24" y1="40" x2="24" y2="44" stroke="#00C896" stroke-width="1.2"/></svg><span class="tlogo-name">PCB Design</span></div>
+        </div>
+    </div>
+
+</section>
+
+<!--  04 FEATURED PROJECTS -->
+<section class="section proj-section" id="projects">
+    <div class="container proj-inner">
+
+        <div class="sec-left reveal" data-dir="left">
+            <h2>Featured<br>Projects</h2>
+            <p>A glimpse of our work across industries and technologies.</p>
+            <a href="#consultation" class="link-arrow">View All Projects </a>
+            <div class="proj-dots" id="projDots">
+                <button class="pdot active" data-idx="0" aria-label="Slide 1"></button>
+                <button class="pdot" data-idx="1" aria-label="Slide 2"></button>
+                <button class="pdot" data-idx="2" aria-label="Slide 3"></button>
+                <button class="pdot" data-idx="3" aria-label="Slide 4"></button>
+            </div>
+        </div>
+
+        <div class="proj-track-wrap">
+            <div class="proj-track" id="projTrack">
+
+                <article class="proj-card glass">
+                    <div class="proj-photo proj-camera">
+                        <svg viewBox="0 0 200 140" class="proj-art" aria-hidden="true">
+                            <circle cx="100" cy="70" r="45" fill="rgba(123,97,255,.12)" stroke="rgba(123,97,255,.5)" stroke-width="1.5"/>
+                            <circle cx="100" cy="70" r="30" fill="rgba(123,97,255,.15)" stroke="rgba(180,136,255,.6)" stroke-width="1.5"/>
+                            <circle cx="100" cy="70" r="14" fill="rgba(180,136,255,.25)" stroke="rgba(180,136,255,.8)" stroke-width="2"/>
+                            <circle cx="100" cy="70" r="5"  fill="rgba(180,136,255,.9)"/>
+                            <rect x="60" y="42" width="80" height="56" rx="6" fill="none" stroke="rgba(123,97,255,.3)" stroke-width="1" stroke-dasharray="4,3"/>
+                            <line x1="20" y1="70" x2="50" y2="70" stroke="rgba(123,97,255,.5)" stroke-width="2"/>
+                            <line x1="150" y1="70" x2="180" y2="70" stroke="rgba(123,97,255,.5)" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <div class="proj-info">
+                        <span class="proj-badge">Machine Vision</span>
+                        <h3>AI Camera Module</h3>
+                    </div>
+                </article>
+
+                <article class="proj-card glass">
+                    <div class="proj-photo proj-medical">
+                        <svg viewBox="0 0 200 140" class="proj-art" aria-hidden="true">
+                            <path d="M30,70 H70 L80,50 L90,90 L100,40 L110,100 L120,60 L130,70 H170" fill="none" stroke="rgba(0,220,240,.8)" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M100,30 V110 M60,70 H140" stroke="rgba(0,200,220,.6)" stroke-width="4" stroke-linecap="round"/>
+                            <circle cx="100" cy="70" r="35" fill="rgba(0,200,220,.06)" stroke="rgba(0,200,220,.3)" stroke-width="1"/>
+                        </svg>
+                    </div>
+                    <div class="proj-info">
+                        <span class="proj-badge">Healthcare</span>
+                        <h3>Medical Device Development</h3>
+                    </div>
+                </article>
+
+                <article class="proj-card glass">
+                    <div class="proj-photo proj-gateway">
+                        <svg viewBox="0 0 200 140" class="proj-art" aria-hidden="true">
+                            <rect x="65" y="45" width="70" height="50" rx="6" fill="rgba(0,140,255,.12)" stroke="rgba(0,150,255,.6)" stroke-width="1.5"/>
+                            <circle cx="80"  cy="65" r="5" fill="rgba(0,150,255,.5)"/>
+                            <circle cx="80"  cy="80" r="5" fill="rgba(0,255,150,.5)"/>
+                            <line x1="90"  y1="63" x2="125" y2="63" stroke="rgba(0,150,255,.4)" stroke-width="1"/>
+                            <line x1="90"  y1="70" x2="118" y2="70" stroke="rgba(0,150,255,.4)" stroke-width="1"/>
+                            <line x1="90"  y1="77" x2="125" y2="77" stroke="rgba(0,150,255,.4)" stroke-width="1"/>
+                            <line x1="90"  y1="84" x2="112" y2="84" stroke="rgba(0,150,255,.4)" stroke-width="1"/>
+                            <path d="M100,20 Q140,20 155,45" fill="none" stroke="rgba(0,150,255,.4)" stroke-width="1.5" stroke-dasharray="4,3"/>
+                            <path d="M100,20 Q60,20 45,45"  fill="none" stroke="rgba(0,150,255,.4)" stroke-width="1.5" stroke-dasharray="4,3"/>
+                        </svg>
+                    </div>
+                    <div class="proj-info">
+                        <span class="proj-badge">Industrial IoT</span>
+                        <h3>Edge AI Gateway</h3>
+                    </div>
+                </article>
+
+                <article class="proj-card glass">
+                    <div class="proj-photo proj-defense">
+                        <svg viewBox="0 0 200 140" class="proj-art" aria-hidden="true">
+                            <path d="M100,15 L140,38 V78 C140,102 120,118 100,126 C80,118 60,102 60,78 V38 Z" fill="rgba(255,100,40,.08)" stroke="rgba(255,110,40,.65)" stroke-width="1.5"/>
+                            <circle cx="100" cy="74" r="28" fill="none" stroke="rgba(255,110,40,.4)" stroke-width="1" stroke-dasharray="5,4"/>
+                            <circle cx="100" cy="74" r="10" fill="rgba(255,110,40,.45)"/>
+                            <line x1="72" y1="74" x2="128" y2="74" stroke="rgba(255,110,40,.5)" stroke-width="1"/>
+                            <line x1="100" y1="46" x2="100" y2="102" stroke="rgba(255,110,40,.5)" stroke-width="1"/>
+                        </svg>
+                    </div>
+                    <div class="proj-info">
+                        <span class="proj-badge">Defense</span>
+                        <h3>Defense Communication Unit</h3>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!--  05 PRODUCTS  -->
+<section class="section prod-section" id="products">
+    <div class="container">
+        <div class="prod-banner glass reveal">
+            <div class="prod-banner-text">
+                <span class="prod-coming-label">COMING SOON</span>
+                <h2>Our own products<br>are launching</h2>
+                <p>Built in-house at Micronode — designed for makers, startups, and engineering teams. Be the first to know.</p>
+            </div>
+            <div class="prod-banner-actions">
+                <a href="#consultation" class="btn-prod-ghost">Notify me &rarr;</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--  07 WHY MICRONODE -->
+<section class="section built-section" id="why-us">
+    <div class="container">
+
+        <div class="built-header reveal">
+            <span class="sec-label">WHY MICRONODE</span>
+            <h2>Built Different</h2>
+            <p>We're engineers who've shipped real products, not a consultancy that hasn't touched a soldering iron.</p>
+        </div>
+
+        <div class="built-grid">
+
+            <div class="built-card glass reveal">
+                <div class="built-title gradient-text">1 team</div>
+                <h3>No handoff chaos</h3>
+                <p>Same engineers own hardware, firmware, and testing - no lost context between silos.</p>
+            </div>
+
+            <div class="built-card glass reveal reveal-delay-1">
+                <div class="built-title gradient-text">Fast</div>
+                <h3>Short iteration cycles</h3>
+                <p>First prototypes in 2-3 weeks. We move fast and fix things, not the reverse.</p>
+            </div>
+
+            <div class="built-card glass reveal reveal-delay-2">
+                <div class="built-title gradient-text">Honest</div>
+                <h3>We flag problems early</h3>
+                <p>If something can't work within your constraints, you'll hear it in week one, not week eight.</p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!--  08 PRODUCTION CAPABILITIES -->
+<section class="section prodc-section" id="production-capabilities">
+    <div class="container">
+        <div class="prodc-card glass reveal">
+            <div class="prodc-img-wrap">
+                <img src="images/ind_pickplace.jpg.png" alt="Pick and place SMT manufacturing machine" class="prodc-img"/>
+                <div class="prodc-img-fade"></div>
+            </div>
+            <div class="prodc-text">
+                <span class="sec-label">PRODUCTION CAPABILITIES</span>
+                <h2><span class="gradient-text">Coming Soon</span></h2>
+                <p>We are setting up advanced in-house manufacturing with SMT, testing and quality control processes for startups and medium-sized companies.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--  09 CONSULTATION -->
+<!-- 06 CTA + CONTACT -->
+<section class="section cta-section" id="contact">
+    <a id="consultation" style="position:absolute;top:0"></a>
+    <div class="container">
+
+        <div class="cta-inner">
+            <div class="cta-content reveal" data-dir="left">
+                <span class="sec-label">LET'S WORK TOGETHER</span>
+                <h2>Ready to Build<br><span class="gradient-text">Your Next Product?</span></h2>
+                <p>From concept to production, Micronode helps companies engineer intelligent, reliable and future-ready products.</p>
+                <ul class="cta-list">
+                    <li><svg viewBox="0 0 22 22"><circle cx="11" cy="11" r="10" fill="none" stroke="rgba(123,97,255,.4)" stroke-width="1.5"/><path d="M6,11 L9,14 L16,8" fill="none" stroke="#7B61FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Architecture Review</li>
+                    <li><svg viewBox="0 0 22 22"><circle cx="11" cy="11" r="10" fill="none" stroke="rgba(123,97,255,.4)" stroke-width="1.5"/><path d="M6,11 L9,14 L16,8" fill="none" stroke="#7B61FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Hardware &amp; Firmware Development</li>
+                    <li><svg viewBox="0 0 22 22"><circle cx="11" cy="11" r="10" fill="none" stroke="rgba(123,97,255,.4)" stroke-width="1.5"/><path d="M6,11 L9,14 L16,8" fill="none" stroke="#7B61FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Manufacturing Guidance</li>
+                    <li><svg viewBox="0 0 22 22"><circle cx="11" cy="11" r="10" fill="none" stroke="rgba(123,97,255,.4)" stroke-width="1.5"/><path d="M6,11 L9,14 L16,8" fill="none" stroke="#7B61FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Product Strategy &amp; Consultation</li>
+                </ul>
+                <div class="cta-btns">
+                    <button type="button" class="btn btn-primary" id="openConsultModal">Book a Consultation</button>
+                </div>
+                <p class="cta-secure">
+                    <svg viewBox="0 0 20 20" width="16" height="16"><path d="M10,2 L3,5 L3,10 C3,14 6,17.5 10,18.5 C14,17.5 17,14 17,10 L17,5 Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M7,10 L9,12 L13,8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                    Secure. Confidential. 
+                </p>
+            </div>
+
+            <div class="cta-globe reveal" data-dir="right">
+                <svg viewBox="0 0 360 360" class="globe-svg" aria-hidden="true">
+                    <defs>
+                        <radialGradient id="globe-glow" cx="50%" cy="60%" r="55%">
+                            <stop offset="0%"   stop-color="#7B61FF" stop-opacity="0.3"/>
+                            <stop offset="100%" stop-color="#7B61FF" stop-opacity="0"/>
+                        </radialGradient>
+                    </defs>
+                    <circle cx="180" cy="180" r="170" fill="url(#globe-glow)"/>
+                    <circle cx="180" cy="180" r="140" fill="none" stroke="rgba(123,97,255,.25)" stroke-width="1.5"/>
+                    <ellipse cx="180" cy="180" rx="90"  ry="140" fill="none" stroke="rgba(123,97,255,.18)" stroke-width="1"/>
+                    <ellipse cx="180" cy="180" rx="140" ry="60"  fill="none" stroke="rgba(123,97,255,.18)" stroke-width="1"/>
+                    <ellipse cx="180" cy="180" rx="140" ry="100" fill="none" stroke="rgba(123,97,255,.12)" stroke-width="0.7"/>
+                    <line x1="40"  y1="180" x2="320" y2="180" stroke="rgba(123,97,255,.18)" stroke-width="0.7"/>
+                    <line x1="180" y1="40"  x2="180" y2="320" stroke="rgba(123,97,255,.18)" stroke-width="0.7"/>
+                    <circle class="globe-node" cx="180" cy="80"  r="5" fill="#7B61FF" opacity="0.9"/>
+                    <circle class="globe-node" cx="260" cy="140" r="5" fill="#B388FF" opacity="0.9"/>
+                    <circle class="globe-node" cx="220" cy="220" r="5" fill="#7B61FF" opacity="0.9"/>
+                    <circle class="globe-node" cx="120" cy="180" r="5" fill="#B388FF" opacity="0.9"/>
+                    <circle class="globe-node" cx="150" cy="270" r="5" fill="#7B61FF" opacity="0.9"/>
+                    <circle class="globe-node" cx="300" cy="200" r="5" fill="#B388FF" opacity="0.9"/>
+                    <line x1="180" y1="80"  x2="260" y2="140" stroke="rgba(123,97,255,.45)" stroke-width="1.2"/>
+                    <line x1="260" y1="140" x2="220" y2="220" stroke="rgba(123,97,255,.45)" stroke-width="1.2"/>
+                    <line x1="220" y1="220" x2="150" y2="270" stroke="rgba(123,97,255,.45)" stroke-width="1.2"/>
+                    <line x1="120" y1="180" x2="180" y2="80"  stroke="rgba(123,97,255,.45)" stroke-width="1.2"/>
+                    <line x1="120" y1="180" x2="220" y2="220" stroke="rgba(123,97,255,.45)" stroke-width="1.2"/>
+                    <line x1="260" y1="140" x2="300" y2="200" stroke="rgba(123,97,255,.45)" stroke-width="1.2"/>
+                    <!-- Glow dots -->
+                    <circle cx="180" cy="80"  r="9" fill="#7B61FF" opacity="0.15"/>
+                    <circle cx="300" cy="200" r="9" fill="#B388FF" opacity="0.15"/>
+                </svg>
+            </div>
+        </div>
+
+        <!-- Contact info bar -->
+        <div class="cta-bar glass reveal">
+            <div class="cta-bar-item">
+                <div class="cta-bar-icon">
+                    <svg viewBox="0 0 24 24" width="20" height="20"><path d="M20,4 H4 C2.9,4 2,4.9 2,6 V18 C2,19.1 2.9,20 4,20 H20 C21.1,20 22,19.1 22,18 V6 C22,4.9 21.1,4 20,4 Z M20,8 L12,13 L4,8 V6 L12,11 L20,6 V8 Z" fill="currentColor"/></svg>
+                </div>
+                <div>
+                    <span class="cta-bar-label">EMAIL</span>
+                    <span class="cta-bar-val">info@micronode.in</span>
+                </div>
+            </div>
+            <div class="cta-bar-sep"></div>
+            <div class="cta-bar-item">
+                <div class="cta-bar-icon">
+                    <svg viewBox="0 0 24 24" width="20" height="20"><path d="M6.6,10.8 C8,13.6 10.4,16 13.2,17.4 L15.4,15.2 C15.7,14.9 16.1,14.8 16.4,15 C17.5,15.4 18.7,15.6 20,15.6 C20.6,15.6 21,16 21,16.6 V20 C21,20.6 20.6,21 20,21 C10.6,21 3,13.4 3,4 C3,3.4 3.4,3 4,3 H7.4 C8,3 8.4,3.4 8.4,4 C8.4,5.3 8.6,6.5 9,7.6 C9.2,7.9 9.1,8.3 8.8,8.6 L6.6,10.8 Z" fill="currentColor"/></svg>
+                </div>
+                <div>
+                    <span class="cta-bar-label">PHONE</span>
+                    <span class="cta-bar-val">+91 98765 43210</span>
+                </div>
+            </div>
+            <div class="cta-bar-sep"></div>
+            <div class="cta-bar-item">
+                <div class="cta-bar-icon">
+                    <svg viewBox="0 0 24 24" width="20" height="20"><path d="M12,2 C8.1,2 5,5.1 5,9 C5,14.2 12,22 12,22 C12,22 19,14.2 19,9 C19,5.1 15.9,2 12,2 Z M12,11.5 C10.6,11.5 9.5,10.4 9.5,9 C9.5,7.6 10.6,6.5 12,6.5 C13.4,6.5 14.5,7.6 14.5,9 C14.5,10.4 13.4,11.5 12,11.5 Z" fill="currentColor"/></svg>
+                </div>
+                <div>
+                    <span class="cta-bar-label">LOCATION</span>
+                    <span class="cta-bar-val">Pune, India</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!--  11 FOOTER -->
+<footer class="site-footer">
+    <div class="container footer-inner">
+        <div class="footer-brand">
+            <a href="#hero" class="logo">
+                <svg class="logo-icon" viewBox="0 0 40 40" aria-hidden="true">
+                    <rect x="2" y="2" width="36" height="36" rx="7" fill="rgba(123,97,255,.12)" stroke="#7B61FF" stroke-width="1.5"/>
+                    <text x="20" y="28" text-anchor="middle" fill="#B388FF" font-size="21" font-weight="900" font-family="system-ui,sans-serif">M</text>
+                </svg>
+                MICRONODE
+            </a>
+            <p class="footer-tagline">Micronode LLP is an embedded systems product engineering company building intelligent solutions for a better tomorrow.</p>
+        </div>
+
+        <div class="footer-col">
+            <h4>Quick Links</h4>
+            <a href="#hero">Home</a>
+            <a href="#products">Products</a>
+            <a href="#technologies">Technologies</a>
+            <a href="#industries">Industries</a>
+            <a href="#why-us">About</a>
+            <a href="#contact">Contact</a>
+        </div>
+
+        <div class="footer-col">
+            <h4>Our Services</h4>
+            <a href="#consultation">Product Development</a>
+            <a href="#consultation">Hardware Design</a>
+            <a href="#consultation">Firmware Development</a>
+            <a href="#consultation">Prototyping</a>
+            <a href="#consultation">Testing &amp; Validation</a>
+            <a href="#consultation">Consultation</a>
+        </div>
+
+<div class="footer-col footer-newsletter">
+            <h4>Subscribe to Newsletter</h4>
+            <p>Stay updated with our latest projects and insights.</p>
+            <form class="newsletter-form" id="newsletterForm">
+                <input type="email" placeholder="Enter your email" aria-label="Email for newsletter" required>
+                <button type="submit" aria-label="Subscribe">
+                    <svg viewBox="0 0 24 24"><path d="M2,12 L22,12 M14,4 L22,12 L14,20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                </button>
+            </form>
+            <div class="social-links">
+                <a href="#" aria-label="LinkedIn">
+                    <svg viewBox="0 0 24 24"><path d="M16,8 C17.6,8 19.1,8.6 20.2,9.8 C21.3,11 22,12.5 22,14 V21 H18 V14 C18,13.5 17.8,13 17.4,12.6 C17,12.2 16.5,12 16,12 C15.5,12 15,12.2 14.6,12.6 C14.2,13 14,13.5 14,14 V21 H10 V14 C10,12.5 10.6,11 11.7,9.8 C12.8,8.6 14.3,8 16,8 Z M2,9 H6 V21 H2 V9 Z M4,6 C3.5,6 3,5.8 2.6,5.4 C2.2,5 2,4.5 2,4 C2,3.5 2.2,3 2.6,2.6 C3,2.2 3.5,2 4,2 C4.5,2 5,2.2 5.4,2.6 C5.8,3 6,3.5 6,4 C6,4.5 5.8,5 5.4,5.4 C5,5.8 4.5,6 4,6 Z" fill="currentColor"/></svg>
+                </a>
+                <a href="#" aria-label="Twitter">
+                    <svg viewBox="0 0 24 24"><path d="M22,4 C21.2,4.5 20.3,4.9 19.4,5.1 C18.5,4.1 17.2,3.5 15.8,3.5 C13,3.5 10.8,5.7 10.8,8.5 C10.8,8.9 10.8,9.3 10.9,9.7 C6.9,9.5 3.4,7.6 1,4.7 C0.6,5.4 0.3,6.2 0.3,7.1 C0.3,8.7 1.1,10.1 2.3,10.9 C1.6,10.9 0.9,10.7 0.3,10.4 V10.5 C0.3,13 2,15.1 4.3,15.5 C3.9,15.6 3.4,15.7 2.9,15.7 C2.6,15.7 2.2,15.6 1.9,15.6 C2.6,17.7 4.6,19.2 7,19.3 C5.2,20.7 3,21.5 0.6,21.5 C0.2,21.5 -0.2,21.5 -0.5,21.4 C2,22.9 4.8,23.7 7.9,23.7 C15.8,23.7 20.1,17.7 20.1,12.5 C20.1,12.3 20.1,12.1 20.1,11.9 C21,11.2 21.7,10.4 22.3,9.5 C21.4,9.9 20.5,10.1 19.6,10.2 C20.5,9.7 21.2,8.8 21.6,7.8 C20.7,8.3 19.7,8.6 18.7,8.8 C17.8,7.9 16.6,7.3 15.3,7.3 C12.6,7.3 10.5,9.5 10.5,12.1 C10.5,12.5 10.5,12.9 10.6,13.2 C7,13 3.8,11.3 1.7,8.7 C1.3,9.4 1.1,10.3 1.1,11.2 C1.1,12.9 2,14.4 3.3,15.2 C2.7,15.2 2.1,15 1.6,14.7 V14.8 C1.6,17.1 3.2,19.1 5.4,19.5 C5,19.6 4.6,19.7 4.1,19.7 C3.8,19.7 3.5,19.6 3.2,19.6 C3.8,21.5 5.6,22.9 7.7,22.9 C6.1,24.1 4.1,24.9 1.9,24.9 C1.5,24.9 1.1,24.9 0.8,24.8 C2.9,26.1 5.4,26.8 8.2,26.8" fill="currentColor"/></svg>
+                </a>
+                <a href="#" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/></svg>
+                </a>
+                <a href="#" aria-label="YouTube">
+                    <svg viewBox="0 0 24 24"><path d="M22.5,6.2 C22.2,5.1 21.4,4.2 20.3,3.9 C18.4,3.4 12,3.4 12,3.4 C12,3.4 5.6,3.4 3.7,3.9 C2.6,4.2 1.8,5.1 1.5,6.2 C1,8.1 1,12 1,12 C1,12 1,15.9 1.5,17.8 C1.8,18.9 2.6,19.8 3.7,20.1 C5.6,20.6 12,20.6 12,20.6 C12,20.6 18.4,20.6 20.3,20.1 C21.4,19.8 22.2,18.9 22.5,17.8 C23,15.9 23,12 23,12 C23,12 23,8.1 22.5,6.2 Z M9.8,15.5 V8.5 L15.8,12 L9.8,15.5 Z" fill="currentColor"/></svg>
+                </a>
+            </div>
+        </div>
+
+    </div>
+    <div class="footer-bottom">
+        <p>© 2026 Micronode LLP. All rights reserved.</p>
+    </div>
+</footer>
+
+<script src="Micronode_Website.js"></script>
+
+<!-- Consultation Modal -->
+<div class="modal-overlay" id="consultModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-box glass">
+        <button class="modal-close" id="closeConsultModal" aria-label="Close">&times;</button>
+        <h3 id="modalTitle">Book a Consultation</h3>
+        <p class="modal-sub">Tell us about your project — we'll get back within 48 - 72 hours.</p>
+        <form id="consultForm" novalidate>
+            <div class="form-group">
+                <label for="fname">Full Name</label>
+                <input type="text" id="fname" name="name" placeholder="Jane Engineer" required>
+            </div>
+            <div class="form-group">
+                <label for="femail">Email</label>
+                <input type="email" id="femail" name="email" placeholder="jane@company.com" required>
+            </div>
+            <div class="form-group">
+                <label for="fcompany">Company</label>
+                <input type="text" id="fcompany" name="company" placeholder="Acme Corp">
+            </div>
+            <div class="form-group">
+                <label for="fmessage">Project Details</label>
+                <textarea id="fmessage" name="message" rows="4" maxlength="500" placeholder="Describe your embedded system requirements..." required></textarea>
+                <span class="char-count" id="charCount">0 / 500</span>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full">Submit Request</button>
+            <p class="form-note" id="formNote" role="status"></p>
+        </form>
+    </div>
+</div>
+</body>
+</html>
