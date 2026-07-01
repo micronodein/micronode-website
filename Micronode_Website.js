@@ -1,5 +1,5 @@
 /* ════════════════════════════════════════════
-   MICRONODE — Main Scripts
+   MICRONODE LLP — Main Scripts
    ════════════════════════════════════════════ */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -517,6 +517,8 @@ function initConsultModal() {
 }
 
 /* ── Consultation Form ── */
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwiMz_rTnmb6nD_btLF4NzR-lvOYi_q56AJjtdJuF3qCMUe3STuvztDKJW5Zmr2b--k/exec";
+
 function initConsultForm() {
     const form      = document.getElementById("consultForm");
     const note      = document.getElementById("formNote");
@@ -534,9 +536,11 @@ function initConsultForm() {
 
     form.addEventListener("submit", e => {
         e.preventDefault();
-        const name  = (form.querySelector("#fname")?.value  || "").trim();
-        const email = (form.querySelector("#femail")?.value || "").trim();
-        const msg   = (textarea?.value || "").trim();
+        const name    = (form.querySelector("#fname")?.value    || "").trim();
+        const email   = (form.querySelector("#femail")?.value   || "").trim();
+        const company = (form.querySelector("#fcompany")?.value || "").trim();
+        const msg     = (textarea?.value || "").trim();
+
         if (!name || !email || !msg) {
             showNote(note, "Please fill in all required fields.", "error");
             return;
@@ -545,16 +549,30 @@ function initConsultForm() {
             showNote(note, "Please enter a valid email address.", "error");
             return;
         }
-        showNote(note, "Thank you! We'll respond within 48 hours.", "success");
-        form.reset();
-        if (charCount) charCount.textContent = "0 / 500";
+
         const btn = form.querySelector("button[type='submit']");
-        if (btn) {
-            const orig = btn.textContent;
-            btn.textContent = "Request Sent ✓";
-            btn.disabled = true;
-            setTimeout(() => { btn.textContent = orig; btn.disabled = false; }, 3500);
-        }
+        const origText = btn ? btn.textContent : "";
+        if (btn) { btn.textContent = "Sending…"; btn.disabled = true; }
+
+        fetch(APPS_SCRIPT_URL, {
+            method: "POST",
+            mode: "no-cors",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ name, email, company, message: msg })
+        })
+        .then(() => {
+            showNote(note, "Thank you! We'll respond within 48 hours.", "success");
+            form.reset();
+            if (charCount) charCount.textContent = "0 / 500";
+            if (btn) {
+                btn.textContent = "Request Sent ✓";
+                setTimeout(() => { btn.textContent = origText; btn.disabled = false; }, 3500);
+            }
+        })
+        .catch(() => {
+            showNote(note, "Something went wrong. Please email us directly.", "error");
+            if (btn) { btn.textContent = origText; btn.disabled = false; }
+        });
     });
 }
 
