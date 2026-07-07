@@ -26,6 +26,7 @@
     --radius-md:      16px;
     --radius-lg:      24px;
     --radius-xl:      36px;
+    --radius:         16px;
     --font:           'Inter', system-ui, -apple-system, sans-serif;
     --font-mono:      'JetBrains Mono', 'Fira Code', monospace;
     --ease-spring:    cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -442,7 +443,7 @@ input, textarea, select { font-family: inherit; }
     line-height: 1.7;
 }
 .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 52px; }
-.hero-cta .btn { border-radius: 10px; }
+.hero-cta .btn { border-radius: 16px; }
 .hero-cta .btn-ghost {
     border: 1.5px solid rgba(255,255,255,0.22);
     color: var(--text);
@@ -1186,10 +1187,16 @@ input, textarea, select { font-family: inherit; }
     .proj-track-wrap { flex: 0 0 auto; width: 100%; }
 
     .hero-inner { flex-direction: column-reverse; text-align: center; margin-top: 8px; gap: 16px; }
-    .hero-section { min-height: auto; align-items: flex-start; padding-top: calc(var(--header-h) + 8px); }
+    .hero-section { min-height: auto; align-items: flex-start; padding-top: calc(var(--header-h) + 8px); -webkit-mask-image: none; mask-image: none; }
     .hero-content { display: flex; flex-direction: column; align-items: center; }
     .hero-desc { text-align: center; }
     .hero-stats { grid-template-columns: repeat(2, 1fr); }
+    .hstat:nth-child(1), .hstat:nth-child(2) { border-bottom: 1px solid rgba(123, 97, 255, 0.15); }
+    .hstat:nth-child(2) { border-right: none; }
+    .hstat { padding: 14px 12px; gap: 2px; }
+    .hstat-val { font-size: 22px; }
+    .hstat-lbl { font-size: 10.5px; }
+    .hero-cta .btn { padding: 9px 22px; font-size: 13px; }
     .hero-visual { flex: 0 0 auto; width: 80%; max-width: 340px; height: 190px; overflow: hidden; }
 
     .sec-left { flex: 0 0 auto; width: 100%; }
@@ -1255,10 +1262,6 @@ input, textarea, select { font-family: inherit; }
 
     .process-steps { flex-wrap: wrap; gap: 12px; }
     .proc-connector { display: none; }
-
-    .footer-inner { grid-template-columns: 1fr; }
-    .footer-brand { grid-column: auto; }
-    .footer-newsletter { grid-column: auto; }
 
     .hero-cta { flex-direction: column; width: 100%; }
     .hero-cta .btn { width: 100%; }
