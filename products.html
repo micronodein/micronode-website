@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products | Micronode LLP</title>
+    <meta name="description" content="Micronode LLP in-house hardware products — development boards and modules for embedded engineers and makers.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Micronode_Website.css">
+</head>
+<body>
+
+<div class="scroll-progress" id="scrollProgress"></div>
+<canvas id="nodeCanvas" aria-hidden="true"></canvas>
+
+<!-- HEADER-->
+<header class="site-header" id="siteHeader">
+    <div class="container navbar">
+        <a href="index.html#hero" class="logo">
+            <img src="images/micronodellp_logo.png" class="logo-icon" alt="Micronode LLP"/>
+        </a>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+        <nav class="nav-links" id="navLinks">
+            <a href="index.html#hero">Home</a>
+            <a href="products.html" class="active">Products</a>
+            <a href="index.html#technologies">Technologies</a>
+            <a href="index.html#industries">Industries</a>
+            <a href="index.html#why-us">About</a>
+            <a href="index.html#contact">Contact</a>
+        </nav>
+        <button type="button" class="btn btn-nav" id="openConsultModalNav">Consultation</button>
+    </div>
+</header>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+    <div class="container">
+        <div class="page-breadcrumb">
+            <a href="index.html#hero">Home</a>
+            <span>&rarr;</span>
+            <span class="current">Products</span>
+        </div>
+        <span class="sec-label">IN-HOUSE HARDWARE</span>
+        <h1>Products built<br>by Micronode LLP</h1>
+        <p>Alongside client engineering work, we design and ship our own hardware — development boards and modules made for engineers who want to skip the setup pain.</p>
+    </div>
+</section>
+
+<!-- PRODUCTS GRID -->
+<section class="section products-section">
+    <div class="container">
+        <div class="products-grid">
+
+            <a href="product-mg51.html" class="product-card glass reveal" style="text-decoration:none; color:inherit;">
+                <div class="product-card-media">
+                    <span class="product-card-tag">8051 · Dev Board</span>
+                    <img src="images/updt_product_page_files/MG51%20Dev%20Board%20-%20without%20berg%20strip.jpg" alt="MG51FB9AE development board with all pins broken out" loading="lazy" width="1200" height="1200">
+                </div>
+                <div class="product-card-body">
+                    <h3>MG51 Dev Board</h3>
+                    <p>MG51FB9AE Dev Board — a Nuvoton MG51 (8051) development board from Micronode LLP with full I/O breakout, on-board programmer and a ready SDCC toolchain.</p>
+                    <div class="product-card-foot">
+                        <span class="product-card-price">₹295</span>
+                        <span class="link-arrow" style="margin:0;">View details <span>&rarr;</span></span>
+                    </div>
+                </div>
+            </a>
+
+            <div class="product-card product-card-more glass reveal reveal-delay-1">
+                More boards in development — check back soon.
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!--  FOOTER -->
+<footer class="site-footer">
+    <div class="container footer-inner">
+        <div class="footer-brand">
+            <a href="index.html#hero" class="logo">
+                <img src="images/micronode_logo_white.png" class="logo-icon" alt="Micronode LLP"/>
+                MICRONODE LLP
+            </a>
+            <p class="footer-tagline">Micronode LLP is an embedded systems product engineering company building intelligent solutions for a better tomorrow.</p>
+        </div>
+
+        <div class="footer-col">
+            <h4>Quick Links</h4>
+            <a href="index.html#hero">Home</a>
+            <a href="products.html">Products</a>
+            <a href="index.html#technologies">Technologies</a>
+            <a href="index.html#industries">Industries</a>
+            <a href="index.html#why-us">About</a>
+            <a href="index.html#contact">Contact</a>
+        </div>
+
+        <div class="footer-col">
+            <h4>Our Services</h4>
+            <a href="index.html#consultation">Product Development</a>
+            <a href="index.html#consultation">Hardware Design</a>
+            <a href="index.html#consultation">Firmware Development</a>
+            <a href="index.html#consultation">Prototyping</a>
+            <a href="index.html#consultation">Testing &amp; Validation</a>
+            <a href="index.html#consultation">Consultation</a>
+        </div>
+
+        <div class="footer-col footer-newsletter">
+            <h4>Subscribe to Newsletter</h4>
+            <p>Stay updated with our latest projects and insights.</p>
+            <form class="newsletter-form" id="newsletterForm">
+                <input type="email" placeholder="Enter your email" aria-label="Email for newsletter" required>
+                <button type="submit" aria-label="Subscribe">
+                    <svg viewBox="0 0 24 24"><path d="M2,12 L22,12 M14,4 L22,12 L14,20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                </button>
+            </form>
+            <div class="social-links">
+                <a href="#" aria-label="LinkedIn">
+                    <svg viewBox="0 0 24 24"><path d="M16,8 C17.6,8 19.1,8.6 20.2,9.8 C21.3,11 22,12.5 22,14 V21 H18 V14 C18,13.5 17.8,13 17.4,12.6 C17,12.2 16.5,12 16,12 C15.5,12 15,12.2 14.6,12.6 C14.2,13 14,13.5 14,14 V21 H10 V14 C10,12.5 10.6,11 11.7,9.8 C12.8,8.6 14.3,8 16,8 Z M2,9 H6 V21 H2 V9 Z M4,6 C3.5,6 3,5.8 2.6,5.4 C2.2,5 2,4.5 2,4 C2,3.5 2.2,3 2.6,2.6 C3,2.2 3.5,2 4,2 C4.5,2 5,2.2 5.4,2.6 C5.8,3 6,3.5 6,4 C6,4.5 5.8,5 5.4,5.4 C5,5.8 4.5,6 4,6 Z" fill="currentColor"/></svg>
+                </a>
+                <a href="#" aria-label="Twitter">
+                    <svg viewBox="0 0 24 24"><path d="M22,4 C21.2,4.5 20.3,4.9 19.4,5.1 C18.5,4.1 17.2,3.5 15.8,3.5 C13,3.5 10.8,5.7 10.8,8.5 C10.8,8.9 10.8,9.3 10.9,9.7 C6.9,9.5 3.4,7.6 1,4.7 C0.6,5.4 0.3,6.2 0.3,7.1 C0.3,8.7 1.1,10.1 2.3,10.9 C1.6,10.9 0.9,10.7 0.3,10.4 V10.5 C0.3,13 2,15.1 4.3,15.5 C3.9,15.6 3.4,15.7 2.9,15.7 C2.6,15.7 2.2,15.6 1.9,15.6 C2.6,17.7 4.6,19.2 7,19.3 C5.2,20.7 3,21.5 0.6,21.5 C0.2,21.5 -0.2,21.5 -0.5,21.4 C2,22.9 4.8,23.7 7.9,23.7 C15.8,23.7 20.1,17.7 20.1,12.5 C20.1,12.3 20.1,12.1 20.1,11.9 C21,11.2 21.7,10.4 22.3,9.5 C21.4,9.9 20.5,10.1 19.6,10.2 C20.5,9.7 21.2,8.8 21.6,7.8 C20.7,8.3 19.7,8.6 18.7,8.8 C17.8,7.9 16.6,7.3 15.3,7.3 C12.6,7.3 10.5,9.5 10.5,12.1 C10.5,12.5 10.5,12.9 10.6,13.2 C7,13 3.8,11.3 1.7,8.7 C1.3,9.4 1.1,10.3 1.1,11.2 C1.1,12.9 2,14.4 3.3,15.2 C2.7,15.2 2.1,15 1.6,14.7 V14.8 C1.6,17.1 3.2,19.1 5.4,19.5 C5,19.6 4.6,19.7 4.1,19.7 C3.8,19.7 3.5,19.6 3.2,19.6 C3.8,21.5 5.6,22.9 7.7,22.9 C6.1,24.1 4.1,24.9 1.9,24.9 C1.5,24.9 1.1,24.9 0.8,24.8 C2.9,26.1 5.4,26.8 8.2,26.8" fill="currentColor"/></svg>
+                </a>
+                <a href="#" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/></svg>
+                </a>
+                <a href="#" aria-label="YouTube">
+                    <svg viewBox="0 0 24 24"><path d="M22.5,6.2 C22.2,5.1 21.4,4.2 20.3,3.9 C18.4,3.4 12,3.4 12,3.4 C12,3.4 5.6,3.4 3.7,3.9 C2.6,4.2 1.8,5.1 1.5,6.2 C1,8.1 1,12 1,12 C1,12 1,15.9 1.5,17.8 C1.8,18.9 2.6,19.8 3.7,20.1 C5.6,20.6 12,20.6 12,20.6 C12,20.6 18.4,20.6 20.3,20.1 C21.4,19.8 22.2,18.9 22.5,17.8 C23,15.9 23,12 23,12 C23,12 23,8.1 22.5,6.2 Z M9.8,15.5 V8.5 L15.8,12 L9.8,15.5 Z" fill="currentColor"/></svg>
+                </a>
+            </div>
+        </div>
+
+    </div>
+    <div class="footer-bottom">
+        <p>© 2026 Micronode LLP. All rights reserved.</p>
+    </div>
+</footer>
+
+<script src="Micronode_Website.js"></script>
+
+<!-- Consultation Modal -->
+<div class="modal-overlay" id="consultModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-box glass">
+        <button class="modal-close" id="closeConsultModal" aria-label="Close">&times;</button>
+        <h3 id="modalTitle">Book a Consultation</h3>
+        <p class="modal-sub">Tell us about your project — we'll get back within 48 - 72 hours.</p>
+        <form id="consultForm" novalidate>
+            <div class="form-group">
+                <label for="fname">Full Name</label>
+                <input type="text" id="fname" name="name" placeholder="Jane Engineer" required>
+            </div>
+            <div class="form-group">
+                <label for="femail">Email</label>
+                <input type="email" id="femail" name="email" placeholder="jane@company.com" required>
+            </div>
+            <div class="form-group">
+                <label for="fcompany">Company</label>
+                <input type="text" id="fcompany" name="company" placeholder="Acme Corp">
+            </div>
+            <div class="form-group">
+                <label for="fmessage">Project Details</label>
+                <textarea id="fmessage" name="message" rows="4" maxlength="500" placeholder="Describe your embedded system requirements..." required></textarea>
+                <span class="char-count" id="charCount">0 / 500</span>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full">Submit Request</button>
+            <p class="form-note" id="formNote" role="status"></p>
+        </form>
+    </div>
+</div>
+</body>
+</html>

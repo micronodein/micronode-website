@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
     initNewsletterForm();
     initCardEffects();
     initMagneticButtons();
+    initProductGallery();
 });
 
 /* ── Scroll Progress Bar ── */
@@ -114,7 +115,7 @@ function initHeroAnimation() {
     canvas.width = canvas.height = S;
     const cx = S / 2, cy = S / 2;
     const rL = S * 0.305;
-    const rR = S * 0.43;
+    const rR = S * 0.27;
 
     const CB = [0, 212, 255];
     const CC = [110, 235, 255];
@@ -131,23 +132,23 @@ function initHeroAnimation() {
         sp: Math.random() * 0.6 + 0.4
     }));
 
-    // 8 circuit trace nodes that expand outward in phase 6
-    const nodes = Array.from({ length: 8 }, (_, i) => {
-        const a = (i / 8) * Math.PI * 2 + Math.PI / 8;
-        const d = rR * (1.22 + (i % 2) * 0.17);
-        return { x: cx + Math.cos(a) * d, y: cy + Math.sin(a) * d, a, ph: Math.random() * Math.PI * 2, stag: i / 8 };
-    });
-
     // 3 particle streams — top, bottom-left, bottom-right (matching logo arrows)
     const ANGLES = [Math.PI * 1.5, Math.PI * 5 / 6, Math.PI / 6];
 
     function mkPt(angle, prog) {
         const j = (Math.random() - 0.5) * 0.17;
         const d = rR * (1.45 + Math.random() * 0.45);
-        return { angle: angle + j, d0: d, prog: prog !== undefined ? prog : Math.random(), spd: 0.0035 + Math.random() * 0.003, sz: Math.random() * 2.2 + 1.2, ma: Math.random() * 0.2 + 0.8 };
+        return { angle: angle + j, d0: d, prog: prog !== undefined ? prog : Math.random(), spd: 0.0035 + Math.random() * 0.003, sz: Math.random() * 1.2 + 0.8, ma: Math.random() * 0.2 + 0.8 };
     }
 
     const streams = ANGLES.map(a => ({ a, pts: Array.from({ length: 14 }, () => mkPt(a)) }));
+
+    // 8 circuit trace nodes that expand outward in phase 6
+    const nodes = Array.from({ length: 8 }, (_, i) => {
+        const a = (i / 8) * Math.PI * 2 + Math.PI / 8;
+        const d = rR * (1.22 + (i % 2) * 0.17);
+        return { x: cx + Math.cos(a) * d, y: cy + Math.sin(a) * d, a, ph: Math.random() * Math.PI * 2, stag: i / 8 };
+    });
 
     function sat(v)       { return Math.max(0, Math.min(1, v)); }
     function ph(t, s, d)  { return sat((t - s) / d); }
@@ -165,7 +166,7 @@ function initHeroAnimation() {
         // ── PHASE PROGRESS (0 → 1 each) ──────────────────
         const Pstar  = ph(t, 0.0, 1.8);  // stars appear
         const Pstrm  = ph(t, 1.2, 3.0);  // particle streams emerge
-        const Pcore  = ph(t, 3.0, 1.50); // core ignites
+        const Pcore  = ph(t, 3.0, 1.60); // core ignites
         const Pexp   = ph(t, 4.0, 2.20); // circuit network expands
 
         // ── 2. STARS ─────────────────────────────────────
@@ -193,7 +194,7 @@ function initHeroAnimation() {
             }
         }
 
-        // ── 3. PARTICLE STREAMS (phase 2) ─────────────────
+        // ── 3. PARTICLE STREAMS ──────────────────────────
         if (Pstrm > 0) {
             streams.forEach(st => {
                 st.pts.forEach(p => {
@@ -213,23 +214,23 @@ function initHeroAnimation() {
                     if (dist < rL * 1.18)  a *= sat((dist - rL * 0.42) / (rL * 0.76));
                     if (a < 0.02) return;
 
-                    // Large glow halo
-                    const gr = p.sz * 5;
+                    const gr = p.sz * 6;
                     const gg = ctx.createRadialGradient(px, py, 0, px, py, gr);
-                    gg.addColorStop(0,   col(CW, a));
-                    gg.addColorStop(0.3, col(CB, a * 0.75));
-                    gg.addColorStop(1,   col(CB, 0));
+                    gg.addColorStop(0,    col(CW, a));
+                    gg.addColorStop(0.10, col(CC, a * 0.95));
+                    gg.addColorStop(0.32, col(CB, a * 0.56));
+                    gg.addColorStop(0.68, col(CB, a * 0.18));
+                    gg.addColorStop(1,    col(CB, 0));
                     ctx.fillStyle = gg;
                     ctx.beginPath(); ctx.arc(px, py, gr, 0, Math.PI * 2); ctx.fill();
 
-                    // Bright core dot
                     ctx.beginPath(); ctx.arc(px, py, p.sz, 0, Math.PI * 2);
                     ctx.fillStyle = col(CW, a); ctx.fill();
                 });
             });
         }
 
-        // ── 6. CIRCUIT NETWORK EXPANDS (phase 6) ──────────
+        // ── 6. CIRCUIT NETWORK EXPANDS ────────────────────
         if (Pexp > 0) {
             nodes.forEach(nd => {
                 const local = sat((Pexp - nd.stag * 0.35) / 0.65);
@@ -260,23 +261,23 @@ function initHeroAnimation() {
         const totalCore = basePulse + eO(Pcore) * 0.58 + coreGlow * 0.40;
 
         if (totalCore > 0.02) {
-            const cr = rL * 0.28;
+            const cr = rL * 0.21168;
             // Burst flash at ignition moment
-            if (Pcore > 0 && Pcore < 0.5) {
+            if (Pcore > 0 && Pcore < 0.55) {
                 const fl = eO(Pcore * 2) * 0.9;
-                const fg = ctx.createRadialGradient(cx, cy, 0, cx, cy, cr * 5);
+                const fg = ctx.createRadialGradient(cx, cy, 0, cx, cy, cr * 3.78);
                 fg.addColorStop(0,    col(CW, fl));
                 fg.addColorStop(0.15, col(CW, fl * 0.85));
                 fg.addColorStop(0.45, col(CB, fl * 0.45));
                 fg.addColorStop(1,    col(CB, 0));
-                ctx.fillStyle = fg; ctx.beginPath(); ctx.arc(cx, cy, cr * 5, 0, Math.PI * 2); ctx.fill();
+                ctx.fillStyle = fg; ctx.beginPath(); ctx.arc(cx, cy, cr * 3.78, 0, Math.PI * 2); ctx.fill();
             }
-            const cg = ctx.createRadialGradient(cx, cy, 0, cx, cy, cr * 2.3);
+            const cg = ctx.createRadialGradient(cx, cy, 0, cx, cy, cr * 1.7388);
             cg.addColorStop(0,    col(CW, totalCore));
             cg.addColorStop(0.3,  col(CB, totalCore * 0.70));
             cg.addColorStop(0.75, col(CB, totalCore * 0.14));
             cg.addColorStop(1,    col(CB, 0));
-            ctx.fillStyle = cg; ctx.beginPath(); ctx.arc(cx, cy, cr * 2.3, 0, Math.PI * 2); ctx.fill();
+            ctx.fillStyle = cg; ctx.beginPath(); ctx.arc(cx, cy, cr * 1.7388, 0, Math.PI * 2); ctx.fill();
         }
 
         animId = requestAnimationFrame(draw);
@@ -511,6 +512,7 @@ function initConsultModal() {
     ["openConsultModal", "openConsultModalNav", "openConsultModalHero"].forEach(id => {
         document.getElementById(id)?.addEventListener("click", openModal);
     });
+    document.querySelectorAll("[data-open-consult]").forEach(el => el.addEventListener("click", openModal));
     closeBtn?.addEventListener("click", closeModal);
     modal.addEventListener("click", e => { if (e.target === modal) closeModal(); });
     document.addEventListener("keydown", e => { if (e.key === "Escape" && modal.classList.contains("open")) closeModal(); });
@@ -649,6 +651,45 @@ function initMagneticButtons() {
         });
         btn.addEventListener("mouseleave", () => {
             btn.style.transform = "";
+        });
+    });
+}
+
+function initProductGallery() {
+    const gallery = document.querySelector(".pdp-gallery-main");
+    if (!gallery) return;
+
+    const mainImage = gallery.querySelector("img");
+    if (!mainImage) return;
+
+    const picture = gallery.querySelector("picture");
+    const source = picture?.querySelector("source");
+    const thumbButtons = document.querySelectorAll(".pdp-thumb, .pdp-thumb-label");
+
+    const activeButton = document.querySelector('.pdp-thumb[data-image="images/updt_product_page_files/mg51-square-1200.jpg"], .pdp-thumb-label[data-image="images/updt_product_page_files/mg51-square-1200.jpg"]');
+    if (activeButton) {
+        mainImage.src = activeButton.dataset.image;
+        mainImage.alt = activeButton.dataset.alt || mainImage.alt;
+        thumbButtons.forEach(item => {
+            item.classList.toggle('is-active', item === activeButton);
+        });
+    }
+
+    thumbButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            const imageSrc = button.dataset.image;
+            if (!imageSrc) return;
+
+            if (source) {
+                source.setAttribute("srcset", imageSrc);
+                source.setAttribute("data-current", imageSrc);
+            }
+            mainImage.src = imageSrc;
+            mainImage.alt = button.dataset.alt || mainImage.alt;
+
+            thumbButtons.forEach(item => {
+                item.classList.toggle("is-active", item === button);
+            });
         });
     });
 }
