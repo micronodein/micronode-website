@@ -633,6 +633,35 @@ input, textarea, select { font-family: inherit; }
     box-shadow: 0 0 16px rgba(123, 97, 255, 0.22);
 }
 
+@media (max-width: 768px) {
+    .ideal-card {
+        min-width: 140px;
+        padding: 12px 14px;
+        gap: 6px;
+    }
+    .ideal-card h4 {
+        font-size: 13px;
+    }
+    .ideal-card p {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .ideal-card {
+        min-width: 120px;
+        padding: 10px 12px;
+        gap: 4px;
+    }
+    .ideal-card h4 {
+        font-size: 12px;
+    }
+    .ideal-card p {
+        font-size: 11px;
+        line-height: 1.4;
+    }
+}
+
 /* Logo cards inside marquee tracks */
 .tpill-track .tlogo-item {
     display: flex;
@@ -1377,9 +1406,10 @@ input, textarea, select { font-family: inherit; }
     will-change: transform;
 }
 .wwd-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 32px rgba(123, 97, 255, 0.18);
+    transform: translateY(-6px);
+    box-shadow: 0 12px 40px rgba(123, 97, 255, 0.25);
     border-color: var(--purple);
+    background: rgba(18, 14, 45, 0.9);
 }
 .wwd-icon {
     width: 44px; height: 44px;
