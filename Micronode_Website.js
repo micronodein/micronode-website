@@ -1,11 +1,10 @@
-/* ════════════════════════════════════════════
+﻿/* ════════════════════════════════════════════
    MICRONODE LLP — Main Scripts
    ════════════════════════════════════════════ */
 
 document.addEventListener("DOMContentLoaded", () => {
     initScrollProgress();
     initNodeNetwork();
-    initHeroAnimation();
     initScrollReveal();
     initHeader();
     initNavigation();
@@ -53,8 +52,8 @@ function initNodeNetwork() {
             y:  Math.random() * h,
             vx: (Math.random() - 0.5) * 0.4,
             vy: (Math.random() - 0.5) * 0.4,
-            r:  Math.random() * 1.4 + 0.9,
-            op: Math.random() * 0.4 + 0.25
+            r:  Math.random() * 1.6 + 1.1,
+            op: Math.random() * 0.45 + 0.45
         }));
     }
 
@@ -102,198 +101,6 @@ function initNodeNetwork() {
     window.addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(resize, 200); });
     document.addEventListener("visibilitychange", () => {
         document.hidden ? cancelAnimationFrame(animId) : draw();
-    });
-}
-
-/* ── Hero Canvas Animation ── */
-function initHeroAnimation() {
-    const canvas = document.getElementById("heroCanvas");
-    if (!canvas) return;
-    const ctx = canvas.getContext("2d");
-
-    const S  = 520;
-    canvas.width = canvas.height = S;
-    const cx = S / 2, cy = S / 2;
-    const rL = S * 0.305;
-    const rR = S * 0.27;
-
-    const CB = [0, 212, 255];
-    const CC = [110, 235, 255];
-    const CW = [234, 248, 255];
-
-    let t0 = null, animId = null;
-    let coreGlow = 0;
-
-    // 70 background stars with twinkle
-    const stars = Array.from({ length: 70 }, () => ({
-        x: Math.random() * S, y: Math.random() * S,
-        r: Math.random() * 1.1 + 0.25,
-        ph: Math.random() * Math.PI * 2,
-        sp: Math.random() * 0.6 + 0.4
-    }));
-
-    // 3 particle streams — top, bottom-left, bottom-right (matching logo arrows)
-    const ANGLES = [Math.PI * 1.5, Math.PI * 5 / 6, Math.PI / 6];
-
-    function mkPt(angle, prog) {
-        const j = (Math.random() - 0.5) * 0.17;
-        const d = rR * (1.45 + Math.random() * 0.45);
-        return { angle: angle + j, d0: d, prog: prog !== undefined ? prog : Math.random(), spd: 0.0035 + Math.random() * 0.003, sz: Math.random() * 1.2 + 0.8, ma: Math.random() * 0.2 + 0.8 };
-    }
-
-    const streams = ANGLES.map(a => ({ a, pts: Array.from({ length: 14 }, () => mkPt(a)) }));
-
-    // 8 circuit trace nodes that expand outward in phase 6
-    const nodes = Array.from({ length: 8 }, (_, i) => {
-        const a = (i / 8) * Math.PI * 2 + Math.PI / 8;
-        const d = rR * (1.22 + (i % 2) * 0.17);
-        return { x: cx + Math.cos(a) * d, y: cy + Math.sin(a) * d, a, ph: Math.random() * Math.PI * 2, stag: i / 8 };
-    });
-
-    function sat(v)       { return Math.max(0, Math.min(1, v)); }
-    function ph(t, s, d)  { return sat((t - s) / d); }
-    function eO(t)        { return 1 - (1 - t) * (1 - t); }
-    function eIO(t)       { return t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2; }
-    function col(c, a)    { return `rgba(${c[0]},${c[1]},${c[2]},${sat(a).toFixed(3)})`; }
-
-    function draw(ts) {
-        if (!t0) t0 = ts;
-        const t = (ts - t0) * 0.001;
-
-        coreGlow  *= 0.965;
-        ctx.clearRect(0, 0, S, S);
-
-        // ── PHASE PROGRESS (0 → 1 each) ──────────────────
-        const Pstar  = ph(t, 0.0, 1.8);  // stars appear
-        const Pstrm  = ph(t, 1.2, 3.0);  // particle streams emerge
-        const Pcore  = ph(t, 3.0, 1.60); // core ignites
-        const Pexp   = ph(t, 4.0, 2.20); // circuit network expands
-
-        // ── 2. STARS ─────────────────────────────────────
-        stars.forEach(s => {
-            s.ph += 0.015 * s.sp;
-            const a = (Math.sin(s.ph) * 0.35 + 0.65) * Pstar * 0.52;
-            ctx.beginPath(); ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-            ctx.fillStyle = col(CW, a); ctx.fill();
-        });
-
-        // Faint network lines between close stars
-        if (Pstar > 0.4) {
-            ctx.lineWidth = 0.35;
-            for (let i = 0; i < stars.length; i++) {
-                for (let j = i + 1; j < stars.length; j++) {
-                    const d = Math.hypot(stars[i].x - stars[j].x, stars[i].y - stars[j].y);
-                    if (d < 78) {
-                        ctx.beginPath();
-                        ctx.moveTo(stars[i].x, stars[i].y);
-                        ctx.lineTo(stars[j].x, stars[j].y);
-                        ctx.strokeStyle = col(CB, (1 - d / 78) * 0.055 * Pstar);
-                        ctx.stroke();
-                    }
-                }
-            }
-        }
-
-        // ── 3. PARTICLE STREAMS ──────────────────────────
-        if (Pstrm > 0) {
-            streams.forEach(st => {
-                st.pts.forEach(p => {
-                    p.prog += p.spd;
-                    if (p.prog >= 1) {
-                        if (Pcore > 0.25) coreGlow = Math.min(coreGlow + 0.5, 1);
-                        Object.assign(p, mkPt(st.a, 0));
-                        return;
-                    }
-                    const dist = p.d0 * (1 - p.prog);
-                    if (dist < rL * 0.42) return;
-                    const px = cx + Math.cos(p.angle) * dist;
-                    const py = cy + Math.sin(p.angle) * dist;
-
-                    let a = p.ma * Pstrm;
-                    if (p.prog < 0.12)     a *= p.prog / 0.12;
-                    if (dist < rL * 1.18)  a *= sat((dist - rL * 0.42) / (rL * 0.76));
-                    if (a < 0.02) return;
-
-                    const gr = p.sz * 6;
-                    const gg = ctx.createRadialGradient(px, py, 0, px, py, gr);
-                    gg.addColorStop(0,    col(CW, a));
-                    gg.addColorStop(0.10, col(CC, a * 0.95));
-                    gg.addColorStop(0.32, col(CB, a * 0.56));
-                    gg.addColorStop(0.68, col(CB, a * 0.18));
-                    gg.addColorStop(1,    col(CB, 0));
-                    ctx.fillStyle = gg;
-                    ctx.beginPath(); ctx.arc(px, py, gr, 0, Math.PI * 2); ctx.fill();
-
-                    ctx.beginPath(); ctx.arc(px, py, p.sz, 0, Math.PI * 2);
-                    ctx.fillStyle = col(CW, a); ctx.fill();
-                });
-            });
-        }
-
-        // ── 6. CIRCUIT NETWORK EXPANDS ────────────────────
-        if (Pexp > 0) {
-            nodes.forEach(nd => {
-                const local = sat((Pexp - nd.stag * 0.35) / 0.65);
-                const pulse = Math.sin(t * 1.3 + nd.ph) * 0.5 + 0.5;
-                const ix = cx + Math.cos(nd.a) * rL * 1.13;
-                const iy = cy + Math.sin(nd.a) * rL * 1.13;
-                const tx = cx + (nd.x - cx) * local;
-                const ty = cy + (nd.y - cy) * local;
-
-                ctx.beginPath(); ctx.moveTo(ix, iy);
-                if (Math.abs(nd.x - cx) > Math.abs(nd.y - cy)) {
-                    ctx.lineTo(tx, iy); ctx.lineTo(tx, ty);
-                } else {
-                    ctx.lineTo(ix, ty); ctx.lineTo(tx, ty);
-                }
-                ctx.strokeStyle = col(CB, 0.06 + pulse * 0.15);
-                ctx.lineWidth = 0.8; ctx.stroke();
-
-                if (local > 0.85) {
-                    ctx.beginPath(); ctx.arc(tx, ty, 2.5, 0, Math.PI * 2);
-                    ctx.fillStyle = col(CC, 0.25 + pulse * 0.6); ctx.fill();
-                }
-            });
-        }
-
-        // ── 8. ENERGY CORE GLOW ───────────────────────────
-        const basePulse = Math.sin(t * 1.7 + 0.5) * 0.10 + 0.16;
-        const totalCore = basePulse + eO(Pcore) * 0.58 + coreGlow * 0.40;
-
-        if (totalCore > 0.02) {
-            const cr = rL * 0.21168;
-            // Burst flash at ignition moment
-            if (Pcore > 0 && Pcore < 0.55) {
-                const fl = eO(Pcore * 2) * 0.9;
-                const fg = ctx.createRadialGradient(cx, cy, 0, cx, cy, cr * 3.78);
-                fg.addColorStop(0,    col(CW, fl));
-                fg.addColorStop(0.15, col(CW, fl * 0.85));
-                fg.addColorStop(0.45, col(CB, fl * 0.45));
-                fg.addColorStop(1,    col(CB, 0));
-                ctx.fillStyle = fg; ctx.beginPath(); ctx.arc(cx, cy, cr * 3.78, 0, Math.PI * 2); ctx.fill();
-            }
-            const cg = ctx.createRadialGradient(cx, cy, 0, cx, cy, cr * 1.7388);
-            cg.addColorStop(0,    col(CW, totalCore));
-            cg.addColorStop(0.3,  col(CB, totalCore * 0.70));
-            cg.addColorStop(0.75, col(CB, totalCore * 0.14));
-            cg.addColorStop(1,    col(CB, 0));
-            ctx.fillStyle = cg; ctx.beginPath(); ctx.arc(cx, cy, cr * 1.7388, 0, Math.PI * 2); ctx.fill();
-        }
-
-        animId = requestAnimationFrame(draw);
-    }
-
-    function start() {
-        t0 = null;
-        if (animId) cancelAnimationFrame(animId);
-        animId = requestAnimationFrame(draw);
-    }
-
-    setTimeout(() => { if (!animId) start(); }, 0);
-
-    document.addEventListener("visibilitychange", () => {
-        if (document.hidden) cancelAnimationFrame(animId);
-        else start();
     });
 }
 
@@ -396,6 +203,7 @@ function initNavigation() {
 function initNavDots() {
     const dots = document.querySelectorAll(".side-dot");
     if (!dots.length) return;
+    const nav = document.getElementById("sideDots");
 
     const obs = new IntersectionObserver(
         entries => entries.forEach(e => {
@@ -408,6 +216,27 @@ function initNavDots() {
         { threshold: 0.35, rootMargin: "-72px 0px -40% 0px" }
     );
     document.querySelectorAll("section[id]").forEach(s => obs.observe(s));
+
+    // Dots sit over the light "Built Different" panel — darken them while it's behind.
+    // The section runs past the light area (the cards overhang onto the purple), so
+    // measure to the ::before panel's bottom rather than the section's.
+    const lightPanel = document.getElementById("why-us");
+    if (nav && lightPanel) {
+        let queued = false;
+        const sync = () => {
+            const r = lightPanel.getBoundingClientRect();
+            const overhang = parseFloat(getComputedStyle(lightPanel).getPropertyValue("--overhang-bottom")) || 70;
+            const lightBottom = r.bottom - overhang;
+            const mid = window.innerHeight / 2;
+            nav.classList.toggle("on-light", r.top < mid && lightBottom > mid);
+            queued = false;
+        };
+        window.addEventListener("scroll", () => {
+            if (!queued) { queued = true; requestAnimationFrame(sync); }
+        }, { passive: true });
+        window.addEventListener("resize", sync);
+        sync();
+    }
 }
 
 /* ── Hero Stat Counters ── */
@@ -419,12 +248,13 @@ function initStatCounters() {
             if (!entry.isIntersecting) return;
             const el     = entry.target;
             const target = parseFloat(el.dataset.target);
+            const prefix = el.dataset.prefix || "";
             const suffix = el.dataset.suffix || "";
             const dur    = 1400;
             const start  = performance.now();
             function tick(now) {
                 const p = Math.min((now - start) / dur, 1);
-                el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3))) + suffix;
+                el.textContent = prefix + Math.round(target * (1 - Math.pow(1 - p, 3))) + suffix;
                 if (p < 1) requestAnimationFrame(tick);
             }
             requestAnimationFrame(tick);

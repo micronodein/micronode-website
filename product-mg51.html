@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -41,7 +41,11 @@
 <header class="site-header" id="siteHeader">
     <div class="container navbar">
         <a href="index.html#hero" class="logo">
-            <img src="images/micronodellp_logo.png" class="logo-icon" alt="Micronode LLP"/>
+            <img src="images/micronode-holo-emblem.svg" class="logo-icon" alt="Micronode LLP" loading="lazy"/>
+            <span class="logo-wordmark">
+                <span class="logo-micro">MICRO</span><span class="logo-node">NODE</span>
+                <span class="logo-llp">LLP</span>
+            </span>
         </a>
         <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
             <span></span><span></span><span></span>
@@ -54,7 +58,7 @@
             <a href="index.html#why-us">About</a>
             <a href="index.html#contact">Contact</a>
         </nav>
-        <button type="button" class="btn btn-nav" id="openConsultModalNav">Consultation</button>
+        <button type="button" class="btn btn-nav" id="openConsultModalNav">Start a project</button>
     </div>
 </header>
 
@@ -76,7 +80,7 @@
             <div class="pdp-gallery reveal" data-dir="left">
                 <div class="pdp-gallery-main">
                     <span class="pdp-rev">REV 1.0</span>
-                    <img src="images/updt_product_page_files/mg51-square-1200.jpg" alt="MG51 in use view">
+                    <img src="images/updt_product_page_files/mg51-square-1200.jpg" alt="MG51 in use view" loading="lazy">
                 </div>
                 <div class="pdp-gallery-thumbs">
                     <button type="button" class="pdp-thumb" aria-label="View front image" data-image="images/updt_product_page_files/mg51-square-400.jpg" data-alt="MG51 front view">
@@ -176,13 +180,184 @@
             </div>
         </div>
 
+        <!-- WHY USE THE DEV BOARD -->
+        <div class="whyd-block">
+
+            <div class="whyd-sidebar reveal">
+                <div class="whyd-eyebrow">
+                    <i class="whyd-eyebrow-line"></i>
+                    <span class="whyd-eyebrow-text">Why the dev board</span>
+                </div>
+                <h2>Skip the bring-up.<br><span class="whyd-grad">Start on firmware.</span></h2>
+                <p class="whyd-note">Compared with prototyping on a bare MG51FB9AE — typical figures from our own R&amp;D, from IC in hand to first running firmware.</p>
+            </div>
+
+            <div class="whyd-grid">
+
+                <!-- 1 · Bring-up time -->
+                <article class="whyd-card reveal">
+                    <div class="whyd-card-top">
+                        <span class="whyd-card-title">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+                            Bring-up time
+                        </span>
+                        <span class="whyd-badge">&minus;97%</span>
+                    </div>
+                    <p class="whyd-big"><strong>&lt;1 h</strong><span>vs 16&ndash;32 h</span></p>
+                    <div class="whyd-bars">
+                        <div class="whyd-bar">
+                            <div class="whyd-bar-row"><span>Bare <b>MG51 IC</b></span><b>16&ndash;32 h</b></div>
+                            <div class="whyd-track"><i style="width:100%"></i></div>
+                        </div>
+                        <div class="whyd-bar">
+                            <div class="whyd-bar-row"><span>MG51 Dev Board</span><b>&lt; 1 h</b></div>
+                            <div class="whyd-track"><i style="width:4%"></i></div>
+                        </div>
+                    </div>
+                    <p class="whyd-foot">IC in hand &rarr; first firmware running</p>
+                </article>
+
+                <!-- 2 · First prototype -->
+                <article class="whyd-card reveal reveal-delay-1">
+                    <div class="whyd-card-top">
+                        <span class="whyd-card-title">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-6 4 3 5-7"/><path d="M17 7h4v4"/></svg>
+                            First prototype
+                        </span>
+                        <span class="whyd-badge">up to 40%</span>
+                    </div>
+                    <div class="whyd-donut">
+                        <svg viewBox="0 0 120 120" aria-hidden="true">
+                            <defs>
+                                <linearGradient id="whydRing" x1="0" y1="1" x2="1" y2="0">
+                                    <stop offset="0%" stop-color="#7B61FF"/><stop offset="100%" stop-color="#4FE3F7"/>
+                                </linearGradient>
+                            </defs>
+                            <circle cx="60" cy="60" r="48" fill="none" stroke="rgba(123,97,255,0.16)" stroke-width="15"/>
+                            <circle cx="60" cy="60" r="48" fill="none" stroke="url(#whydRing)" stroke-width="15" stroke-linecap="round"
+                                    stroke-dasharray="301.6" stroke-dashoffset="181" transform="rotate(-90 60 60)"/>
+                        </svg>
+                        <span class="whyd-donut-mid"><strong>40%</strong><em>faster</em></span>
+                    </div>
+                    <div class="whyd-rows">
+                        <div><span>2-week prototype sprint</span><b>20&ndash;40%</b></div>
+                        <div><span>3-week prototype sprint</span><b>13&ndash;27%</b></div>
+                    </div>
+                </article>
+
+                <!-- 3 · Hand-soldered joints & wires -->
+                <article class="whyd-card reveal reveal-delay-2">
+                    <div class="whyd-card-top">
+                        <span class="whyd-card-title">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4l9 16H3z"/><path d="M12 10v4M12 17h.01"/></svg>
+                            Hand-soldered joints &amp; wires
+                        </span>
+                        <span class="whyd-badge">35 - 0</span>
+                    </div>
+                    <p class="whyd-big"><strong>0</strong><span>to solder by hand — every one a point of failure removed</span></p>
+                    <div class="whyd-joints" aria-hidden="true">
+                        <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+                        <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+                        <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+                    </div>
+                    <div class="whyd-minis">
+                        <div class="whyd-mini"><span>TSSOP-20 joints</span><b>20</b></div>
+                        <div class="whyd-mini"><span>Power + ICP wiring</span><b>~15</b></div>
+                    </div>
+                </article>
+
+                <!-- 4 · Parts to source -->
+                <article class="whyd-card reveal">
+                    <div class="whyd-card-top">
+                        <span class="whyd-card-title">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><rect x="7" y="7" width="10" height="10" rx="1"/><path d="M10 7V4M14 7V4M10 20v-3M14 20v-3M7 10H4M7 14H4M20 10h-3M20 14h-3"/></svg>
+                            Parts to source
+                        </span>
+                        <span class="whyd-badge">12 &rarr; 1</span>
+                    </div>
+                    <p class="whyd-big"><strong>1</strong><span>line on your BOM instead of ~12</span></p>
+                    <div class="whyd-cols" aria-hidden="true">
+                        <i style="height:46%"></i><i style="height:60%"></i><i style="height:52%"></i>
+                        <i style="height:68%"></i><i style="height:56%"></i><i style="height:72%"></i>
+                        <i style="height:50%"></i><i style="height:64%"></i><i style="height:58%"></i>
+                        <i style="height:70%"></i><i style="height:54%"></i><i class="is-one" style="height:100%"></i>
+                    </div>
+                    <p class="whyd-foot">MCU, adapter, LDO, caps, reset parts, headers, ICP, LED&hellip; vs one board</p>
+                </article>
+
+                <!--
+                5 . Setup steps
+                <article class="whyd-card reveal reveal-delay-1">
+                    <div class="whyd-card-top">
+                        <span class="whyd-card-title">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 7h16M4 12h10M4 17h6"/></svg>
+                            Setup steps
+                        </span>
+                        <span class="whyd-badge">9 &rarr; 3</span>
+                    </div>
+                    <div class="whyd-steps">
+                        <div class="whyd-steps-col">
+                            <span class="whyd-steps-hd">Bare IC</span>
+                            <ul>
+                                <li>Order adapter / PCB</li>
+                                <li>Solder MCU</li>
+                                <li>Add LDO + caps</li>
+                                <li>Reset circuit</li>
+                                <li>Wire ICP</li>
+                                <li>Wire power</li>
+                                <li>Set up SDCC</li>
+                                <li>Configure Nu-Link</li>
+                                <li>First flash</li>
+                            </ul>
+                        </div>
+                        <div class="whyd-steps-col is-good">
+                            <span class="whyd-steps-hd">Dev Board</span>
+                            <ol>
+                                <li>Connect 5V/12V</li>
+                                <li>Plug in Nu-Link</li>
+                                <li>Flash the example</li>
+                            </ol>
+                        </div>
+                    </div>
+                </article>
+
+                6 . Production readiness
+                <article class="whyd-card reveal reveal-delay-2">
+                    <div class="whyd-card-top">
+                        <span class="whyd-card-title">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"/></svg>
+                            Production readiness
+                        </span>
+                        <span class="whyd-badge">same chip</span>
+                    </div>
+                    <p class="whyd-big"><strong>100%</strong><span>code carries to your PCB</span></p>
+                    <div class="whyd-bars">
+                        <div class="whyd-bar">
+                            <div class="whyd-bar-row"><span>GPIO broken out</span><b>18 / 18</b></div>
+                            <div class="whyd-track"><i style="width:100%"></i></div>
+                        </div>
+                        <div class="whyd-bar">
+                            <div class="whyd-bar-row"><span>Firmware portability</span><b>100%</b></div>
+                            <div class="whyd-track"><i style="width:100%"></i></div>
+                        </div>
+                        <div class="whyd-bar">
+                            <div class="whyd-bar-row"><span>Reference design reusable</span><b>Power &middot; reset &middot; ICP</b></div>
+                            <div class="whyd-track"><i style="width:88%"></i></div>
+                        </div>
+                    </div>
+                </article>
+                -->
+
+            </div>
+        </div>
+
         <!-- Custom variant CTA -->
         <div class="pdp-cta-banner glass reveal">
             <div>
                 <h3>Need a custom variant?</h3>
                 <p>Different MCU, extra peripherals, or your own form factor.</p>
             </div>
-            <button type="button" class="btn btn-ghost" data-open-consult>Book a Consultation</button>
+            <button type="button" class="btn btn-ghost" data-open-consult>Start a project</button>
         </div>
 
     </div>
@@ -192,11 +367,22 @@
 <footer class="site-footer">
     <div class="container footer-inner">
         <div class="footer-brand">
-            <a href="index.html#hero" class="logo">
-                <img src="images/micronode_logo_white.png" class="logo-icon" alt="Micronode LLP"/>
-                MICRONODE LLP
-            </a>
-            <p class="footer-tagline">Micronode LLP is an embedded systems product engineering company building intelligent solutions for a better tomorrow.</p>
+            <p class="footer-tagline">Embedded systems product engineering company building intelligent solutions for a better tomorrow.</p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/company/micronode-llp/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+                    <svg viewBox="0 0 24 24"><path d="M16,8 C17.6,8 19.1,8.6 20.2,9.8 C21.3,11 22,12.5 22,14 V21 H18 V14 C18,13.5 17.8,13 17.4,12.6 C17,12.2 16.5,12 16,12 C15.5,12 15,12.2 14.6,12.6 C14.2,13 14,13.5 14,14 V21 H10 V14 C10,12.5 10.6,11 11.7,9.8 C12.8,8.6 14.3,8 16,8 Z M2,9 H6 V21 H2 V9 Z M4,6 C3.5,6 3,5.8 2.6,5.4 C2.2,5 2,4.5 2,4 C2,3.5 2.2,3 2.6,2.6 C3,2.2 3.5,2 4,2 C4.5,2 5,2.2 5.4,2.6 C5.8,3 6,3.5 6,4 C6,4.5 5.8,5 5.4,5.4 C5,5.8 4.5,6 4,6 Z" fill="currentColor"/></svg>
+                </a>
+                <a href="#" aria-label="X">
+                    <svg viewBox="0 0 24 24"><path d="M18.9,2 H22.6 L14.6,10.9 L24,23 H16.6 L10.8,15.5 L4.2,23 H0.5 L9,13.5 L0,2 H7.6 L12.9,8.9 L18.9,2 Z" fill="currentColor"/></svg>
+                </a>
+                <a href="#" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/></svg>
+                </a>
+                <a href="#" aria-label="YouTube">
+                    <svg viewBox="0 0 24 24"><path d="M22.5,6.2 C22.2,5.1 21.4,4.2 20.3,3.9 C18.4,3.4 12,3.4 12,3.4 C12,3.4 5.6,3.4 3.7,3.9 C2.6,4.2 1.8,5.1 1.5,6.2 C1,8.1 1,12 1,12 C1,12 1,15.9 1.5,17.8 C1.8,18.9 2.6,19.8 3.7,20.1 C5.6,20.6 12,20.6 12,20.6 C12,20.6 18.4,20.6 20.3,20.1 C21.4,19.8 22.2,18.9 22.5,17.8 C23,15.9 23,12 23,12 C23,12 23,8.1 22.5,6.2 Z M9.8,15.5 V8.5 L15.8,12 L9.8,15.5 Z" fill="currentColor"/></svg>
+                </a>
+            </div>
+            <p class="footer-contact">info@micronode.in &middot; Pune, India</p>
         </div>
 
         <div class="footer-col">
@@ -211,40 +397,33 @@
 
         <div class="footer-col">
             <h4>Our Services</h4>
-            <a href="index.html#consultation">Product Development</a>
-            <a href="index.html#consultation">Hardware Design</a>
-            <a href="index.html#consultation">Firmware Development</a>
-            <a href="index.html#consultation">Prototyping</a>
-            <a href="index.html#consultation">Testing &amp; Validation</a>
-            <a href="index.html#consultation">Consultation</a>
+            <div class="footer-services-grid">
+                <div class="footer-services-col">
+                    <a href="index.html#consultation">Product Development</a>
+                    <a href="index.html#consultation">Firmware Development</a>
+                    <a href="index.html#consultation">Testing &amp; Validation</a>
+                </div>
+                <div class="footer-services-col">
+                    <a href="index.html#consultation">Hardware Design</a>
+                    <a href="index.html#consultation">Prototyping</a>
+                    <a href="index.html#consultation">Start a project</a>
+                </div>
+            </div>
         </div>
 
-        <div class="footer-col footer-newsletter">
-            <h4>Subscribe to Newsletter</h4>
-            <p>Stay updated with our latest projects and insights.</p>
+<div class="footer-col footer-newsletter">
+            <h4>Newsletter</h4>
+            <p>Latest projects and insights.</p>
             <form class="newsletter-form" id="newsletterForm">
                 <input type="email" placeholder="Enter your email" aria-label="Email for newsletter" required>
                 <button type="submit" aria-label="Subscribe">
                     <svg viewBox="0 0 24 24"><path d="M2,12 L22,12 M14,4 L22,12 L14,20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
                 </button>
             </form>
-            <div class="social-links">
-                <a href="#" aria-label="LinkedIn">
-                    <svg viewBox="0 0 24 24"><path d="M16,8 C17.6,8 19.1,8.6 20.2,9.8 C21.3,11 22,12.5 22,14 V21 H18 V14 C18,13.5 17.8,13 17.4,12.6 C17,12.2 16.5,12 16,12 C15.5,12 15,12.2 14.6,12.6 C14.2,13 14,13.5 14,14 V21 H10 V14 C10,12.5 10.6,11 11.7,9.8 C12.8,8.6 14.3,8 16,8 Z M2,9 H6 V21 H2 V9 Z M4,6 C3.5,6 3,5.8 2.6,5.4 C2.2,5 2,4.5 2,4 C2,3.5 2.2,3 2.6,2.6 C3,2.2 3.5,2 4,2 C4.5,2 5,2.2 5.4,2.6 C5.8,3 6,3.5 6,4 C6,4.5 5.8,5 5.4,5.4 C5,5.8 4.5,6 4,6 Z" fill="currentColor"/></svg>
-                </a>
-                <a href="#" aria-label="Twitter">
-                    <svg viewBox="0 0 24 24"><path d="M22,4 C21.2,4.5 20.3,4.9 19.4,5.1 C18.5,4.1 17.2,3.5 15.8,3.5 C13,3.5 10.8,5.7 10.8,8.5 C10.8,8.9 10.8,9.3 10.9,9.7 C6.9,9.5 3.4,7.6 1,4.7 C0.6,5.4 0.3,6.2 0.3,7.1 C0.3,8.7 1.1,10.1 2.3,10.9 C1.6,10.9 0.9,10.7 0.3,10.4 V10.5 C0.3,13 2,15.1 4.3,15.5 C3.9,15.6 3.4,15.7 2.9,15.7 C2.6,15.7 2.2,15.6 1.9,15.6 C2.6,17.7 4.6,19.2 7,19.3 C5.2,20.7 3,21.5 0.6,21.5 C0.2,21.5 -0.2,21.5 -0.5,21.4 C2,22.9 4.8,23.7 7.9,23.7 C15.8,23.7 20.1,17.7 20.1,12.5 C20.1,12.3 20.1,12.1 20.1,11.9 C21,11.2 21.7,10.4 22.3,9.5 C21.4,9.9 20.5,10.1 19.6,10.2 C20.5,9.7 21.2,8.8 21.6,7.8 C20.7,8.3 19.7,8.6 18.7,8.8 C17.8,7.9 16.6,7.3 15.3,7.3 C12.6,7.3 10.5,9.5 10.5,12.1 C10.5,12.5 10.5,12.9 10.6,13.2 C7,13 3.8,11.3 1.7,8.7 C1.3,9.4 1.1,10.3 1.1,11.2 C1.1,12.9 2,14.4 3.3,15.2 C2.7,15.2 2.1,15 1.6,14.7 V14.8 C1.6,17.1 3.2,19.1 5.4,19.5 C5,19.6 4.6,19.7 4.1,19.7 C3.8,19.7 3.5,19.6 3.2,19.6 C3.8,21.5 5.6,22.9 7.7,22.9 C6.1,24.1 4.1,24.9 1.9,24.9 C1.5,24.9 1.1,24.9 0.8,24.8 C2.9,26.1 5.4,26.8 8.2,26.8" fill="currentColor"/></svg>
-                </a>
-                <a href="#" aria-label="Instagram">
-                    <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/></svg>
-                </a>
-                <a href="#" aria-label="YouTube">
-                    <svg viewBox="0 0 24 24"><path d="M22.5,6.2 C22.2,5.1 21.4,4.2 20.3,3.9 C18.4,3.4 12,3.4 12,3.4 C12,3.4 5.6,3.4 3.7,3.9 C2.6,4.2 1.8,5.1 1.5,6.2 C1,8.1 1,12 1,12 C1,12 1,15.9 1.5,17.8 C1.8,18.9 2.6,19.8 3.7,20.1 C5.6,20.6 12,20.6 12,20.6 C12,20.6 18.4,20.6 20.3,20.1 C21.4,19.8 22.2,18.9 22.5,17.8 C23,15.9 23,12 23,12 C23,12 23,8.1 22.5,6.2 Z M9.8,15.5 V8.5 L15.8,12 L9.8,15.5 Z" fill="currentColor"/></svg>
-                </a>
-            </div>
         </div>
 
     </div>
+    <div class="footer-wordmark" aria-hidden="true">MICRONODE LLP</div>
     <div class="footer-bottom">
         <p>© 2026 Micronode LLP. All rights reserved.</p>
     </div>
@@ -256,7 +435,7 @@
 <div class="modal-overlay" id="consultModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="modal-box glass">
         <button class="modal-close" id="closeConsultModal" aria-label="Close">&times;</button>
-        <h3 id="modalTitle">Book a Consultation</h3>
+        <h3 id="modalTitle">Start a project</h3>
         <p class="modal-sub">Tell us about your project — we'll get back within 48 - 72 hours.</p>
         <form id="consultForm" novalidate>
             <div class="form-group">
