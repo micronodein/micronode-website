@@ -31,18 +31,28 @@
     const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
     function play() { if (!reduce) timer = setInterval(() => go(i + 1), 4000); }
     function rest() { clearInterval(timer); play(); }
+<<<<<<< HEAD
     // Phones: the carousel only rotates by itself (no swipe, no tapping the dots)
     const phone = matchMedia('(max-width: 600px)').matches;
     if (phone) dotsWrap.style.pointerEvents = 'none';
     let x0 = null;
     if (!phone) stage.addEventListener('pointerdown', e => { x0 = e.clientX; clearInterval(timer); });
     if (!phone) stage.addEventListener('pointerup', e => {
+=======
+    let x0 = null;
+    stage.addEventListener('pointerdown', e => { x0 = e.clientX; clearInterval(timer); });
+    stage.addEventListener('pointerup', e => {
+>>>>>>> 88050eac84b2fcf646f05b9e557c02090696b76d
         if (x0 === null) return;
         const dx = e.clientX - x0;
         if (Math.abs(dx) > 40) go(i + (dx < 0 ? 1 : -1));
         x0 = null; play();
     });
+<<<<<<< HEAD
     if (!phone) stage.addEventListener('pointerleave', () => { x0 = null; });
+=======
+    stage.addEventListener('pointerleave', () => { x0 = null; });
+>>>>>>> 88050eac84b2fcf646f05b9e557c02090696b76d
     document.addEventListener('visibilitychange', () => document.hidden ? clearInterval(timer) : play());
     go(0); play();
 })();

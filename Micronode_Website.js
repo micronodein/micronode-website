@@ -1,4 +1,4 @@
-/* ════════════════════════════════════════════
+﻿/* ════════════════════════════════════════════
    MICRONODE LLP — Main Scripts
    ════════════════════════════════════════════ */
 
@@ -19,12 +19,15 @@ document.addEventListener("DOMContentLoaded", () => {
     initCardEffects();
     initMagneticButtons();
     initProductGallery();
+<<<<<<< HEAD
     initPhotoRotators();
     initSwipeIndicators();
     initRotatingWord();
     initMailLinks();
     initCompanyMenu();
     initFaqGroups();
+=======
+>>>>>>> 88050eac84b2fcf646f05b9e557c02090696b76d
 });
 
 /* ── Swipe indicator for the 01 services row (phones): a line above the cards, one segment per card ── */
@@ -621,6 +624,7 @@ function initProductGallery() {
         });
     });
 }
+<<<<<<< HEAD
 
 
 /* ── Rotating word in a headline (e.g. "a ready HMI" / "digital counter" / "timer" …) ── */
@@ -800,3 +804,5 @@ function initPageWipe() {
         setTimeout(() => root.classList.remove("pt-cover"), 3000);   // safety: never leave the cover up
     });
 }
+=======
+>>>>>>> 88050eac84b2fcf646f05b9e557c02090696b76d
