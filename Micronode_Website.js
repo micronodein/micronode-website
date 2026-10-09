@@ -3,9 +3,10 @@
    ════════════════════════════════════════════ */
 
 document.addEventListener("DOMContentLoaded", () => {
+    initMotion();
+    initPageWipe();
     initScrollProgress();
     initNodeNetwork();
-    initHeroAnimation();
     initScrollReveal();
     initHeader();
     initNavigation();
@@ -17,7 +18,46 @@ document.addEventListener("DOMContentLoaded", () => {
     initNewsletterForm();
     initCardEffects();
     initMagneticButtons();
+    initProductGallery();
+    initPhotoRotators();
+    initSwipeIndicators();
+    initRotatingWord();
+    initMailLinks();
+    initCompanyMenu();
+    initFaqGroups();
 });
+
+/* ── Swipe indicator for the 01 services row (phones): a line above the cards, one segment per card ── */
+function initSwipeIndicators() {
+    document.querySelectorAll(".wwd-grid").forEach(row => {
+        const cards = [...row.children];
+        if (cards.length < 2) return;
+
+        const ind = document.createElement("div");
+        ind.className = "swipe-ind";
+        ind.setAttribute("aria-hidden", "true");
+        ind.style.setProperty("--n", cards.length);
+        const fill = document.createElement("span");
+        fill.className = "swipe-fill";
+        ind.appendChild(fill);
+        row.insertAdjacentElement("beforebegin", ind);
+
+        let ticking = false;
+        const update = () => {
+            ticking = false;
+            const pitch = cards[1].getBoundingClientRect().left - cards[0].getBoundingClientRect().left;
+            let idx = pitch > 0 ? Math.round(row.scrollLeft / pitch) : 0;
+            if (row.scrollLeft + row.clientWidth >= row.scrollWidth - 4) idx = cards.length - 1;
+            idx = Math.max(0, Math.min(cards.length - 1, idx));
+            fill.style.width = ((idx + 1) / cards.length * 100) + "%";
+        };
+        row.addEventListener("scroll", () => {
+            if (!ticking) { ticking = true; requestAnimationFrame(update); }
+        }, { passive: true });
+        window.addEventListener("resize", update);
+        update();
+    });
+}
 
 /* ── Scroll Progress Bar ── */
 function initScrollProgress() {
@@ -27,6 +67,20 @@ function initScrollProgress() {
         const total = document.documentElement.scrollHeight - window.innerHeight;
         bar.style.width = total > 0 ? `${(window.scrollY / total) * 100}%` : "0%";
     }, { passive: true });
+}
+
+/* ── Auto-Rotating Photo Cards (e.g. Machine Vision industry card) ── */
+function initPhotoRotators() {
+    document.querySelectorAll(".ind-photo-rotate").forEach(wrap => {
+        const imgs = wrap.querySelectorAll(".ind-img");
+        if (imgs.length < 2) return;
+        let i = 0;
+        setInterval(() => {
+            imgs[i].classList.remove("is-active");
+            i = (i + 1) % imgs.length;
+            imgs[i].classList.add("is-active");
+        }, 3500);
+    });
 }
 
 /* ── Mouse-Reactive Node Network Background ── */
@@ -52,8 +106,8 @@ function initNodeNetwork() {
             y:  Math.random() * h,
             vx: (Math.random() - 0.5) * 0.4,
             vy: (Math.random() - 0.5) * 0.4,
-            r:  Math.random() * 1.4 + 0.9,
-            op: Math.random() * 0.4 + 0.25
+            r:  Math.random() * 1.6 + 1.1,
+            op: Math.random() * 0.45 + 0.45
         }));
     }
 
@@ -101,198 +155,6 @@ function initNodeNetwork() {
     window.addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(resize, 200); });
     document.addEventListener("visibilitychange", () => {
         document.hidden ? cancelAnimationFrame(animId) : draw();
-    });
-}
-
-/* ── Hero Canvas Animation ── */
-function initHeroAnimation() {
-    const canvas = document.getElementById("heroCanvas");
-    if (!canvas) return;
-    const ctx = canvas.getContext("2d");
-
-    const S  = 520;
-    canvas.width = canvas.height = S;
-    const cx = S / 2, cy = S / 2;
-    const rL = S * 0.305;
-    const rR = S * 0.43;
-
-    const CB = [0, 212, 255];
-    const CC = [110, 235, 255];
-    const CW = [234, 248, 255];
-
-    let t0 = null, animId = null;
-    let coreGlow = 0;
-
-    // 70 background stars with twinkle
-    const stars = Array.from({ length: 70 }, () => ({
-        x: Math.random() * S, y: Math.random() * S,
-        r: Math.random() * 1.1 + 0.25,
-        ph: Math.random() * Math.PI * 2,
-        sp: Math.random() * 0.6 + 0.4
-    }));
-
-    // 8 circuit trace nodes that expand outward in phase 6
-    const nodes = Array.from({ length: 8 }, (_, i) => {
-        const a = (i / 8) * Math.PI * 2 + Math.PI / 8;
-        const d = rR * (1.22 + (i % 2) * 0.17);
-        return { x: cx + Math.cos(a) * d, y: cy + Math.sin(a) * d, a, ph: Math.random() * Math.PI * 2, stag: i / 8 };
-    });
-
-    // 3 particle streams — top, bottom-left, bottom-right (matching logo arrows)
-    const ANGLES = [Math.PI * 1.5, Math.PI * 5 / 6, Math.PI / 6];
-
-    function mkPt(angle, prog) {
-        const j = (Math.random() - 0.5) * 0.17;
-        const d = rR * (1.45 + Math.random() * 0.45);
-        return { angle: angle + j, d0: d, prog: prog !== undefined ? prog : Math.random(), spd: 0.0035 + Math.random() * 0.003, sz: Math.random() * 2.2 + 1.2, ma: Math.random() * 0.2 + 0.8 };
-    }
-
-    const streams = ANGLES.map(a => ({ a, pts: Array.from({ length: 14 }, () => mkPt(a)) }));
-
-    function sat(v)       { return Math.max(0, Math.min(1, v)); }
-    function ph(t, s, d)  { return sat((t - s) / d); }
-    function eO(t)        { return 1 - (1 - t) * (1 - t); }
-    function eIO(t)       { return t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2; }
-    function col(c, a)    { return `rgba(${c[0]},${c[1]},${c[2]},${sat(a).toFixed(3)})`; }
-
-    function draw(ts) {
-        if (!t0) t0 = ts;
-        const t = (ts - t0) * 0.001;
-
-        coreGlow  *= 0.965;
-        ctx.clearRect(0, 0, S, S);
-
-        // ── PHASE PROGRESS (0 → 1 each) ──────────────────
-        const Pstar  = ph(t, 0.0, 1.8);  // stars appear
-        const Pstrm  = ph(t, 1.2, 3.0);  // particle streams emerge
-        const Pcore  = ph(t, 3.0, 1.50); // core ignites
-        const Pexp   = ph(t, 4.0, 2.20); // circuit network expands
-
-        // ── 2. STARS ─────────────────────────────────────
-        stars.forEach(s => {
-            s.ph += 0.015 * s.sp;
-            const a = (Math.sin(s.ph) * 0.35 + 0.65) * Pstar * 0.52;
-            ctx.beginPath(); ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-            ctx.fillStyle = col(CW, a); ctx.fill();
-        });
-
-        // Faint network lines between close stars
-        if (Pstar > 0.4) {
-            ctx.lineWidth = 0.35;
-            for (let i = 0; i < stars.length; i++) {
-                for (let j = i + 1; j < stars.length; j++) {
-                    const d = Math.hypot(stars[i].x - stars[j].x, stars[i].y - stars[j].y);
-                    if (d < 78) {
-                        ctx.beginPath();
-                        ctx.moveTo(stars[i].x, stars[i].y);
-                        ctx.lineTo(stars[j].x, stars[j].y);
-                        ctx.strokeStyle = col(CB, (1 - d / 78) * 0.055 * Pstar);
-                        ctx.stroke();
-                    }
-                }
-            }
-        }
-
-        // ── 3. PARTICLE STREAMS (phase 2) ─────────────────
-        if (Pstrm > 0) {
-            streams.forEach(st => {
-                st.pts.forEach(p => {
-                    p.prog += p.spd;
-                    if (p.prog >= 1) {
-                        if (Pcore > 0.25) coreGlow = Math.min(coreGlow + 0.5, 1);
-                        Object.assign(p, mkPt(st.a, 0));
-                        return;
-                    }
-                    const dist = p.d0 * (1 - p.prog);
-                    if (dist < rL * 0.42) return;
-                    const px = cx + Math.cos(p.angle) * dist;
-                    const py = cy + Math.sin(p.angle) * dist;
-
-                    let a = p.ma * Pstrm;
-                    if (p.prog < 0.12)     a *= p.prog / 0.12;
-                    if (dist < rL * 1.18)  a *= sat((dist - rL * 0.42) / (rL * 0.76));
-                    if (a < 0.02) return;
-
-                    // Large glow halo
-                    const gr = p.sz * 5;
-                    const gg = ctx.createRadialGradient(px, py, 0, px, py, gr);
-                    gg.addColorStop(0,   col(CW, a));
-                    gg.addColorStop(0.3, col(CB, a * 0.75));
-                    gg.addColorStop(1,   col(CB, 0));
-                    ctx.fillStyle = gg;
-                    ctx.beginPath(); ctx.arc(px, py, gr, 0, Math.PI * 2); ctx.fill();
-
-                    // Bright core dot
-                    ctx.beginPath(); ctx.arc(px, py, p.sz, 0, Math.PI * 2);
-                    ctx.fillStyle = col(CW, a); ctx.fill();
-                });
-            });
-        }
-
-        // ── 6. CIRCUIT NETWORK EXPANDS (phase 6) ──────────
-        if (Pexp > 0) {
-            nodes.forEach(nd => {
-                const local = sat((Pexp - nd.stag * 0.35) / 0.65);
-                const pulse = Math.sin(t * 1.3 + nd.ph) * 0.5 + 0.5;
-                const ix = cx + Math.cos(nd.a) * rL * 1.13;
-                const iy = cy + Math.sin(nd.a) * rL * 1.13;
-                const tx = cx + (nd.x - cx) * local;
-                const ty = cy + (nd.y - cy) * local;
-
-                ctx.beginPath(); ctx.moveTo(ix, iy);
-                if (Math.abs(nd.x - cx) > Math.abs(nd.y - cy)) {
-                    ctx.lineTo(tx, iy); ctx.lineTo(tx, ty);
-                } else {
-                    ctx.lineTo(ix, ty); ctx.lineTo(tx, ty);
-                }
-                ctx.strokeStyle = col(CB, 0.06 + pulse * 0.15);
-                ctx.lineWidth = 0.8; ctx.stroke();
-
-                if (local > 0.85) {
-                    ctx.beginPath(); ctx.arc(tx, ty, 2.5, 0, Math.PI * 2);
-                    ctx.fillStyle = col(CC, 0.25 + pulse * 0.6); ctx.fill();
-                }
-            });
-        }
-
-        // ── 8. ENERGY CORE GLOW ───────────────────────────
-        const basePulse = Math.sin(t * 1.7 + 0.5) * 0.10 + 0.16;
-        const totalCore = basePulse + eO(Pcore) * 0.58 + coreGlow * 0.40;
-
-        if (totalCore > 0.02) {
-            const cr = rL * 0.28;
-            // Burst flash at ignition moment
-            if (Pcore > 0 && Pcore < 0.5) {
-                const fl = eO(Pcore * 2) * 0.9;
-                const fg = ctx.createRadialGradient(cx, cy, 0, cx, cy, cr * 5);
-                fg.addColorStop(0,    col(CW, fl));
-                fg.addColorStop(0.15, col(CW, fl * 0.85));
-                fg.addColorStop(0.45, col(CB, fl * 0.45));
-                fg.addColorStop(1,    col(CB, 0));
-                ctx.fillStyle = fg; ctx.beginPath(); ctx.arc(cx, cy, cr * 5, 0, Math.PI * 2); ctx.fill();
-            }
-            const cg = ctx.createRadialGradient(cx, cy, 0, cx, cy, cr * 2.3);
-            cg.addColorStop(0,    col(CW, totalCore));
-            cg.addColorStop(0.3,  col(CB, totalCore * 0.70));
-            cg.addColorStop(0.75, col(CB, totalCore * 0.14));
-            cg.addColorStop(1,    col(CB, 0));
-            ctx.fillStyle = cg; ctx.beginPath(); ctx.arc(cx, cy, cr * 2.3, 0, Math.PI * 2); ctx.fill();
-        }
-
-        animId = requestAnimationFrame(draw);
-    }
-
-    function start() {
-        t0 = null;
-        if (animId) cancelAnimationFrame(animId);
-        animId = requestAnimationFrame(draw);
-    }
-
-    setTimeout(() => { if (!animId) start(); }, 0);
-
-    document.addEventListener("visibilitychange", () => {
-        if (document.hidden) cancelAnimationFrame(animId);
-        else start();
     });
 }
 
@@ -367,6 +229,7 @@ function initNavigation() {
         toggle.classList.toggle("open", open);
         toggle.setAttribute("aria-expanded", open);
         document.body.style.overflow = open ? "hidden" : "";
+        document.body.classList.toggle("nav-open", open);
     });
 
     links.forEach(l => l.addEventListener("click", () => {
@@ -374,7 +237,15 @@ function initNavigation() {
         toggle.classList.remove("open");
         toggle.setAttribute("aria-expanded", "false");
         document.body.style.overflow = "";
+        document.body.classList.remove("nav-open");
     }));
+
+    // Tapping the dimmed page (outside the drawer) closes the menu
+    document.addEventListener("click", e => {
+        if (!document.body.classList.contains("nav-open")) return;
+        if (e.target.closest("#navLinks, #navToggle")) return;
+        toggle.click();
+    });
 
     // Active link on scroll
     const sectObs = new IntersectionObserver(
@@ -395,6 +266,7 @@ function initNavigation() {
 function initNavDots() {
     const dots = document.querySelectorAll(".side-dot");
     if (!dots.length) return;
+    const nav = document.getElementById("sideDots");
 
     const obs = new IntersectionObserver(
         entries => entries.forEach(e => {
@@ -407,6 +279,27 @@ function initNavDots() {
         { threshold: 0.35, rootMargin: "-72px 0px -40% 0px" }
     );
     document.querySelectorAll("section[id]").forEach(s => obs.observe(s));
+
+    // Dots sit over the light "Built Different" panel — darken them while it's behind.
+    // The section runs past the light area (the cards overhang onto the purple), so
+    // measure to the ::before panel's bottom rather than the section's.
+    const lightPanel = document.getElementById("why-us");
+    if (nav && lightPanel) {
+        let queued = false;
+        const sync = () => {
+            const r = lightPanel.getBoundingClientRect();
+            const overhang = parseFloat(getComputedStyle(lightPanel).getPropertyValue("--overhang-bottom")) || 70;
+            const lightBottom = r.bottom - overhang;
+            const mid = window.innerHeight / 2;
+            nav.classList.toggle("on-light", r.top < mid && lightBottom > mid);
+            queued = false;
+        };
+        window.addEventListener("scroll", () => {
+            if (!queued) { queued = true; requestAnimationFrame(sync); }
+        }, { passive: true });
+        window.addEventListener("resize", sync);
+        sync();
+    }
 }
 
 /* ── Hero Stat Counters ── */
@@ -418,12 +311,13 @@ function initStatCounters() {
             if (!entry.isIntersecting) return;
             const el     = entry.target;
             const target = parseFloat(el.dataset.target);
+            const prefix = el.dataset.prefix || "";
             const suffix = el.dataset.suffix || "";
             const dur    = 1400;
             const start  = performance.now();
             function tick(now) {
                 const p = Math.min((now - start) / dur, 1);
-                el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3))) + suffix;
+                el.textContent = prefix + Math.round(target * (1 - Math.pow(1 - p, 3))) + suffix;
                 if (p < 1) requestAnimationFrame(tick);
             }
             requestAnimationFrame(tick);
@@ -499,6 +393,11 @@ function initConsultModal() {
     if (!modal) return;
 
     function openModal() {
+        const dateInput = modal.querySelector("#fdate");
+        if (dateInput && !dateInput.min) {
+            const t = new Date(); t.setDate(t.getDate() + 1);
+            dateInput.min = `${t.getFullYear()}-${String(t.getMonth() + 1).padStart(2, "0")}-${String(t.getDate()).padStart(2, "0")}`;
+        }
         modal.classList.add("open");
         document.body.style.overflow = "hidden";
         setTimeout(() => modal.querySelector("input")?.focus(), 100);
@@ -511,13 +410,14 @@ function initConsultModal() {
     ["openConsultModal", "openConsultModalNav", "openConsultModalHero"].forEach(id => {
         document.getElementById(id)?.addEventListener("click", openModal);
     });
+    document.querySelectorAll("[data-open-consult]").forEach(el => el.addEventListener("click", openModal));
     closeBtn?.addEventListener("click", closeModal);
     modal.addEventListener("click", e => { if (e.target === modal) closeModal(); });
     document.addEventListener("keydown", e => { if (e.key === "Escape" && modal.classList.contains("open")) closeModal(); });
 }
 
 /* ── Consultation Form ── */
-const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwiMz_rTnmb6nD_btLF4NzR-lvOYi_q56AJjtdJuF3qCMUe3STuvztDKJW5Zmr2b--k/exec";
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwxahtn9fQrhUynlLo_TRyie1ELMW0NfkrxjI7ZtEpffLmsdtlfCjsr4a73cuQEwT1n/exec";
 
 function initConsultForm() {
     const form      = document.getElementById("consultForm");
@@ -540,6 +440,9 @@ function initConsultForm() {
         const email   = (form.querySelector("#femail")?.value   || "").trim();
         const company = (form.querySelector("#fcompany")?.value || "").trim();
         const msg     = (textarea?.value || "").trim();
+        const phone   = (form.querySelector("#fphone")?.value || "").trim();
+        const slotDate = form.querySelector("#fdate")?.value || "";
+        const slotTime = form.querySelector("#ftime")?.value || "";
 
         if (!name || !email || !msg) {
             showNote(note, "Please fill in all required fields.", "error");
@@ -550,6 +453,17 @@ function initConsultForm() {
             return;
         }
 
+        if (phone && !/^[+()\d\s-]{7,20}$/.test(phone)) {
+            showNote(note, "Please enter a valid phone number or leave it blank.", "error");
+            return;
+        }
+
+        // The Apps Script may not read the new fields yet, so also fold them into the message
+        const extras = [];
+        if (phone) extras.push(`Phone: ${phone}`);
+        if (slotDate || slotTime) extras.push(`Preferred slot: ${[slotDate, slotTime].filter(Boolean).join(" ")} IST`);
+        const fullMessage = extras.length ? `${msg}\n\n— ${extras.join(" | ")}` : msg;
+
         const btn = form.querySelector("button[type='submit']");
         const origText = btn ? btn.textContent : "";
         if (btn) { btn.textContent = "Sending…"; btn.disabled = true; }
@@ -558,7 +472,7 @@ function initConsultForm() {
             method: "POST",
             mode: "no-cors",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ name, email, company, message: msg })
+            body: JSON.stringify({ name, email, company, phone, slotDate, slotTime, message: fullMessage })
         })
         .then(() => {
             showNote(note, "Thank you! We'll respond within 48 hours.", "success");
@@ -576,22 +490,38 @@ function initConsultForm() {
     });
 }
 
-/* ── Newsletter Form ── */
+/* ── Newsletter Form: saved to the private Google Sheet by the Apps Script ── */
 function initNewsletterForm() {
     const form = document.getElementById("newsletterForm");
     if (!form) return;
+    const input = form.querySelector("input[type='email']");
+    const btn = form.querySelector("button[type='submit']");
+    const arrow = btn ? btn.innerHTML : "";
+    const note = document.createElement("p");
+    note.className = "newsletter-note";
+    note.setAttribute("role", "status");
+    form.insertAdjacentElement("afterend", note);
+    const say = (msg, kind) => { note.textContent = msg; note.className = "newsletter-note" + (kind ? " " + kind : ""); };
+
     form.addEventListener("submit", e => {
         e.preventDefault();
-        const btn = form.querySelector("button");
-        const input = form.querySelector("input");
-        if (!input?.value.trim()) return;
-        if (btn) {
-            btn.innerHTML = "<svg viewBox='0 0 24 24'><path d='M5,12L10,17L19,7' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round'/></svg>";
-            setTimeout(() => {
-                btn.innerHTML = "<svg viewBox='0 0 24 24'><path d='M2,12 L22,12 M14,4 L22,12 L14,20' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round'/></svg>";
-            }, 2500);
-        }
-        form.reset();
+        const email = (input?.value || "").trim();
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { say("Please enter a valid email address.", "error"); return; }
+        if (btn) btn.disabled = true;
+        say("Subscribing…");
+        fetch(APPS_SCRIPT_URL, {
+            method: "POST",
+            mode: "no-cors",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ type: "newsletter", email, page: location.pathname.split("/").pop() || "index.html", website: "" })
+        })
+        .then(() => {
+            say("Thanks, you're subscribed.", "success");
+            form.reset();
+            if (btn) btn.innerHTML = "<svg viewBox='0 0 24 24'><path d='M5,12L10,17L19,7' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round'/></svg>";
+            setTimeout(() => { if (btn) { btn.innerHTML = arrow; btn.disabled = false; } }, 2500);
+        })
+        .catch(() => { say("Something went wrong. Please email info@micronode.in.", "error"); if (btn) btn.disabled = false; });
     });
 }
 
@@ -650,5 +580,223 @@ function initMagneticButtons() {
         btn.addEventListener("mouseleave", () => {
             btn.style.transform = "";
         });
+    });
+}
+
+function initProductGallery() {
+    const gallery = document.querySelector(".pdp-gallery-main");
+    if (!gallery) return;
+
+    const mainImage = gallery.querySelector("img");
+    if (!mainImage) return;
+
+    const picture = gallery.querySelector("picture");
+    const source = picture?.querySelector("source");
+    const thumbButtons = document.querySelectorAll(".pdp-thumb, .pdp-thumb-label");
+
+    const activeButton = document.querySelector('.pdp-thumb[data-image="images/updt_product_page_files/mg51-square-1200.jpg"], .pdp-thumb-label[data-image="images/updt_product_page_files/mg51-square-1200.jpg"]');
+    if (activeButton) {
+        mainImage.src = activeButton.dataset.image;
+        mainImage.alt = activeButton.dataset.alt || mainImage.alt;
+        thumbButtons.forEach(item => {
+            item.classList.toggle('is-active', item === activeButton);
+        });
+    }
+
+    thumbButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            const imageSrc = button.dataset.image;
+            if (!imageSrc) return;
+
+            if (source) {
+                source.setAttribute("srcset", imageSrc);
+                source.setAttribute("data-current", imageSrc);
+            }
+            mainImage.src = imageSrc;
+            mainImage.alt = button.dataset.alt || mainImage.alt;
+
+            thumbButtons.forEach(item => {
+                item.classList.toggle("is-active", item === button);
+            });
+        });
+    });
+}
+
+
+/* ── Rotating word in a headline (e.g. "a ready HMI" / "digital counter" / "timer" …) ── */
+function initRotatingWord() {
+    document.querySelectorAll(".rot-word[data-words]").forEach(el => {
+        let words;
+        try { words = JSON.parse(el.dataset.words); } catch { return; }
+        if (!Array.isArray(words) || words.length < 2) return;
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;   // stays on the first word
+        let i = 0;
+        setInterval(() => {
+            if (document.hidden) return;
+            el.classList.add("is-out");
+            setTimeout(() => {
+                i = (i + 1) % words.length;
+                el.textContent = words[i];
+                el.classList.remove("is-out");
+                el.classList.add("is-in");
+                void el.offsetWidth;                       // restart the transition from the lowered position
+                el.classList.remove("is-in");
+            }, 300);
+        }, 2600);
+    });
+}
+
+/* ── Email buttons: open the visitor's mail app; if none opens (e.g. only webmail), open Gmail compose instead ── */
+function initMailLinks() {
+    document.querySelectorAll('a[href^="mailto:"]').forEach(a => {
+        a.addEventListener("click", () => {
+            let left = false;
+            const onBlur = () => { left = true; };
+            window.addEventListener("blur", onBlur, { once: true });
+            setTimeout(() => {
+                window.removeEventListener("blur", onBlur);
+                if (left || document.hidden) return;                       // a mail app took over
+                let url;
+                try { url = new URL(a.getAttribute("href")); } catch { return; }
+                const q = url.searchParams;
+                const g = "https://mail.google.com/mail/?view=cm&fs=1" +
+                    "&to=" + encodeURIComponent(decodeURIComponent(url.pathname)) +
+                    "&su=" + encodeURIComponent(q.get("subject") || "") +
+                    "&body=" + encodeURIComponent(q.get("body") || "");
+                window.open(g, "_blank", "noopener");
+            }, 900);
+        });
+    });
+}
+
+/* ── "Company" dropdown: opens on click (and on hover on desktop); closes on outside click or Escape ── */
+function initCompanyMenu() {
+    const dd = document.querySelector(".nav-dropdown");
+    if (!dd) return;
+    const btn = dd.querySelector(".nav-drop-toggle");
+    const set = open => { dd.classList.toggle("open", open); btn.setAttribute("aria-expanded", open); };
+    btn.addEventListener("click", e => { e.stopPropagation(); set(!dd.classList.contains("open")); });
+    document.addEventListener("click", e => { if (!dd.contains(e.target)) set(false); });
+    document.addEventListener("keydown", e => { if (e.key === "Escape") set(false); });
+    dd.querySelectorAll(".nav-drop-menu a").forEach(a => a.addEventListener("click", () => set(false)));
+}
+
+/* ── FAQ page: each group opens and closes on click; a link like faq.html#mg51 opens that group ── */
+function initFaqGroups() {
+    const groups = [...document.querySelectorAll("details.faq-group")];
+    if (!groups.length) return;
+    const openFromHash = () => {
+        const g = groups.find(x => "#" + x.id === location.hash);
+        if (g) { g.open = true; setTimeout(() => g.scrollIntoView({ behavior: "smooth", block: "start" }), 60); }
+    };
+    openFromHash();
+    window.addEventListener("hashchange", openFromHash);
+}
+
+/* ═══════════════════════════════════════════
+   MOTION: movement only; content, layout and colours stay as they are.
+   Everything here is skipped when the visitor has "reduce motion" turned on.
+   ═══════════════════════════════════════════ */
+function initMotion() {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    document.documentElement.classList.add("motion");
+
+    /* Headline: words rise and focus in one after another */
+    document.querySelectorAll("h1").forEach(h => {
+        if (h.closest(".modal-box, .mn-chat-panel")) return;
+        let n = 0;
+        const split = node => {
+            [...node.childNodes].forEach(c => {
+                if (c.nodeType === 3) {
+                    const parts = c.textContent.split(/(\s+)/);
+                    const frag = document.createDocumentFragment();
+                    parts.forEach(p => {
+                        if (!p) return;
+                        if (/^\s+$/.test(p)) { frag.appendChild(document.createTextNode(p)); return; }
+                        const s = document.createElement("span");
+                        s.className = "mw"; s.style.setProperty("--i", n++); s.textContent = p;
+                        frag.appendChild(s);
+                    });
+                    c.replaceWith(frag);
+                } else if (c.nodeType === 1 && !c.classList.contains("rot-word") && c.tagName !== "BR") {
+                    split(c);
+                }
+            });
+        };
+        split(h);
+        const total = n;
+        h.classList.add("mh");
+        // when the last word has landed, drop the animation so gradient text paints normally
+        setTimeout(() => h.classList.add("mh-done"), 700 + Math.min(total, 14) * 60 + 200);
+    });
+
+    /* Small labels: letters start spread wide and slide together */
+    const labelSel = ".eyebrow, .rule-label, .sec-number-label, .wl-label, .pdp-eyebrow, .pdp-col-label, .post-meta, .blog-card-meta, .whyd-eyebrow-text";
+    const labels = [...document.querySelectorAll(labelSel)].filter(el => !el.closest(".mn-chat-panel, .modal-box"));
+    labels.forEach(el => el.classList.add("m-lbl"));
+
+    /* Section headings: reveal left to right */
+    const heads = [...document.querySelectorAll("h2")].filter(el => !el.closest("summary, .modal-box, .mn-chat-panel, .tech-header"));
+    heads.forEach(el => el.classList.add("m-head"));
+
+    /* Images: start slightly zoomed in and settle; zoom a little on hover */
+    const imgBoxes = [...document.querySelectorAll(".ind-photo, .product-card-media, .prodc-img-wrap, .pdp-gallery-main")];
+    imgBoxes.forEach(el => el.classList.add("m-img"));
+
+    /* Cards without their own reveal get one, staggered by position in the row */
+    const cardSel = ".wl-card, .wl-mean, .blog-card, .pdp-stat, .nf-grid > a";
+    document.querySelectorAll(cardSel).forEach(el => {
+        if (!el.classList.contains("reveal")) {
+            el.classList.add("reveal");
+            const sibs = [...el.parentElement.children].filter(x => x.matches(cardSel));
+            el.style.transitionDelay = (Math.min(sibs.indexOf(el), 5) * 0.09) + "s";
+        }
+    });
+
+    // Headings start clipped to a 1% sliver, so they still count as "seen" the moment any part scrolls into view
+    const mk = threshold => new IntersectionObserver((entries, o) => entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        e.target.classList.add("m-in");
+        o.unobserve(e.target);
+    }), { threshold, rootMargin: "0px 60px -8% 60px" });
+    const ioSoft = mk(0.15), ioAny = mk(0);
+    [...labels, ...imgBoxes].forEach(el => ioSoft.observe(el));
+    heads.forEach(el => ioAny.observe(el));
+}
+
+/* ── Page change: a purple wipe slides across the screen, like a video transition ── */
+function initPageWipe() {
+    const root = document.documentElement;
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    try { sessionStorage.removeItem("mnWipe"); } catch (e) { /* ignore */ }
+
+    // Arriving: the cover is already across the screen (set in the page head); slide it away
+    if (root.classList.contains("pt-arrive")) {
+        requestAnimationFrame(() => requestAnimationFrame(() => {
+            root.classList.remove("pt-arrive");
+            root.classList.add("pt-leave");
+            setTimeout(() => root.classList.remove("pt-leave"), 340);
+        }));
+    }
+    // Coming back with the browser's Back button must not leave the cover on screen
+    window.addEventListener("pageshow", e => { if (e.persisted) root.classList.remove("pt-cover", "pt-arrive", "pt-leave"); });
+
+    if (reduce) return;
+    document.addEventListener("click", e => {
+        if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+        const a = e.target.closest("a[href]");
+        if (!a || a.target === "_blank" || a.hasAttribute("download")) return;
+        const href = a.getAttribute("href");
+        if (!href || href.startsWith("#") || /^(mailto:|tel:|javascript:)/i.test(href)) return;
+        let url;
+        try { url = new URL(a.href, location.href); } catch (err) { return; }
+        if (url.origin !== location.origin && location.protocol !== "file:") return;
+        if (location.protocol === "file:" && url.protocol !== "file:") return;
+        if (url.pathname === location.pathname && url.search === location.search) return;   // same page: plain scroll
+        e.preventDefault();
+        root.classList.add("pt-cover");
+        try { sessionStorage.setItem("mnWipe", "1"); } catch (err) { /* ignore */ }
+        setTimeout(() => { location.href = a.href; }, 190);
+        setTimeout(() => root.classList.remove("pt-cover"), 3000);   // safety: never leave the cover up
     });
 }
