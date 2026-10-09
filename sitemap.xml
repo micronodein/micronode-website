@@ -1,38 +1,25 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://micronode.in/</loc>
-<<<<<<< HEAD
     <lastmod>2026-10-04</lastmod>
-=======
-    <lastmod>2026-09-14</lastmod>
->>>>>>> 88050eac84b2fcf646f05b9e557c02090696b76d
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://micronode.in/products.html</loc>
-<<<<<<< HEAD
     <lastmod>2026-10-04</lastmod>
-=======
-    <lastmod>2026-09-14</lastmod>
->>>>>>> 88050eac84b2fcf646f05b9e557c02090696b76d
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://micronode.in/product-mg51.html</loc>
-<<<<<<< HEAD
     <lastmod>2026-10-04</lastmod>
-=======
-    <lastmod>2026-09-14</lastmod>
->>>>>>> 88050eac84b2fcf646f05b9e557c02090696b76d
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://micronode.in/product-tm1637.html</loc>
-<<<<<<< HEAD
     <lastmod>2026-10-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -58,9 +45,6 @@
   <url>
     <loc>https://micronode.in/white-label.html</loc>
     <lastmod>2026-10-04</lastmod>
-=======
-    <lastmod>2026-09-14</lastmod>
->>>>>>> 88050eac84b2fcf646f05b9e557c02090696b76d
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
