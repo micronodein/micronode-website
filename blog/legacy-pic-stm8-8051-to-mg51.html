@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>try{if(sessionStorage.getItem("mnWipe")&&!matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.classList.add("pt-arrive")}catch(e){}</script>
+    <link rel="icon" href="../favicon.ico?v=2" sizes="any">
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg?v=2">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16.png?v=2">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png?v=2">
+    <link rel="icon" type="image/png" sizes="192x192" href="../icon-192.png?v=2">
+    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png?v=2">
+    <title>Legacy PIC, STM8 and 8051 Products: Why Move Them to the MG51 | Micronode LLP</title>
+    <meta name="description" content="Move a legacy PIC, STM8 or old 8051 product to the Nuvoton MG51: stay 8-bit, stay 5V, about ₹19 per IC, with no board redesign.">
+    <meta name="keywords" content="stm8 alternative, pic alternative, cheap mcu for production, nuvoton mg51, mg51 vs stm8, mg51 vs pic, legacy 8051 migration, 8-bit mcu migration, mg51fb9ae">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://micronode.in/blog/legacy-pic-stm8-8051-to-mg51.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Legacy PIC, STM8 and 8051 Products: Why Move Them to the MG51 | Micronode LLP">
+    <meta property="og:description" content="Move a legacy PIC, STM8 or old 8051 product to the Nuvoton MG51: stay 8-bit, stay 5V, about ₹19 per IC, with no board redesign.">
+    <meta property="og:url" content="https://micronode.in/blog/legacy-pic-stm8-8051-to-mg51.html">
+    <meta property="og:image" content="https://micronode.in/images/blog/legacy-pic-stm8-8051-share.png">
+    <meta property="og:image:alt" content="Legacy PIC, STM8 and 8051 products: why move them to the MG51 — Stay 8-bit. Stay 5V. About ₹19 per IC.">
+    <meta property="og:site_name" content="Micronode LLP">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#7B61FF">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://micronode.in/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://micronode.in/blog.html" },
+        { "@type": "ListItem", "position": 3, "name": "Legacy PIC, STM8 and 8051 Products: Why Move Them to the MG51", "item": "https://micronode.in/blog/legacy-pic-stm8-8051-to-mg51.html" }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Legacy PIC, STM8 and 8051 Products: Why Move Them to the MG51",
+      "description": "Move a legacy PIC, STM8 or old 8051 product to the Nuvoton MG51: stay 8-bit, stay 5V, about ₹19 per IC, with no board redesign.",
+      "image": "https://micronode.in/images/blog/legacy-pic-stm8-8051-share.png",
+      "datePublished": "2026-10-08",
+      "dateModified": "2026-10-08",
+      "author": {
+        "@type": "Person",
+        "name": "Rishikesh Das",
+        "jobTitle": "Co-founder & CTO",
+        "worksFor": { "@type": "Organization", "name": "Micronode LLP" }
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Micronode LLP",
+        "logo": { "@type": "ImageObject", "url": "https://micronode.in/images/micronodellp_logo.webp" }
+      },
+      "mainEntityOfPage": "https://micronode.in/blog/legacy-pic-stm8-8051-to-mg51.html"
+    }
+    </script>
+    <!-- Lead Tracking -->
+    <script> (function(ss,ex){ window.ldfdr=window.ldfdr||function(){(ldfdr._q=ldfdr._q||[]).push([].slice.call(arguments));}; (function(d,s){ fs=d.getElementsByTagName(s)[0]; function ce(src){ var cs=d.createElement(s); cs.src=src; cs.async=1; fs.parentNode.insertBefore(cs,fs); }; ce('https://sc.lfeeder.com/lftracker_v1_'+ss+(ex?'_'+ex:'')+'.js'); })(document,'script'); })('3P1w24d3my97mY5n'); </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"></noscript>
+    <link rel="stylesheet" href="../Micronode_Website.css">
+</head>
+<body>
+
+<div class="scroll-progress" id="scrollProgress"></div>
+<canvas id="nodeCanvas" aria-hidden="true"></canvas>
+
+<!-- HEADER-->
+<header class="site-header" id="siteHeader">
+    <div class="container navbar">
+        <a href="../index.html#hero" class="logo">
+            <img src="../images/micronode-holo-emblem.svg" class="logo-icon" alt="Micronode LLP" loading="lazy" style="aspect-ratio: 153 / 150;"/>
+            <span class="logo-wordmark">
+                <span class="logo-micro">MICRO</span><span class="logo-node">NODE</span>
+                <span class="logo-llp">LLP</span>
+            </span>
+        </a>
+        <button type="button" class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+        <nav class="nav-links" id="navLinks">
+            <a href="../index.html#hero">Home</a>
+            <a href="../products.html">Products</a>
+            <a href="../index.html#technologies">Technologies</a>
+            <a href="../index.html#industries">Industries</a>
+            <div class="nav-dropdown">
+                <button type="button" class="nav-drop-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="companyMenu">Company <svg class="nav-chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                <div class="nav-drop-menu" id="companyMenu">
+                    <a href="../index.html#why-us">About</a>
+                    <a href="../faq.html">FAQ</a>
+                    <a href="../blog.html">Blog</a>
+                    <a href="../index.html#contact">Contact</a>
+                </div>
+            </div>
+        </nav>
+        <button type="button" class="btn btn-nav" id="openConsultModalNav">Start a project</button>
+    </div>
+</header>
+
+<!-- ARTICLE -->
+<article class="section post">
+    <div class="container post-wrap">
+        <div class="page-breadcrumb">
+            <a href="../index.html#hero">Home</a>
+            <span class="sep">/</span>
+            <a href="../blog.html">Blog</a>
+            <span class="sep">/</span>
+            <span class="current">Legacy PIC, STM8 and 8051 to MG51</span>
+        </div>
+
+        <span class="post-meta">8 Oct 2026 &middot; 4 min read</span>
+        <h1>Legacy PIC, STM8 and 8051 products: why move them to the MG51</h1>
+        <p class="post-lead">Stay 8-bit, stay 5V, and move for about ₹19 per IC — without a 32-bit redesign, level shifters or a full firmware rewrite.</p>
+
+        <div class="post-body">
+            <img src="../images/blog/legacy-pic-stm8-8051-cover.png" alt="Legacy PIC, STM8 and 8051 products: why move them to the MG51 — Nuvoton MG51FB9AE development board" width="1600" height="900" loading="lazy">
+
+            <h2>The legacy product problem</h2>
+            <p>If your product runs on a PIC, an STM8 or an old 8051, you can move it to the <a href="../product-mg51.html">Nuvoton MG51</a> for about ₹19 per IC and keep it 8-bit and 5V. The PIC or STM8 in your product may cost you more.</p>
+            <p>Many products in Indian factories still run firmware written 10 or 15 years ago. The board works, customers are happy, and nobody wants to touch the code. Often the engineer who wrote it has moved on.</p>
+            <p>The trouble starts with the chip. Prices rise, lead times stretch, and supply news changes without warning.</p>
+            <blockquote><p>The worst time to move is when the old chip is out of stock and a production line is waiting.</p></blockquote>
+
+            <h2>Why a 32-bit MCU is often the wrong fix</h2>
+            <p>Most migration advice says: move to a 32-bit MCU like the STM32. For a 5V legacy product, that is usually more work than the product needs.</p>
+            <p>A move to a 3.3V 32-bit chip typically brings a new 3.3V supply rail on the board, level shifters on lines that talk to 5V relays, sensors and displays, a new toolchain and new libraries for the team to learn, and a full firmware rewrite. You pay for all of it, and the product does exactly what it did before. If the product never needed 32 bits, the cheaper path is to stay 8-bit.</p>
+
+            <img src="../images/blog/legacy-pic-stm8-8051-compare.png" alt="Two ways to update a 5V legacy product: move to a 32-bit MCU versus move to the MG51" width="1600" height="900" loading="lazy">
+
+            <p>STM8 users face an extra question mark. ST marked the STM8 family "not recommended for new designs" in 2023, then later moved STM8S and STM8L back to active. Its suggested successor, the STM32C0, does not run at 5V. <em>(STM8 status is based on ST community updates — check ST's website for the current status.)</em></p>
+
+            <h2>Why the MG51</h2>
+            <p>Beyond the low price, the MG51 adds features many legacy chips lack.</p>
+            <table>
+                <thead><tr><th>Reason</th><th>What it means for your product</th></tr></thead>
+                <tbody>
+                    <tr><td>Runs from 2.4V to 5.5V</td><td>Fits your existing 5V board, with no level shifters</td></tr>
+                    <tr><td>7 kV ESD, 4.4 kV EFT</td><td>Survives static shocks from touch and spikes from relays and motors, so fewer resets and field failures</td></tr>
+                    <tr><td>Standard 8051 core, up to 24 MHz</td><td>Old 8051 code needs the fewest changes</td></tr>
+                    <tr><td>Rated -40°C to +105°C</td><td>Suits panels, appliances and outdoor enclosures</td></tr>
+                    <tr><td>Internal 16/24 MHz oscillator, ±1%</td><td>No external crystal needed for most designs</td></tr>
+                    <tr><td>12-bit ADC, up to 12 PWM, 2 UARTs, I2C, SPI, 4 timers</td><td>Enough for sensing, control and communication</td></tr>
+                    <tr><td>Flash lock bits, execute-only secure area</td><td>Protects your firmware from copying</td></tr>
+                    <tr><td>Built-in bootloader area (LDROM)</td><td>Supports firmware updates in the field</td></tr>
+                    <tr><td>Keil C51, IAR, or free SDCC</td><td>No paid tool lock-in</td></tr>
+                </tbody>
+            </table>
+
+            <div class="pdp-stats is-two">
+                <div class="pdp-stat"><div class="pdp-stat-val">7 kV</div><div class="pdp-stat-lbl">ESD — survives a static shock from touch</div></div>
+                <div class="pdp-stat"><div class="pdp-stat-val">4.4 kV</div><div class="pdp-stat-lbl">EFT — keeps running through relay/motor spikes</div></div>
+            </div>
+
+            <p>The MG51 is a new series in full mass production. Nuvoton runs a 10-year product longevity program for its MCUs, counted from a product's introduction, and has publicly committed to long-term 8-bit MCU production.</p>
+
+            <h2>Where the MG51 fits</h2>
+            <p>Nuvoton built the MG51 for home appliances, LED lighting control, motor control and industrial automation. In practice, that covers most 5V legacy 8-bit products:</p>
+            <ul>
+                <li>Home appliances and their control panels</li>
+                <li>LED lighting and dimming</li>
+                <li>Fans, pumps and small motor control</li>
+                <li>Temperature controllers and timers</li>
+                <li>Battery chargers and power supplies</li>
+                <li>Display and keypad panels</li>
+                <li>Industrial automation and relay control</li>
+            </ul>
+
+            <h2>What changes when you move</h2>
+            <p>If your firmware is written in C, the application logic carries over. Only the layer that talks to the hardware changes.</p>
+            <table>
+                <thead><tr><th>Coming from</th><th>What carries over</th><th>What you rework</th></tr></thead>
+                <tbody>
+                    <tr><td>Old 8051 (AT89 family and similar)</td><td>Most code, including 8051-specific code</td><td>Register names, GPIO modes, clock setup, programming method</td></tr>
+                    <tr><td>PIC</td><td>Application logic in C</td><td>GPIO, timers, interrupts, ADC and UART setup</td></tr>
+                    <tr><td>STM8</td><td>Application logic in C</td><td>GPIO, timers, interrupts, ADC and UART setup</td></tr>
+                </tbody>
+            </table>
+
+            <p>Three MG51 details catch most first-time users:</p>
+            <ol>
+                <li>Pins start in quasi-bidirectional mode. Set push-pull with <code>PxM1</code> / <code>PxM2</code> where you drive loads.</li>
+                <li>Some registers need a timed-access (<code>TA</code>) sequence before a write.</li>
+                <li>Internal RAM is small. Place large arrays in <code>__xdata</code>.</li>
+            </ol>
+
+            <h2>Test first, then build</h2>
+            <p>Don't redesign the power circuits and PCB first. Test your code on the MG51 before you commit.</p>
+
+            <img src="../images/blog/legacy-pic-stm8-8051-test-first.png" alt="Test first, then build: 1) get the dev board, 2) start from example code, 3) port and test, 4) go to production" width="1600" height="640" loading="lazy">
+
+            <ol>
+                <li>Get the <a href="../product-mg51.html">MG51 Dev Board</a> (₹295). The <code>MG51FB9AE</code> comes already soldered, it takes 5V or 12V input, and it is ready for prototyping.</li>
+                <li>Start from our example code on the <a href="../product-mg51.html">product page</a> and our <a href="https://github.com/micronodein/mg51-dev-board" target="_blank" rel="noopener noreferrer">GitHub repo</a>.</li>
+                <li>Port your application logic and test it on the board.</li>
+                <li>Once it works, buy the ₹19 MG51 IC for your production PCB.</li>
+            </ol>
+
+            <h2>Plan your move</h2>
+            <p>Your legacy product doesn't need a 32-bit redesign to stay in production. It needs a cheaper, newer 8-bit chip that still runs at 5V.</p>
+            <p>Have a product on PIC, STM8 or an old 8051? Contact Micronode — we're happy to help you plan the move, from firmware porting to a new production PCB.</p>
+            <p>Example code: <a href="https://github.com/micronodein/mg51-dev-board" target="_blank" rel="noopener noreferrer">github.com/micronodein/mg51-dev-board</a><br>
+            Follow us on <a href="https://www.linkedin.com/company/micronode-llp/" target="_blank" rel="noopener noreferrer">LinkedIn</a> for more on 8-bit and legacy firmware.</p>
+
+            <img src="../images/blog/legacy-pic-stm8-8051-footer-cta.png" alt="Have a legacy product on PIC, STM8 or 8051? We help you plan the move, from firmware to production PCB. micronode.in" width="1600" height="500" loading="lazy">
+
+            <h2>Sources</h2>
+            <ul>
+                <li>Nuvoton MG51 product page</li>
+                <li>Nuvoton Product Longevity Program</li>
+                <li>ST Community: STM8 status updates</li>
+                <li>EEVblog: STM8 status and STM32C0 voltage</li>
+            </ul>
+        </div>
+
+        <div class="post-cta">
+            <div>
+                <h3>Have a legacy product on PIC, STM8 or 8051?</h3>
+                <p>We help you plan the move, from firmware porting to a new production PCB.</p>
+            </div>
+            <button type="button" class="btn btn-primary" data-open-consult>Start a project</button>
+        </div>
+
+        <div class="post-author">
+            <p>Written by <strong>Rishikesh Das</strong>, Co-founder &amp; CTO, Micronode — <a href="https://www.linkedin.com/in/rishikesh-das-72a143210" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
+        </div>
+    </div>
+</article>
+<!--  FOOTER -->
+<footer class="site-footer">
+    <div class="container footer-inner">
+        <div class="footer-brand">
+            <p class="footer-tagline">Electronic product development &amp; embedded engineering company building intelligent solutions for a better tomorrow.</p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/company/micronode-llp/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+                    <svg viewBox="0 0 24 24"><path d="M16,8 C17.6,8 19.1,8.6 20.2,9.8 C21.3,11 22,12.5 22,14 V21 H18 V14 C18,13.5 17.8,13 17.4,12.6 C17,12.2 16.5,12 16,12 C15.5,12 15,12.2 14.6,12.6 C14.2,13 14,13.5 14,14 V21 H10 V14 C10,12.5 10.6,11 11.7,9.8 C12.8,8.6 14.3,8 16,8 Z M2,9 H6 V21 H2 V9 Z M4,6 C3.5,6 3,5.8 2.6,5.4 C2.2,5 2,4.5 2,4 C2,3.5 2.2,3 2.6,2.6 C3,2.2 3.5,2 4,2 C4.5,2 5,2.2 5.4,2.6 C5.8,3 6,3.5 6,4 C6,4.5 5.8,5 5.4,5.4 C5,5.8 4.5,6 4,6 Z" fill="currentColor"/></svg>
+                </a>
+                <a href="https://github.com/micronodein" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
+                    <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.333-1.754-1.333-1.754-1.089-.744.084-.729.084-.729 1.205.084 1.84 1.238 1.84 1.238 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.124-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.301 1.23a11.5 11.5 0 0 1 3.003-.404c1.02.005 2.047.138 3.006.404 2.29-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.873.12 3.176.77.84 1.235 1.91 1.235 3.22 0 4.61-2.805 5.625-5.475 5.92.43.372.823 1.102.823 2.222 0 1.606-.015 2.896-.015 3.286 0 .315.21.694.825.576C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" fill="currentColor"/></svg>
+                </a>
+                <a href="#" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/></svg>
+                </a>
+                <a href="#" aria-label="YouTube">
+                    <svg viewBox="0 0 24 24"><path d="M22.5,6.2 C22.2,5.1 21.4,4.2 20.3,3.9 C18.4,3.4 12,3.4 12,3.4 C12,3.4 5.6,3.4 3.7,3.9 C2.6,4.2 1.8,5.1 1.5,6.2 C1,8.1 1,12 1,12 C1,12 1,15.9 1.5,17.8 C1.8,18.9 2.6,19.8 3.7,20.1 C5.6,20.6 12,20.6 12,20.6 C12,20.6 18.4,20.6 20.3,20.1 C21.4,19.8 22.2,18.9 22.5,17.8 C23,15.9 23,12 23,12 C23,12 23,8.1 22.5,6.2 Z M9.8,15.5 V8.5 L15.8,12 L9.8,15.5 Z" fill="currentColor"/></svg>
+                </a>
+            </div>
+            <p class="footer-contact">info@micronode.in &middot; Pune, India</p>
+            <p class="footer-contact">GSTIN: 27ACHFM6033E1ZC</p>
+        </div>
+
+        <div class="footer-col">
+            <h4>Quick Links</h4>
+            <a href="../index.html#hero">Home</a>
+            <a href="../products.html">Products</a>
+            <a href="../index.html#technologies">Technologies</a>
+            <a href="../index.html#industries">Industries</a>
+            <a href="../index.html#why-us">About</a>
+            <a href="../faq.html">FAQ</a>
+            <a href="../blog.html">Blog</a>
+            <a href="../index.html#contact">Contact</a>
+        </div>
+
+        <div class="footer-col">
+            <h4>Our Services</h4>
+            <div class="footer-services-grid">
+                <div class="footer-services-col">
+                    <a href="../index.html#consultation">Product Development</a>
+                    <a href="../index.html#consultation">Firmware Development</a>
+                    <a href="../index.html#consultation">Testing &amp; Validation</a>
+                </div>
+                <div class="footer-services-col">
+                    <a href="../index.html#consultation">Hardware Design</a>
+                    <a href="../index.html#consultation">Prototyping</a>
+                    <a href="../white-label.html">White-label Products</a>
+                    <a href="../index.html#consultation">Start a project</a>
+                </div>
+            </div>
+        </div>
+
+<div class="footer-col footer-newsletter">
+            <h4>Newsletter</h4>
+            <p>Latest projects and insights.</p>
+            <form class="newsletter-form" id="newsletterForm">
+                <input type="email" id="newsletterEmail" name="newsletter_email" autocomplete="email" placeholder="Enter your email" aria-label="Email for newsletter" required>
+                <button type="submit" aria-label="Subscribe">
+                    <svg viewBox="0 0 24 24"><path d="M2,12 L22,12 M14,4 L22,12 L14,20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                </button>
+            </form>
+        </div>
+
+    </div>
+    <div class="footer-wordmark" aria-hidden="true">MICRONODE LLP</div>
+    <div class="footer-bottom">
+        <p>© 2026 Micronode LLP. All rights reserved.</p>
+    </div>
+</footer>
+
+<script src="../Micronode_Website.js" defer></script>
+<script>
+/* Chat widget: loaded after the page is done, so it never delays first paint */
+window.addEventListener("load", function () {
+    var start = function () {
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../chatbot-widget.css";
+        l.onload = function () { var s = document.createElement("script"); s.src = "../chatbot-widget.js"; document.body.appendChild(s); };
+        document.head.appendChild(l);
+    };
+    if ("requestIdleCallback" in window) requestIdleCallback(start, { timeout: 1200 }); else setTimeout(start, 1200);
+});
+</script>
+
+<!-- Consultation Modal -->
+<div class="modal-overlay" id="consultModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-box glass">
+        <button type="button" class="modal-close" id="closeConsultModal" aria-label="Close">&times;</button>
+        <h3 id="modalTitle">Start a project</h3>
+        <p class="modal-badge">Free consultation</p>
+        <p class="modal-sub">Fill in this form to book a free consultation — tell us about your project and we'll get back within 48 - 72 hours.</p>
+        <form id="consultForm" novalidate>
+            <div class="form-group">
+                <label for="fname">Full Name</label>
+                <input type="text" id="fname" name="name" autocomplete="name" placeholder="Jane Engineer" required>
+            </div>
+            <div class="form-group">
+                <label for="femail">Email</label>
+                <input type="email" id="femail" name="email" autocomplete="email" placeholder="jane@company.com" required>
+            </div>
+            <div class="form-group">
+                <label for="fphone">Phone <span class="opt">(optional)</span></label>
+                <input type="tel" id="fphone" name="phone" autocomplete="tel" placeholder="+91 98765 43210" autocomplete="tel">
+            </div>
+            <div class="form-group">
+                <label for="fcompany">Company</label>
+                <input type="text" id="fcompany" name="company" autocomplete="organization" placeholder="Acme Corp">
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="fdate">Preferred date <span class="opt">(optional)</span></label>
+                    <input type="date" id="fdate" name="slotDate" autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <label for="ftime">Preferred time <span class="opt">(optional)</span></label>
+                    <select id="ftime" name="slotTime" autocomplete="off">
+                        <option value="">Select a slot</option>
+                        <option>10:00 – 11:00 AM</option>
+                        <option>11:00 AM – 12:00 PM</option>
+                        <option>12:00 – 1:00 PM</option>
+                        <option>2:00 – 3:00 PM</option>
+                        <option>3:00 – 4:00 PM</option>
+                        <option>4:00 – 5:00 PM</option>
+                        <option>5:00 – 6:00 PM</option>
+                        <option>6:00 – 7:00 PM</option>
+                        <option>7:00 – 8:00 PM</option>
+                        <option>8:00 – 9:00 PM</option>
+                        <option>9:00 – 10:00 PM</option>
+                    </select>
+                </div>
+            </div>
+            <p class="slot-hint">Slots are in IST (Mon–Sat). We'll confirm your slot by email.</p>
+            <div class="form-group">
+                <label for="fmessage">Project Details</label>
+                <textarea id="fmessage" name="message" autocomplete="off" rows="4" maxlength="500" placeholder="Describe your embedded system requirements..." required></textarea>
+                <span class="char-count" id="charCount">0 / 500</span>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full">Submit Request</button>
+            <p class="form-note" id="formNote" role="status"></p>
+        </form>
+    </div>
+</div>
+</body>
+</html>
