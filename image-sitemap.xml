@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://micronode.in/</loc>
+    <image:image>
+      <image:loc>https://micronode.in/images/hero/micronode-mg51-dev-board.webp</image:loc>
+      <image:title>Micronode MG51 Dev Board</image:title>
+      <image:caption>Micronode MG51 Dev Board, a Nuvoton MG51FB9AE 8051 development board</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://micronode.in/images/hero/micronode-tm1637-display-module.webp</image:loc>
+      <image:title>Micronode TM1637 LED Display &amp; Button Module</image:title>
+      <image:caption>Micronode TM1637 LED Display and Button Module</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://micronode.in/images/industries/micronode-healthcare-electronics.webp</image:loc>
+      <image:title>Micronode healthcare electronics engineering</image:title>
+      <image:caption>Healthcare electronics and connected medical systems, a Micronode LLP engineering area</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://micronode.in/images/industries/micronode-defense-drone-prototype.webp</image:loc>
+      <image:title>Micronode defense drone prototype</image:title>
+      <image:caption>Palm-sized defense drone prototype built by Micronode LLP</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://micronode.in/images/industries/micronode-machine-vision-ai-camera.webp</image:loc>
+      <image:title>Micronode machine vision AI camera</image:title>
+      <image:caption>Machine vision AI camera system, a Micronode LLP engineering area</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://micronode.in/images/industries/micronode-ai-vision-inspection.webp</image:loc>
+      <image:title>Micronode AI vision inspection</image:title>
+      <image:caption>AI vision inspection detecting defects on a produce conveyor</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://micronode.in/images/industries/micronode-industrial-relay-panel.webp</image:loc>
+      <image:title>Micronode industrial relay panel</image:title>
+      <image:caption>DIN-rail relay panel wiring in an industrial control cabinet</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://micronode.in/images/industries/micronode-smt-pick-and-place-manufacturing.webp</image:loc>
+      <image:title>Micronode SMT manufacturing, coming soon</image:title>
+      <image:caption>Pick and place SMT manufacturing machine</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://micronode.in/products.html</loc>
+    <image:image>
+      <image:loc>https://micronode.in/images/products/micronode-hardware-products.webp</image:loc>
+      <image:title>Micronode hardware products</image:title>
+      <image:caption>Micronode hardware: control modules, IoT devices, battery-powered devices and relay controllers</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://micronode.in/images/products/micronode-mg51-dev-board-io-breakout.webp</image:loc>
+      <image:title>Micronode MG51 Development Board</image:title>
+      <image:caption>Micronode MG51 development board (Nuvoton MG51FB9AE) with all pins broken out</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://micronode.in/images/products/micronode-tm1637-display-module-front.webp</image:loc>
+      <image:title>Micronode TM1637 LED Display &amp; Button Module</image:title>
+      <image:caption>Micronode TM1637 6-digit LED display with 8 buttons</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://micronode.in/product-mg51.html</loc>
+    <image:image>
+      <image:loc>https://micronode.in/images/products/micronode-mg51-development-board.webp</image:loc>
+      <image:title>Micronode MG51 Development Board</image:title>
+      <image:caption>Micronode MG51 development board with the Nuvoton MG51FB9AE 8051 microcontroller</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://micronode.in/images/products/micronode-mg51-development-board-front.webp</image:loc>
+      <image:title>Micronode MG51 Development Board, front view</image:title>
+      <image:caption>Micronode MG51 development board, front view with the Nuvoton MG51FB9AE</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://micronode.in/images/products/micronode-mg51-development-board-back.webp</image:loc>
+      <image:title>Micronode MG51 Development Board, back view</image:title>
+      <image:caption>Micronode MG51 development board, back view with the 5 V regulator</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://micronode.in/images/products/micronode-mg51-development-board-dimensions.webp</image:loc>
+      <image:title>Micronode MG51 Development Board dimensions</image:title>
+      <image:caption>Micronode MG51 development board dimensions drawing, 24.1 x 32 mm</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://micronode.in/images/products/micronode-mg51-pinout-diagram.webp</image:loc>
+      <image:title>Micronode MG51 Development Board pinout diagram</image:title>
+      <image:caption>MG51FB9AE pinout: Micronode MG51 development board I/O header map</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://micronode.in/product-tm1637.html</loc>
+    <image:image>
+      <image:loc>https://micronode.in/images/products/micronode-tm1637-led-display-button-module.webp</image:loc>
+      <image:title>Micronode TM1637 LED Display &amp; Button Module</image:title>
+      <image:caption>Micronode TM1637 6-digit 7-segment LED display module with 8 buttons, HMI display</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://micronode.in/images/products/micronode-tm1637-pinout-diagram.webp</image:loc>
+      <image:title>Micronode TM1637 LED Display &amp; Button Module pinout</image:title>
+      <image:caption>Micronode TM1637 display module pinout (CLK, DIO, 5V, GND)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://micronode.in/images/products/micronode-tm1637-display-module-dimensions.webp</image:loc>
+      <image:title>Micronode TM1637 LED Display &amp; Button Module dimensions</image:title>
+      <image:caption>Micronode TM1637 6-digit LED display module dimensions drawing</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://micronode.in/images/products/micronode-tm1637-display-module-front.webp</image:loc>
+      <image:title>Micronode TM1637 LED Display &amp; Button Module, front view</image:title>
+      <image:caption>Micronode TM1637 6-digit 7-segment LED display module with 8 buttons, front view</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://micronode.in/white-label.html</loc>
+    <image:image>
+      <image:loc>https://micronode.in/images/white-label/micronode-embedded-lab-bench.webp</image:loc>
+      <image:title>Micronode embedded hardware lab</image:title>
+      <image:caption>Micronode lab bench: a custom embedded board under test with a multimeter and a smaller companion module</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://micronode.in/images/white-label/micronode-voltage-current-protector.webp</image:loc>
+      <image:title>Micronode voltage and current protector</image:title>
+      <image:caption>Micronode white-label DIN-rail voltage and current protector module with digital display and set buttons</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://micronode.in/images/white-label/micronode-8-channel-relay-board.webp</image:loc>
+      <image:title>Micronode 8-channel relay board</image:title>
+      <image:caption>Micronode white-label 8-channel 24V relay board for industrial loads</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://micronode.in/images/white-label/micronode-timer-control-board.webp</image:loc>
+      <image:title>Micronode timer control board</image:title>
+      <image:caption>Micronode white-label programmable timer control board with digital display, set buttons and relay output</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://micronode.in/images/white-label/micronode-custom-industrial-gateway.webp</image:loc>
+      <image:title>Micronode custom industrial gateway</image:title>
+      <image:caption>Micronode custom industrial gateway enclosure with antenna and terminal block, an example of a custom white-label variant</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://micronode.in/blog.html</loc>
+    <image:image>
+      <image:loc>https://micronode.in/images/blog/micronode-legacy-pic-stm8-8051-to-mg51-cover.webp</image:loc>
+      <image:title>Legacy PIC, STM8 and 8051 to MG51 migration, Micronode</image:title>
+      <image:caption>Legacy PIC, STM8 and 8051 products: why move them to the MG51</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://micronode.in/blog/legacy-pic-stm8-8051-to-mg51.html</loc>
+    <image:image>
+      <image:loc>https://micronode.in/images/blog/micronode-legacy-pic-stm8-8051-to-mg51-cover.webp</image:loc>
+      <image:title>Legacy PIC, STM8 and 8051 to MG51 migration, Micronode</image:title>
+      <image:caption>Legacy PIC, STM8 and 8051 products: why move them to the MG51 — Nuvoton MG51FB9AE development board</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://micronode.in/images/blog/micronode-32-bit-vs-mg51-migration-comparison.svg</image:loc>
+      <image:title>32-bit MCU vs MG51 for a 5V legacy product, Micronode</image:title>
+      <image:caption>Two ways to update a 5V legacy product: move to a 32-bit MCU versus move to the MG51</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://micronode.in/images/blog/micronode-mg51-test-first-migration-steps.webp</image:loc>
+      <image:title>MG51 test-first migration steps, Micronode</image:title>
+      <image:caption>Test first, then build: 1) get the dev board, 2) start from example code, 3) port and test, 4) go to production</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://micronode.in/images/blog/micronode-legacy-mcu-migration-help.webp</image:loc>
+      <image:title>Legacy MCU migration help from Micronode</image:title>
+      <image:caption>Have a legacy product on PIC, STM8 or 8051? We help you plan the move, from firmware to production PCB. micronode.in</image:caption>
+    </image:image>
+  </url>
+</urlset>
