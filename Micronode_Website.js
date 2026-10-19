@@ -659,7 +659,7 @@ function initConsultModal() {
 }
 
 /* ── Consultation Form ── */
-const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwxahtn9fQrhUynlLo_TRyie1ELMW0NfkrxjI7ZtEpffLmsdtlfCjsr4a73cuQEwT1n/exec";
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbykI5MPEhOWj0wkKJd8gNkQLEnPYEpCIgfP662h1zht31Aqtw5ydN2gx0OM2KmEDg/exec";
 
 function initConsultForm() {
     const form      = document.getElementById("consultForm");
