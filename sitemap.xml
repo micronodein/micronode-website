@@ -1,9 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://micronode.in/</loc>
-    <lastmod>2026-07-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <lastmod>2026-10-18</lastmod>
+    <image:image><image:loc>https://micronode.in/images/hero/micronode-mg51-dev-board-front.webp</image:loc></image:image>
+    <image:image><image:loc>https://micronode.in/images/hero/micronode-tm1637-display-module.webp</image:loc></image:image>
+    <image:image><image:loc>https://micronode.in/images/industries/micronode-healthcare-electronics.webp</image:loc></image:image>
+    <image:image><image:loc>https://micronode.in/images/industries/micronode-defense-drone-prototype.webp</image:loc></image:image>
+    <image:image><image:loc>https://micronode.in/images/industries/micronode-machine-vision-ai-camera.webp</image:loc></image:image>
+    <image:image><image:loc>https://micronode.in/images/industries/micronode-ai-vision-inspection.webp</image:loc></image:image>
+    <image:image><image:loc>https://micronode.in/images/industries/micronode-industrial-relay-panel.webp</image:loc></image:image>
+    <image:image><image:loc>https://micronode.in/images/industries/micronode-smt-pick-and-place-manufacturing.webp</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://micronode.in/products.html</loc>
+    <lastmod>2026-10-18</lastmod>
+    <image:image><image:loc>https://micronode.in/images/products/micronode-hardware-products.webp</image:loc></image:image>
+    <image:image><image:loc>https://micronode.in/images/products/micronode-mg51-dev-board-io-breakout.webp</image:loc></image:image>
+    <image:image><image:loc>https://micronode.in/images/products/micronode-tm1637-display-module-front.webp</image:loc></image:image>
+    <image:image><image:loc>https://micronode.in/images/products/micronode-tm1637-display-module-closeup.webp</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://micronode.in/products/mg51-dev-board</loc>
+    <lastmod>2026-10-18</lastmod>
+    <image:image><image:loc>https://micronode.in/images/products/micronode-mg51-development-board.jpg</image:loc></image:image>
+    <image:image><image:loc>https://micronode.in/images/products/micronode-mg51-development-board-front.webp</image:loc></image:image>
+    <image:image><image:loc>https://micronode.in/images/updt_product_page_files/mg51-back.webp</image:loc></image:image>
+    <image:image><image:loc>https://micronode.in/images/updt_product_page_files/MG51_Dev_Board_pinout.webp</image:loc></image:image>
+    <image:image><image:loc>https://micronode.in/images/updt_product_page_files/MG51_Dev_Board_dimensions.webp</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://micronode.in/products/tm1637-display-module</loc>
+    <lastmod>2026-10-18</lastmod>
+    <image:image><image:loc>https://micronode.in/images/products/micronode-tm1637-led-display-button-module.webp</image:loc></image:image>
+    <image:image><image:loc>https://micronode.in/images/products/micronode-tm1637-pinout-diagram.svg</image:loc></image:image>
+    <image:image><image:loc>https://micronode.in/images/products/micronode-tm1637-display-module-dimensions.svg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://micronode.in/faq.html</loc>
+    <lastmod>2026-10-18</lastmod>
+  </url>
+  <url>
+    <loc>https://micronode.in/blog.html</loc>
+    <lastmod>2026-10-17</lastmod>
+    <image:image><image:loc>https://micronode.in/images/blog/micronode-legacy-pic-stm8-8051-to-mg51-cover.webp</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://micronode.in/blog/legacy-pic-stm8-8051-to-mg51.html</loc>
+    <lastmod>2026-10-18</lastmod>
+    <image:image><image:loc>https://micronode.in/images/blog/micronode-legacy-pic-stm8-8051-to-mg51-cover.webp</image:loc></image:image>
+    <image:image><image:loc>https://micronode.in/images/blog/micronode-32-bit-vs-mg51-migration-comparison.svg</image:loc></image:image>
+    <image:image><image:loc>https://micronode.in/images/blog/micronode-mg51-test-first-migration-steps.svg</image:loc></image:image>
+    <image:image><image:loc>https://micronode.in/images/blog/micronode-legacy-mcu-migration-help.svg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://micronode.in/bom-estimator.html</loc>
+    <lastmod>2026-10-18</lastmod>
+  </url>
+  <url>
+    <loc>https://micronode.in/about.html</loc>
+    <lastmod>2026-10-18</lastmod>
+  </url>
+  <url>
+    <loc>https://micronode.in/white-label.html</loc>
+    <lastmod>2026-10-18</lastmod>
+    <image:image><image:loc>https://micronode.in/images/white-label/micronode-embedded-lab-bench.webp</image:loc></image:image>
+    <image:image><image:loc>https://micronode.in/images/white-label/micronode-voltage-current-protector.webp</image:loc></image:image>
+    <image:image><image:loc>https://micronode.in/images/white-label/micronode-8-channel-relay-board.webp</image:loc></image:image>
+    <image:image><image:loc>https://micronode.in/images/white-label/micronode-timer-control-board.webp</image:loc></image:image>
+    <image:image><image:loc>https://micronode.in/images/white-label/micronode-custom-industrial-gateway.webp</image:loc></image:image>
   </url>
 </urlset>
