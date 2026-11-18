@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="t d">
+  <title id="t">Two net labels that look the same are two different nets</title>
+  <desc id="d">An MCU pin labelled MOTOR_EN and a connector pin labelled MOTOR__EN with an extra underscore. KiCad treats them as two separate nets, so the signal never reaches the connector, while DRC still reports the layout as clean.</desc>
+  <rect width="1280" height="720" fill="#19175C"/>
+  <text x="80" y="104" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="46" font-weight="700">Two labels. Two nets. One missing signal.</text>
+  <text x="80" y="152" fill="#B9C0EE" font-family="Arial, Helvetica, sans-serif" font-size="26">One extra underscore splits a net. DRC still says clean.</text>
+
+  <!-- MCU -->
+  <rect x="80" y="250" width="250" height="220" rx="14" fill="#24216A" stroke="#8492DD" stroke-width="3"/>
+  <text x="205" y="330" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" text-anchor="middle">MCU</text>
+  <text x="205" y="372" fill="#B9C0EE" font-family="Consolas, monospace" font-size="24" text-anchor="middle">pin PA5</text>
+  <line x1="330" y1="360" x2="420" y2="360" stroke="#36F59B" stroke-width="5"/>
+  <circle cx="330" cy="360" r="7" fill="#36F59B"/>
+  <rect x="420" y="330" width="210" height="60" rx="8" fill="#123B2E" stroke="#36F59B" stroke-width="3"/>
+  <text x="525" y="370" fill="#36F59B" font-family="Consolas, monospace" font-size="27" font-weight="700" text-anchor="middle">MOTOR_EN</text>
+
+  <!-- break -->
+  <line x1="636" y1="360" x2="676" y2="360" stroke="#FF8F73" stroke-width="4" stroke-dasharray="8 8"/>
+  <circle cx="656" cy="360" r="24" fill="#19175C" stroke="#FF8F73" stroke-width="4"/>
+  <path d="M645 349 L667 371 M667 349 L645 371" stroke="#FF8F73" stroke-width="5" stroke-linecap="round"/>
+  <text x="656" y="430" fill="#FF8F73" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" text-anchor="middle">not connected</text>
+
+  <!-- Connector -->
+  <rect x="682" y="330" width="230" height="60" rx="8" fill="#3D1D2A" stroke="#FF8F73" stroke-width="3"/>
+  <text x="797" y="370" fill="#FF8F73" font-family="Consolas, monospace" font-size="27" font-weight="700" text-anchor="middle">MOTOR<tspan fill="#FFD166">__</tspan>EN</text>
+  <line x1="912" y1="360" x2="960" y2="360" stroke="#FF8F73" stroke-width="5"/>
+  <rect x="960" y="250" width="240" height="220" rx="14" fill="#24216A" stroke="#8492DD" stroke-width="3"/>
+  <circle cx="960" cy="360" r="7" fill="#FF8F73"/>
+  <text x="1080" y="330" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" text-anchor="middle">J3</text>
+  <text x="1080" y="372" fill="#B9C0EE" font-family="Consolas, monospace" font-size="24" text-anchor="middle">connector pin 4</text>
+
+  <!-- checks -->
+  <g font-family="Consolas, monospace" font-size="24" text-anchor="middle">
+    <rect x="80" y="560" width="300" height="70" rx="10" fill="#24216A"/>
+    <text x="230" y="603" fill="#36F59B">DRC ✓ clean</text>
+    <rect x="410" y="560" width="460" height="70" rx="10" fill="#24216A"/>
+    <text x="640" y="603" fill="#FFD166">netlist: 2 nets, 1 pin each</text>
+    <rect x="900" y="560" width="300" height="70" rx="10" fill="#24216A"/>
+    <text x="1050" y="603" fill="#FF8F73">signal at J3 ✗</text>
+  </g>
+</svg>

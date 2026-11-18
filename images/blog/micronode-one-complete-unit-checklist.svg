@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="t d">
+  <title id="t">Build one complete unit before ordering a batch</title>
+  <desc id="d">One complete unit in its real enclosure on its real power source, checked for fit, cable route, assembly and opening, and real power in real use, before ordering fifty boards.</desc>
+  <rect width="1280" height="720" fill="#19175C"/>
+  <text x="80" y="104" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="46" font-weight="700">One complete unit before fifty boards.</text>
+  <text x="80" y="152" fill="#B9C0EE" font-family="Arial, Helvetica, sans-serif" font-size="26">Real enclosure. Real power source. Real use, for a full working day.</text>
+
+  <!-- one unit -->
+  <rect x="80" y="220" width="300" height="230" rx="22" fill="#24216A" stroke="#8492DD" stroke-width="3"/>
+  <rect x="120" y="262" width="220" height="130" rx="8" fill="#1E7A4F" stroke="#36F59B" stroke-width="2"/>
+  <rect x="140" y="282" width="56" height="40" rx="4" fill="#0F1F18"/>
+  <circle cx="300" cy="300" r="12" fill="#FF8F73"/>
+  <line x1="120" y1="370" x2="60" y2="370" stroke="#FFD166" stroke-width="5"/>
+  <text x="230" y="490" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" text-anchor="middle">1 complete unit</text>
+
+  <!-- arrow -->
+  <path d="M420 335 H540" stroke="#FF8F73" stroke-width="6" stroke-linecap="round"/>
+  <path d="M525 318 L545 335 L525 352" fill="none" stroke="#FF8F73" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="480" y="390" fill="#FF8F73" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" text-anchor="middle">checked</text>
+
+  <!-- batch -->
+  <g opacity="0.85">
+    <rect x="640" y="300" width="220" height="130" rx="8" fill="#1E7A4F" stroke="#36F59B" stroke-width="2"/>
+    <rect x="620" y="280" width="220" height="130" rx="8" fill="#1E7A4F" stroke="#36F59B" stroke-width="2"/>
+    <rect x="600" y="260" width="220" height="130" rx="8" fill="#1E7A4F" stroke="#36F59B" stroke-width="2"/>
+  </g>
+  <text x="730" y="490" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" text-anchor="middle">then the batch</text>
+
+  <!-- checklist -->
+  <g font-family="Arial, Helvetica, sans-serif">
+    <rect x="920" y="220" width="290" height="56" rx="10" fill="#24216A"/><text x="942" y="257" fill="#FF8F73" font-size="24" font-weight="700">1</text><text x="972" y="257" fill="#FFFFFF" font-size="24">Fit</text>
+    <rect x="920" y="290" width="290" height="56" rx="10" fill="#24216A"/><text x="942" y="327" fill="#FF8F73" font-size="24" font-weight="700">2</text><text x="972" y="327" fill="#FFFFFF" font-size="24">Cable route</text>
+    <rect x="920" y="360" width="290" height="56" rx="10" fill="#24216A"/><text x="942" y="397" fill="#FF8F73" font-size="24" font-weight="700">3</text><text x="972" y="397" fill="#FFFFFF" font-size="24">Assembly &amp; opening</text>
+    <rect x="920" y="430" width="290" height="56" rx="10" fill="#24216A"/><text x="942" y="467" fill="#FF8F73" font-size="24" font-weight="700">4</text><text x="972" y="467" fill="#FFFFFF" font-size="24">Real power, real use</text>
+  </g>
+
+  <text x="80" y="620" fill="#B9C0EE" font-family="Arial, Helvetica, sans-serif" font-size="26">One extra prototype is cheap. Fifty wrong boards are not.</text>
+</svg>
