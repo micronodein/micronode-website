@@ -48,13 +48,23 @@
       "name": "Micronode LLP",
       "email": "info@micronode.in",
       "telephone": "+91-9511705410",
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "contactType": "sales",
-        "telephone": "+91-9511705410",
-        "email": "info@micronode.in",
-        "areaServed": "IN"
-      },
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "contactType": "sales",
+          "telephone": "+91-9511705410",
+          "email": "info@micronode.in",
+          "areaServed": "IN"
+        },
+        {
+          "@type": "ContactPoint",
+          "contactType": "Projects & partnerships",
+          "telephone": "+91-7249410046",
+          "email": "info@micronode.in",
+          "areaServed": "Worldwide",
+          "availableLanguage": ["English", "Hindi", "Marathi"]
+        }
+      ],
       "alternateName": "Electronic Product Development & Embedded Engineering | Micronode LLP",
       "url": "https://micronode.in",
       "logo": "https://micronode.in/images/micronode-llp-logo.webp",
@@ -77,7 +87,7 @@
         "Edge AI and machine vision",
         "Industrial automation and process control",
         "Healthcare electronics and connected medical systems",
-        "Defense electronics, including a palm-sized drone",
+        "Drone electronics, including a palm-sized drone prototype for a client",
         "STM32, ESP32, Renesas, Microchip and Nuvoton microcontrollers",
         "IoT connectivity: MQTT, BLE, LoRa, Ethernet and cellular modules",
         "EMI and EMC design",
@@ -85,7 +95,7 @@
         "White-label embedded boards for OEMs"
       ],
       "areaServed": [ { "@type": "Country", "name": "India" }, { "@type": "City", "name": "Pune" } ],
-      "slogan": "Electronics that cost less and run for years.",
+      "slogan": "Designed by us. Sold under your brand. Built to cost less & run for years.",
       "sameAs": [
         "https://www.linkedin.com/company/micronode-llp/",
         "https://github.com/micronodein"
@@ -109,7 +119,18 @@
             "@type": "Product",
             "@id": "https://micronode.in/products/mg51-dev-board#product",
             "name": "MG51 Development Board",
-            "description": "Development board based on the Nuvoton MG51 microcontroller (MG51FB9AE, 1T 8051) with all 18 GPIO broken out and a 4-pin ICP programming header. Designed and engineered in Pune, India. ₹295 inclusive of all taxes (GST)."
+            "description": "Development board based on the Nuvoton MG51 microcontroller (MG51FB9AE, 1T 8051) with all 18 GPIO broken out and a 4-pin ICP programming header. Designed and engineered in Pune, India. ₹295 inclusive of all taxes (GST).",
+            "image": "https://micronode.in/images/products/micronode-mg51-development-board.jpg",
+            "brand": { "@type": "Brand", "name": "Micronode" },
+            "offers": {
+              "@type": "Offer",
+              "url": "https://micronode.in/products/mg51-dev-board",
+              "price": "295",
+              "priceCurrency": "INR",
+              "availability": "https://schema.org/InStock",
+              "itemCondition": "https://schema.org/NewCondition",
+              "seller": { "@id": "https://micronode.in/#organization" }
+            }
           }
         },
         {
@@ -119,7 +140,18 @@
             "@type": "Product",
             "@id": "https://micronode.in/products/tm1637-display-module#product",
             "name": "TM1637 6-Digit 7-Segment Display & Button Module",
-            "description": "6-digit 7-segment LED display with 8 integrated buttons, driven via just 2 MCU pins. Designed and engineered in Pune, India. ₹499 inclusive of all taxes (GST)."
+            "description": "6-digit 7-segment LED display with 8 integrated buttons, driven via just 2 MCU pins. Designed and engineered in Pune, India. ₹499 inclusive of all taxes (GST).",
+            "image": "https://micronode.in/images/products/micronode-tm1637-led-display-button-module.webp",
+            "brand": { "@type": "Brand", "name": "Micronode" },
+            "offers": {
+              "@type": "Offer",
+              "url": "https://micronode.in/products/tm1637-display-module",
+              "price": "499",
+              "priceCurrency": "INR",
+              "availability": "https://schema.org/InStock",
+              "itemCondition": "https://schema.org/NewCondition",
+              "seller": { "@id": "https://micronode.in/#organization" }
+            }
           }
         }
       ]
@@ -170,7 +202,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <div class="nav-drop-menu" id="companyMenu">
                     <a href="about.html">About</a>
                     <a href="faq.html">FAQ</a>
-                    <a href="blog.html">Blog</a>
+                    <a href="blog.html">Insights</a>
                     <a href="#contact">Contact</a>
                 </div>
             </div>
@@ -188,13 +220,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="container mh-inner">
         <div class="mh-text">
             <p class="mh-eyebrow">Embedded design house &middot; Pune<span class="d-only">, India</span></p>
-            <h1><span class="heading-gradient">Electronics that cost less and run for years.</span></h1>
+            <h1><span class="heading-gradient">Designed by us.<br>Sold under your brand.<br>Built to cost less &amp; run for years.</span></h1>
             <p class="mh-lead">We design the hardware, firmware and PCBs inside industrial and connected products &mdash; engineered down to the component, so your BOM drops while performance stays the same.</p>
             <div class="mh-cta">
-                <button type="button" class="btn btn-primary" id="openConsultModalHero">Free consultation</button>
+                <button type="button" class="btn btn-primary" id="openConsultModalHero">Get a free project review</button>
                 <a href="products.html" class="btn btn-ghost">View products</a>
             </div>
-            <p class="mh-note">Free first consultation &middot; reply within 24&ndash;48 hours</p>
+            <p class="mh-note">Bring an idea, a sketch or a half-built prototype. We&rsquo;ll take it from there.<br>Reply within 24&ndash;48 hours</p>
         </div>
 
         <div class="mh-stage" id="mhStage" role="region" aria-roledescription="carousel" aria-label="Micronode boards">
@@ -224,8 +256,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="mh-stat"><span class="hstat-val" data-target="8" data-suffix="+">8+</span><span class="mh-stat-l">MCU platforms</span></div>
             <div class="mh-stat"><span class="hstat-val" data-target="3" data-prefix="2&ndash;" data-suffix=" wk">2&ndash;3 wk</span><span class="mh-stat-l">to working prototype</span></div>
             <div class="mh-stat"><span class="hstat-val" data-target="48" data-prefix="24&ndash;" data-suffix=" h">24&ndash;48 h</span><span class="mh-stat-l">feasibility &amp; BOM</span></div>
-        </div>
-    </div>
+        </div>    </div>
 </section>
 
 <!-- 02 WHAT WE DO -->
@@ -238,7 +269,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <h2>Everything inside the box,<br>engineered in-house.</h2>
             </div>
             <div class="wwd-headaside reveal" data-dir="right">
-                <p>One engineering team owns the design, from the first schematic to the production package.</p>            </div>
+                <p>One engineering team owns the design, from the first schematic to the production package. Work starts once you approve a written scope, and you get a progress update every 2 weeks.</p>            </div>
         </div>
 
         <div class="wwd-line" aria-hidden="true"><span class="wwd-line-fill"></span></div>
@@ -333,56 +364,139 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </section>
 
 <!--  03 INDUSTRIES  -->
-<section class="section ind-section" id="industries">
-    <div class="container ind-inner">
+<section class="section ind-section proj-section" id="industries">
+    <div class="container">
 
-        <div class="sec-left reveal" data-dir="left">
-            <div class="sec-number"><span class="sec-number-digit" aria-hidden="true" data-n="02"></span><span class="sec-number-label">Industries</span></div>
-            <h2>Experience Across<br>Industries</h2>
-            <p>Heat, vibration, dust, electrical noise and years of non-stop running — we design for all of it.</p>
-            <a href="#consultation" class="link-arrow">View All Industries </a>
+        <div class="proj-head reveal">
+            <div class="sec-number"><span class="sec-number-digit" aria-hidden="true" data-n="02"></span><span class="sec-number-label">Projects &amp; Industries</span></div>
+            <h2>What we've built</h2>
+            <p>Across healthcare, drones, machine vision, industrial automation, power electronics, IoT and automotive, designed for heat, vibration, dust and years of non-stop running.</p>
         </div>
 
-        <div class="ind-grid">
-            <div class="ind-card glass reveal">
-                <div class="ind-photo ind-health">
-                    <img src="images/industries/micronode-healthcare-electronics.webp" class="ind-img" alt="Healthcare electronics and connected medical systems, a Micronode LLP engineering area" title="Micronode healthcare electronics engineering" loading="lazy" style="aspect-ratio: 1338 / 1175;" decoding="async"/>                </div>
-                <div class="ind-info">
-                    <h3>Healthcare</h3>
-                    <p>Healthcare electronics, diagnostics and connected medical systems.</p>
-                </div>
+        <div class="proj-scroller">
+            <button type="button" class="proj-arrow proj-prev" aria-label="Previous projects">&#8249;</button>
+            <div class="proj-row" tabindex="0" role="region" aria-label="Projects and industries (scroll sideways)">
+                <article class="work-card">
+                    <div class="work-card-media" style="--bg: url('images/work/micronode-lora-board-debugging.webp');">
+                        <img class="work-card-img" src="images/work/micronode-lora-board-debugging.webp" alt="A client's LoRa board on the Micronode bench during debugging, wired to a USB-UART adapter and an OLED display" width="651" height="869" loading="lazy" decoding="async">
+                    </div>
+                    <div class="work-card-body">
+                        <span class="work-card-tag">Client project &middot; LoRa &amp; IoT</span>
+                        <h3>Dead LoRa board, running again</h3>
+                        <span class="work-card-stat">Running in 6 hours</span>
+                        <p>Client's schematic, another designer's PCB. We assembled and tested it, fixed the faults and finished the firmware, all within 10 hours.</p>
+                    </div>
+                </article>
+                <article class="work-card">
+                    <div class="work-card-media" style="--bg: url('images/work/micronode-fmd-headlight-relay-controller.webp');">
+                        <img class="work-card-img" src="images/work/micronode-fmd-headlight-relay-controller.webp" alt="Two-wheeler headlight relay controller prototype next to an FMD Prog programmer showing the FT60E121 microcontroller" width="1159" height="869" loading="lazy" decoding="async">
+                    </div>
+                    <div class="work-card-body">
+                        <span class="work-card-tag">Client prototype &middot; Automotive</span>
+                        <h3>Two-wheeler headlight controller</h3>
+                        <span class="work-card-stat">&asymp; &#8377;5 microcontroller</span>
+                        <p>Relay control on an FMD FT60E121 microcontroller, prototyped and programmed in-house for low-cost production.</p>
+                    </div>
+                </article>
+                <article class="work-card">
+                    <div class="work-card-media" style="--bg: url('images/work/micronode-8-channel-solid-state-relay-pcb.webp');">
+                        <img class="work-card-img" src="images/work/micronode-8-channel-solid-state-relay-pcb.webp" alt="PCB layout of an 8-channel solid-state relay module with per-channel fuses, designed by Micronode" width="1159" height="869" loading="lazy" decoding="async">
+                    </div>
+                    <div class="work-card-body">
+                        <span class="work-card-tag">Client project &middot; PCB design</span>
+                        <h3>8-channel solid-state relay module</h3>
+                        <span class="work-card-stat">8 channels, fused</span>
+                        <p>PCB layout with a fuse, transistor driver and indicator for every channel.</p>
+                    </div>
+                </article>
+                <article class="work-card">
+                    <div class="work-card-media" style="--bg: url('images/work/micronode-3-phase-motor-starter-pcb.webp');">
+                        <img class="work-card-img" src="images/work/micronode-3-phase-motor-starter-pcb.webp" alt="3-phase motor starter PCB by Micronode with a 6-digit 7-segment display for voltage and current, set-up keys and ON/OFF outputs" width="955" height="625" loading="lazy" decoding="async">
+                    </div>
+                    <div class="work-card-body">
+                        <span class="work-card-tag">Client project &middot; Motor control</span>
+                        <h3>3-phase motor starter</h3>
+                        <span class="work-card-stat">Phase-failure &amp; dry-run protection</span>
+                        <p>Reads the R-Y-B phases, shows voltage and current on a 6-digit display, and has set-up keys and ON/OFF outputs.</p>
+                    </div>
+                </article>
+                <article class="work-card">
+                    <div class="work-card-media" style="--bg: url('images/work/micronode-dc-regulated-power-supply.webp');">
+                        <img class="work-card-img" src="images/work/micronode-dc-regulated-power-supply.webp" alt="Bench DC regulated power supply with voltage and current displays, open chassis showing the transformer, heatsink and fan, co-developed by Micronode with a client" width="640" height="480" loading="lazy" decoding="async">
+                    </div>
+                    <div class="work-card-body">
+                        <span class="work-card-tag">Client project &middot; Power electronics</span>
+                        <h3>Bench DC regulated power supply</h3>
+                        <span class="work-card-stat">Constant voltage &amp; current modes</span>
+                        <p>We designed the internal electronics, then built and tested the unit together with the client.</p>
+                    </div>
+                </article>
+                <article class="work-card">
+                    <div class="work-card-media" style="--bg: url('images/industries/micronode-palm-sized-drone-prototype.webp');">
+                        <img class="work-card-img" src="images/industries/micronode-palm-sized-drone-prototype.webp" alt="Palm-sized drone prototype with electronics by Micronode LLP for a client" loading="lazy" decoding="async">
+                    </div>
+                    <div class="work-card-body">
+                        <span class="work-card-tag">Client prototype &middot; Drones</span>
+                        <h3>Palm-sized drone</h3>
+                        <span class="work-card-stat">Small, light, battery-powered</span>
+                        <p>Embedded computing, communication and sensing for a client's palm-sized drone.</p>
+                    </div>
+                </article>
+                <article class="work-card">
+                    <div class="work-card-media" style="--bg: url('images/industries/micronode-ai-vision-inspection.webp');">
+                        <img class="work-card-img" src="images/industries/micronode-ai-vision-inspection.webp" alt="Micronode AI vision inspection detecting defects on tomatoes on a produce conveyor" loading="lazy" decoding="async">
+                    </div>
+                    <div class="work-card-body">
+                        <span class="work-card-tag">Industry &middot; Machine vision</span>
+                        <h3>AI vision &amp; inspection</h3>
+                        <span class="work-card-stat">Automatic defect detection</span>
+                        <p>AI vision systems, automated inspection and production test jigs.</p>
+                    </div>
+                </article>
+                <article class="work-card">
+                    <div class="work-card-media" style="--bg: url('images/industries/micronode-industrial-relay-panel.webp');">
+                        <img class="work-card-img" src="images/industries/micronode-industrial-relay-panel.webp" alt="Micronode DIN-rail relay panel wiring in an industrial control cabinet" loading="lazy" decoding="async">
+                    </div>
+                    <div class="work-card-body">
+                        <span class="work-card-tag">Industry &middot; Industrial automation</span>
+                        <h3>Industrial control panel</h3>
+                        <span class="work-card-stat">DIN-rail relay control</span>
+                        <p>Control cabinets and relay panels for industrial automation.</p>
+                    </div>
+                </article>
             </div>
-
-            <div class="ind-card glass reveal reveal-delay-1">
-                <div class="ind-photo ind-defense">
-                    <img src="images/industries/micronode-defense-drone-prototype.webp" class="ind-img" alt="Palm-sized defense drone prototype built by Micronode LLP" title="Micronode defense drone prototype" loading="lazy" style="aspect-ratio: 1448 / 1086;" decoding="async"/>                </div>
-                <div class="ind-info">
-                    <h3>Defense Electronics</h3>
-                    <p>Embedded computing, communication and sensing solutions for mission-critical applications — including a palm-sized drone.</p>
-                </div>
-            </div>
-
-            <div class="ind-card glass reveal reveal-delay-2">
-                <div class="ind-photo ind-vision ind-photo-rotate">
-                    <img src="images/industries/micronode-machine-vision-ai-camera.webp" class="ind-img is-active" alt="Machine vision AI camera system, a Micronode LLP engineering area" title="Micronode machine vision AI camera" loading="lazy" style="aspect-ratio: 1301 / 1209;" decoding="async"/>
-                    <img src="images/industries/micronode-ai-vision-inspection.webp" class="ind-img" alt="Micronode AI vision inspection detecting defects on a produce conveyor" title="Micronode AI vision inspection" loading="lazy" style="aspect-ratio: 800 / 480;" decoding="async"/>
-                </div>
-                <div class="ind-info">
-                    <h3>Machine Vision</h3>
-                    <p>AI vision systems, automated inspection and production test jigs.</p>
-                </div>
-            </div>
-
-            <div class="ind-card glass reveal reveal-delay-3">
-                <div class="ind-photo ind-auto">
-                    <img src="images/industries/micronode-industrial-relay-panel.webp" class="ind-img" alt="Micronode DIN-rail relay panel wiring in an industrial control cabinet" title="Micronode industrial relay panel" loading="lazy" style="aspect-ratio: 1671 / 941;" decoding="async"/>                </div>
-                <div class="ind-info">
-                    <h3>Industrial Automation</h3>
-                    <p>Industrial automation, process control and connected monitoring systems.</p>
-                </div>
-            </div>
+            <button type="button" class="proj-arrow proj-next" aria-label="Next projects">&#8250;</button>
         </div>
 
+    </div>
+</section>
+
+<!-- FROM OUR INSIGHTS: clickable buyer questions, each opens its note (add a row per new note, newest first) -->
+<section class="section iq-section" id="insight-questions">
+    <div class="container">
+        <div class="iq-wrap">
+            <div class="iq-head">
+                <div class="wl-label">FROM OUR INSIGHTS</div>
+                <h2>Questions buyers ask us</h2>
+                <a class="link-arrow iq-all" href="blog.html">All insights <span>&rarr;</span></a>
+            </div>
+            <div class="iq-list">
+                <details class="iq-item">
+                    <summary>Why does one quote say &#8377;50,000, another &#8377;90,000 and a third &#8377;1.25 lakh for the same product?</summary>
+                    <div class="iq-a">
+                        <p>Usually the quotes cover different work: one is &ldquo;make it work on my table&rdquo;, another is &ldquo;make it ready to sell&rdquo;. Ask every vendor what is included, what is not, and what is left before you can sell.</p>
+                        <a class="link-arrow" href="blog/why-hardware-quotes-differ.html">Read the full note <span>&rarr;</span></a>
+                    </div>
+                </details>
+                <details class="iq-item">
+                    <summary>Should an old PIC or STM8 product move to a low-cost 8051?</summary>
+                    <div class="iq-a">
+                        <p>Often yes, and without a 32-bit redesign: the product can stay 8-bit and 5 V, with no level shifters and no full firmware rewrite.</p>
+                        <a class="link-arrow" href="blog/legacy-pic-stm8-8051-to-mg51.html">Read the full note <span>&rarr;</span></a>
+                    </div>
+                </details>
+            </div>
+        </div>
     </div>
 </section>
 
@@ -395,7 +509,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
     </div>
 
-    <!-- Single row, moves left; the band marks it as a full-width strip -->
+    <!-- Single row, moves right (animation reversed in CSS); the band marks it as a full-width strip -->
     <div class="tpill-band">
     <div class="tpill-wrap">
         <div class="tpill-track tpill-left">
@@ -586,22 +700,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </section>
 
 
-<!--  08 PRODUCTION CAPABILITIES -->
-<section class="section prodc-section" id="production-capabilities">
-    <div class="container">
-        <div class="prodc-card glass reveal">
-            <div class="prodc-img-wrap">
-                <img src="images/industries/micronode-smt-pick-and-place-manufacturing.webp" alt="Micronode in-house SMT pick and place manufacturing machine" title="Micronode SMT manufacturing, coming soon" class="prodc-img" loading="lazy" style="aspect-ratio: 1536 / 1024;" decoding="async"/>
-            </div>
-            <div class="prodc-text">
-                <div class="sec-number"><span class="sec-number-digit" aria-hidden="true" data-n="04"></span><span class="sec-number-label">Production Capabilities</span></div>
-                <h2><span class="gradient-text">Coming Soon</span></h2>
-                <p>We are setting up advanced in-house manufacturing with SMT, testing and quality control processes for startups and medium-sized companies.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
 <!--  09 CONSULTATION -->
 <!-- 06 CTA + CONTACT -->
 <section class="section cta-section" id="contact">
@@ -610,8 +708,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         <div class="cta-inner">
             <div class="cta-content reveal" data-dir="left">
-                <div class="sec-number"><span class="sec-number-digit" aria-hidden="true" data-n="05"></span><span class="sec-number-label">Let's Work Together</span></div>
+                <div class="sec-number"><span class="sec-number-digit" aria-hidden="true" data-n="04"></span><span class="sec-number-label">Let's Work Together</span></div>
                 <h2>Have a product to build or a BOM to bring down?</h2>
+                <div class="cta-tagline">
+                    <p class="cta-tagline-main"><strong>You sleep. We build.</strong> Your project moves while your time zone rests.</p>
+                    <p class="cta-tagline-sub">We reply within 24&ndash;48 hours, whatever your time zone.</p>
+                </div>
                 <p>From concept to production, Micronode LLP helps companies engineer intelligent, reliable and future-ready products.</p>
                 <ul class="cta-checks">
                     <li><svg viewBox="0 0 22 22"><path d="M6,11 L9,14 L16,8" fill="none" stroke="#FF8F73" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Architecture review</li>
@@ -621,7 +723,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
 
             <div class="cta-actions reveal" data-dir="right">
-                <button type="button" class="btn btn-primary cta-btn-pill" id="openConsultModal">Free consultation</button>
+                <button type="button" class="btn btn-primary cta-btn-pill" id="openConsultModal">Get a free project review</button>
                 <button type="button" class="btn btn-ghost cta-btn-pill" data-open-consult>Become a distributor</button>
                 <p class="cta-actions-contact">info@micronode.in &middot; Pune, India</p>
             </div>
@@ -635,7 +737,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
                 <div class="cta-bar-text">
                     <span class="cta-bar-label">EMAIL</span>
-                    <span class="cta-bar-val">info@micronode.in</span>
+                    <a class="cta-bar-val" href="mailto:info@micronode.in">info@micronode.in</a>
                 </div>
             </div>
             <div class="cta-bar-sep"></div>
@@ -696,7 +798,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <a href="#industries">Industries</a>
             <a href="about.html">About</a>
             <a href="faq.html">FAQ</a>
-            <a href="blog.html">Blog</a>
+            <a href="blog.html">Insights</a>
             <a href="#contact">Contact</a>
         </div>
 
@@ -713,7 +815,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <a href="#consultation">Prototyping</a>
                     <a href="white-label.html">White-label Products</a>
                     <a href="bom-estimator.html">BOM Cost Reduction</a>
-                    <a href="#consultation">Free consultation</a>
+                    <a href="#consultation">Free project review</a>
                 </div>
             </div>
         </div>
@@ -755,7 +857,7 @@ window.addEventListener("load", function () {
 <div class="modal-overlay" id="consultModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="modal-box glass">
         <button type="button" class="modal-close" id="closeConsultModal" aria-label="Close">&times;</button>
-        <h3 id="modalTitle">Book a free consultation</h3>
+        <h3 id="modalTitle">Get a free project review</h3>
         <p class="modal-sub">Tell us about your project. We reply to every enquiry within 24–48 hours.</p>
         <form id="consultForm" novalidate>
             <div class="form-group">

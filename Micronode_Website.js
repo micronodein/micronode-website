@@ -20,6 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
     initNewsletterForm();
     initProductGallery();
     initPhotoRotators();
+    initProjectScroller();
     initSwipeIndicators();
     initRotatingWord();
     initMailLinks();
@@ -67,6 +68,29 @@ function initScrollProgress() {
         const total = document.documentElement.scrollHeight - window.innerHeight;
         bar.style.width = total > 0 ? `${(window.scrollY / total) * 100}%` : "0%";
     }, { passive: true });
+}
+
+/* ── "What we've built" row: arrow buttons scroll one card at a time and hide at either end ── */
+function initProjectScroller() {
+    document.querySelectorAll(".proj-scroller").forEach(wrap => {
+        const row = wrap.querySelector(".proj-row");
+        const prev = wrap.querySelector(".proj-prev");
+        const next = wrap.querySelector(".proj-next");
+        if (!row || !prev || !next) return;
+        const step = () => {
+            const card = row.querySelector(".work-card");
+            return card ? card.getBoundingClientRect().width + 18 : 300;
+        };
+        const sync = () => {
+            prev.disabled = row.scrollLeft <= 4;
+            next.disabled = row.scrollLeft + row.clientWidth >= row.scrollWidth - 4;
+        };
+        prev.addEventListener("click", () => row.scrollBy({ left: -step(), behavior: "smooth" }));
+        next.addEventListener("click", () => row.scrollBy({ left: step(), behavior: "smooth" }));
+        row.addEventListener("scroll", sync, { passive: true });
+        window.addEventListener("resize", sync);
+        sync();
+    });
 }
 
 /* ── Auto-Rotating Photo Cards (e.g. Machine Vision industry card) ── */
@@ -659,7 +683,7 @@ function initConsultModal() {
 }
 
 /* ── Consultation Form ── */
-const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwxahtn9fQrhUynlLo_TRyie1ELMW0NfkrxjI7ZtEpffLmsdtlfCjsr4a73cuQEwT1n/exec";
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbykI5MPEhOWj0wkKJd8gNkQLEnPYEpCIgfP662h1zht31Aqtw5ydN2gx0OM2KmEDg/exec";
 
 function initConsultForm() {
     const form      = document.getElementById("consultForm");
@@ -720,7 +744,9 @@ function initConsultForm() {
             // no-cors hides the response, so a resolved fetch is our "sent" signal
             if (btn) btn.textContent = "Request Sent ✓";
             form.reset();
-            window.location.href = "/thank-you.html";
+            // resolve next to this script so it works from /products/ pages and from local files
+            const siteJs = document.querySelector('script[src*="Micronode_Website.js"]');
+            window.location.href = siteJs ? new URL("thank-you.html", siteJs.src).href : "/thank-you.html";
         })
         .catch(() => {
             showNote(note, "Something went wrong. Please email us directly.", "error");

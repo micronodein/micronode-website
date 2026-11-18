@@ -17,14 +17,14 @@
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=2">
     <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png?v=2">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=2">
-    <title>Blog | Electronic Product Development &amp; Embedded Engineering | Micronode LLP</title>
-    <meta name="description" content="Articles from the Micronode LLP team in Pune on embedded design, firmware, PCB design and our MG51 and TM1637 boards.">
-    <meta name="keywords" content="embedded systems blog, firmware development articles, PCB design tips, 8051 tutorials, MG51 dev board, TM1637 display module, Micronode LLP blog">
+    <title>Insights: Engineering Notes | Micronode LLP</title>
+    <meta name="description" content="Engineering notes from the Micronode bench in Pune: PCB design and layout checks, prototype-to-production lessons, and microcontroller cost-down.">
+    <meta name="keywords" content="engineering notes, PCB design checklist, net audit before layout, prototype to production, small batch electronics, embedded design insights, MCU cost down, Micronode LLP insights">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://micronode.in/blog.html">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Blog | Electronic Product Development &amp; Embedded Engineering | Micronode LLP">
-    <meta property="og:description" content="Articles from the Micronode LLP team in Pune on embedded design, firmware, PCB design and our MG51 and TM1637 boards.">
+    <meta property="og:title" content="Insights: Engineering Notes | Micronode LLP">
+    <meta property="og:description" content="Engineering notes from the Micronode bench in Pune: PCB design and layout checks, prototype-to-production lessons, and microcontroller cost-down.">
     <meta property="og:url" content="https://micronode.in/blog.html">
     <meta property="og:image" content="https://micronode.in/images/og-hardware.jpg">
     <meta property="og:image:alt" content="Micronode hardware: control modules, IoT devices, battery-powered devices and relay controllers">
@@ -37,7 +37,7 @@
       "@type": "BreadcrumbList",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://micronode.in/" },
-        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://micronode.in/blog.html" }
+        { "@type": "ListItem", "position": 2, "name": "Insights", "item": "https://micronode.in/blog.html" }
       ]
     }
     </script>
@@ -81,7 +81,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <div class="nav-drop-menu" id="companyMenu">
                     <a href="about.html">About</a>
                     <a href="faq.html">FAQ</a>
-                    <a href="blog.html" class="active">Blog</a>
+                    <a href="blog.html" class="active">Insights</a>
                     <a href="index.html#contact">Contact</a>
                 </div>
             </div>
@@ -99,11 +99,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="page-breadcrumb">
             <a href="index.html#hero">Home</a>
             <span class="sep">/</span>
-            <span class="current">Blog</span>
+            <span class="current">Insights</span>
         </div>
-        <span class="rule-label"><i class="rule-label-bar"></i><i class="rule-label-line"></i>Blog</span>
-        <h1><span class="heading-gradient">Notes from our bench.</span></h1>
-        <p class="blog-lead">Articles from the Micronode team on embedded design, firmware, PCB design and our boards.</p>
+        <span class="rule-label"><i class="rule-label-bar"></i><i class="rule-label-line"></i>Insights</span>
+        <h1><span class="heading-gradient">Engineering notes from our bench.</span></h1>
+        <p class="blog-lead">Short, practical lessons from real projects: what went wrong, what we changed, and what we check now.</p>
     </div>
 </section>
 
@@ -125,19 +125,56 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
             </a>
         -->
-        <div class="blog-grid" id="blogGrid">
-            <a class="blog-card" href="blog/legacy-pic-stm8-8051-to-mg51.html">
-                <div class="blog-card-media">
-                    <img src="images/blog/micronode-legacy-pic-stm8-8051-to-mg51-cover.webp" alt="Legacy PIC, STM8 and 8051 products: why move them to the MG51" title="Legacy PIC, STM8 and 8051 to MG51 migration, Micronode" width="640" height="360" loading="lazy" decoding="async">
-                </div>
-                <div class="blog-card-body">
-                    <span class="blog-card-meta">8 Oct 2026 · 4 min read</span>
-                    <h2>Legacy PIC, STM8 and 8051 products: why move them to the MG51</h2>
-                    <p>Stay 8-bit and 5V, without a 32-bit redesign, level shifters or a full firmware rewrite.</p>
-                    <span class="link-arrow">Read article <span>&rarr;</span></span>
-                </div>
+        <!-- NOTE TILES: each note is a darkened REAL bench photo with its question on top (the AI cover images appear only inside the notes).
+             LATEST = newest note, wide. When a new note is published, put it here and move this one into its topic group below. -->
+        <a class="note-tile note-tile--wide" href="blog/why-hardware-quotes-differ.html" style="--img: url('images/blog/micronode-one-time-vs-per-unit-cost.webp');">
+            <span class="note-tile-badge">Latest</span>
+            <span class="note-tile-tag">Prototype to production</span>
+            <span class="note-tile-q">Three quotes for the same product: &#8377;50,000, &#8377;90,000 and &#8377;1.25 lakh. Who is right?</span>
+            <span class="sr-only">Why one quote says &#8377;50,000, another &#8377;90,000 and a third &#8377;1.25 lakh for the same product</span>
+            <span class="note-tile-meta">18 Nov 2026 &middot; 5 min read</span>
+            <span class="note-tile-go">Read note &rarr;</span>
+        </a>
+
+        <!-- Topic groups sit side by side as columns: add a new tile to its group (newest first), or copy a whole .notes-group for a new topic -->
+        <div class="notes-groups">
+        <div class="notes-group">
+            <h2 class="notes-group-title">PCB design &amp; layout</h2>
+            <a class="note-tile" href="blog/audit-the-nets-before-pcb-layout.html" style="--img: url('images/work/micronode-8-channel-solid-state-relay-pcb.webp');">
+                <span class="note-tile-q">How can one extra underscore cost two fab runs?</span>
+                <span class="sr-only">Before you lay out a schematic you didn't draw, audit the nets</span>
+                <span class="note-tile-meta">17 Nov 2026 &middot; 4 min read</span>
+                <span class="note-tile-go">Read note &rarr;</span>
             </a>
         </div>
+
+        <div class="notes-group">
+            <h2 class="notes-group-title">Prototype to production</h2>
+            <a class="note-tile" href="blog/build-one-complete-unit-before-a-batch.html" style="--img: url('images/work/micronode-dc-regulated-power-supply.webp');">
+                <span class="note-tile-q">It works on the bench. Is it ready for fifty?</span>
+                <span class="sr-only">Build one complete unit before you order fifty</span>
+                <span class="note-tile-meta">17 Nov 2026 &middot; 3 min read</span>
+                <span class="note-tile-go">Read note &rarr;</span>
+            </a>
+        </div>
+
+        <div class="notes-group">
+            <h2 class="notes-group-title">Cost-down &amp; microcontrollers</h2>
+            <a class="note-tile" href="blog/legacy-pic-stm8-8051-to-mg51.html" style="--img: url('images/products/micronode-mg51-development-board-with-header-pins.webp');">
+                <span class="note-tile-q">Old PIC or STM8 product? Do you really need 32-bit?</span>
+                <span class="sr-only">Legacy PIC, STM8 and 8051 products: why move them to the MG51</span>
+                <span class="note-tile-meta">8 Oct 2026 &middot; 4 min read</span>
+                <span class="note-tile-go">Read note &rarr;</span>
+            </a>
+        </div>
+        </div>
+        <!-- COMING NEXT: the question the next note will answer (no answer here on purpose). Update the question when a new note is planned; remove when it is published. -->
+        <aside class="next-note has-bg" style="--img: url('images/blog/micronode-mg51-migration-cover.webp');">
+            <span class="next-note-label">Coming next</span>
+            <p class="next-note-q">Can you upgrade the processor without redesigning your prototype?</p>
+            <p class="next-note-sub">The answer is in our next note. Leave your email and it reaches you first.</p>
+            <a class="link-arrow" href="#newsletterEmail">Get it by email <span>&rarr;</span></a>
+        </aside>
     </div>
 </section>
 </main>
@@ -173,7 +210,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <a href="index.html#industries">Industries</a>
             <a href="about.html">About</a>
             <a href="faq.html">FAQ</a>
-            <a href="blog.html" class="active">Blog</a>
+            <a href="blog.html" class="active">Insights</a>
             <a href="index.html#contact">Contact</a>
         </div>
 
@@ -190,7 +227,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <a href="index.html#consultation">Prototyping</a>
                     <a href="white-label.html">White-label Products</a>
                     <a href="bom-estimator.html">BOM Cost Reduction</a>
-                    <a href="index.html#consultation">Free consultation</a>
+                    <a href="index.html#consultation">Free project review</a>
                 </div>
             </div>
         </div>
@@ -231,7 +268,7 @@ window.addEventListener("load", function () {
 <div class="modal-overlay" id="consultModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="modal-box glass">
         <button type="button" class="modal-close" id="closeConsultModal" aria-label="Close">&times;</button>
-        <h3 id="modalTitle">Book a free consultation</h3>
+        <h3 id="modalTitle">Get a free project review</h3>
         <p class="modal-sub">Tell us about your project. We reply to every enquiry within 24–48 hours.</p>
         <form id="consultForm" novalidate>
             <div class="form-group">

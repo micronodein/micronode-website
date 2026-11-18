@@ -13,15 +13,20 @@
     // "https://micronode-chatbot.yoursubdomain.workers.dev"
     const CHAT_API_URL = "https://micronode-chatbot.micronode-in.workers.dev";
 
+    // WhatsApp button stacked above the chat launcher (country code without "+")
+    const WHATSAPP_NUMBER = "919511705410";
+    const WHATSAPP_MESSAGE = "Hi Micronode, I have a project: ";
+
     const STORAGE_KEY = "mnChatHistory";
     const MAX_STORED_MESSAGES = 30;
 
     const SUGGESTIONS = [
-        "What does Micronode LLP do?",
-        "Tell me about the MG51 Dev Board",
-        "How do I start a project?",
-        "What's the TM1637 module used for?",
+        "What do you build?",
+        "How does a project run?",
+        "What are your prices?",
+        "What's the minimum quantity?",
         "Can you supply under our brand?",
+        "Tell me about the MG51 Dev Board",
     ];
     // A fresh chat offers only the first few; the rest join the scrolling row once the conversation starts
     const FIRST_SUGGESTIONS = 3;
@@ -32,7 +37,7 @@
     const TEASER_MESSAGES = [
         "Need a board designed, or a product under your brand? Ask us.",
         "Want a white-label product under your own name? Ask us.",
-        "Got a product idea? Book a free consultation — just ask.",
+        "Got a product idea? Get a free project review — just ask.",
         "Firmware, PCB or Edge AI help? Ask us.",
     ];
     // On phones the bubble is shorter, rarer and quicker to leave so it never sits on top of buttons
@@ -74,6 +79,11 @@
     function buildMarkup() {
         const wrap = document.createElement("div");
         wrap.innerHTML = `
+            <a class="mn-wa" href="https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}" target="_blank" rel="noopener" aria-label="Urgent project? Chat with Micronode on WhatsApp (opens WhatsApp)">
+                <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path d="M16.04 3C8.86 3 3.03 8.82 3.03 15.99c0 2.29.6 4.53 1.74 6.5L3 29l6.68-1.75a12.97 12.97 0 0 0 6.36 1.62h.01c7.17 0 13-5.83 13-13S23.21 3 16.04 3zm0 23.68h-.01a10.8 10.8 0 0 1-5.5-1.51l-.4-.23-3.96 1.04 1.06-3.86-.26-.4a10.75 10.75 0 0 1-1.65-5.73c0-5.96 4.85-10.8 10.82-10.8 2.89 0 5.6 1.12 7.64 3.17a10.73 10.73 0 0 1 3.16 7.64c0 5.96-4.85 10.81-10.9 10.68zm5.93-8.09c-.32-.16-1.93-.95-2.23-1.06-.3-.11-.52-.16-.73.16-.22.33-.84 1.06-1.03 1.28-.19.22-.38.24-.71.08-.32-.16-1.37-.5-2.6-1.6-.96-.86-1.61-1.92-1.8-2.24-.19-.33-.02-.5.14-.66.15-.15.32-.38.49-.57.16-.19.21-.33.32-.54.11-.22.05-.41-.03-.57-.08-.16-.73-1.76-1-2.41-.26-.63-.53-.55-.73-.56h-.62c-.22 0-.57.08-.87.41-.3.33-1.14 1.11-1.14 2.71s1.17 3.14 1.33 3.36c.16.22 2.3 3.51 5.57 4.92.78.34 1.39.54 1.86.69.78.25 1.49.21 2.05.13.63-.09 1.93-.79 2.2-1.55.27-.76.27-1.42.19-1.55-.08-.14-.3-.22-.62-.38z"/></svg>
+                <span class="mn-wa-label">Urgent project? WhatsApp us</span>
+            </a>
+
             <button type="button" class="mn-chat-launcher" id="mnChatLauncher" aria-label="Open chat with Micronode assistant" aria-expanded="false">
                 <svg class="mn-chat-icon-open" viewBox="11 14 42 38" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                     <path class="mn-trace" d="M20 17H44A6 6 0 0 1 50 23V37A6 6 0 0 1 44 43H29L22 49V43H20A6 6 0 0 1 14 37V23A6 6 0 0 1 20 17Z"/>
@@ -112,11 +122,12 @@
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
                         </button>
                     </form>
-                    <p class="mn-chat-disclaimer">AI-generated answers about Micronode LLP.</p>
+                    <p class="mn-chat-disclaimer">AI answers. Please don't paste confidential files here.</p>
                 </div>
             </div>
         `;
         document.body.appendChild(wrap);
+        document.body.classList.add("mn-has-wa");   // lets the CSS lift the chat teaser above the WhatsApp icon
     }
 
     function renderMessage(role, text, kind) {

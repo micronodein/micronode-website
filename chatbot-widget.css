@@ -300,6 +300,57 @@ body.mn-hero-top .mn-chat-teaser { display: none; }
     .mn-chat-panel { bottom: 96px; }
 }
 
+/* WhatsApp button: round icon stacked above the chat button, label on hover */
+.mn-wa {
+    position: fixed;
+    right: 26px;            /* centred over the 64px chat button at right: 20px */
+    bottom: 96px;           /* chat button bottom 20px + 64px + 12px gap */
+    z-index: 945;           /* under the chat panel (960), so an open chat covers it */
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #25D366;
+    color: #fff;
+    text-decoration: none;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+    transition: transform 0.25s var(--ease-spring), box-shadow 0.25s ease, background 0.2s ease, opacity 0.3s ease;
+}
+.mn-wa:hover { background: #1EBE5A; transform: translateY(-2px) scale(1.06); box-shadow: 0 10px 24px rgba(0, 0, 0, 0.34); }
+.mn-wa:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+.mn-wa svg { width: 30px; height: 30px; fill: currentColor; }
+.mn-wa-label {
+    position: absolute;
+    right: 64px;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 8px 12px;
+    border-radius: var(--radius-sm, 8px);
+    background: #1A1D2A;
+    color: #fff;
+    font-size: var(--fs-sm, 14px);
+    font-weight: 600;
+    white-space: nowrap;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease;
+}
+.mn-wa:hover .mn-wa-label,
+.mn-wa:focus-visible .mn-wa-label { opacity: 1; visibility: visible; }
+@media (min-width: 481px) { body.mn-has-wa .mn-chat-teaser { bottom: 162px; } }
+@media (max-width: 480px) {
+    .mn-wa { right: 20px; bottom: 90px; }   /* chat button is 68px at right/bottom 12px */
+    .mn-wa-label { display: none; }         /* no hover on touch screens; the aria-label still names it */
+}
+body.mn-hero-top .mn-wa { opacity: 0; pointer-events: none; transform: scale(0.8); }
+body.modal-open .mn-wa { display: none; }
+@media (max-width: 700px) { body.nav-open .mn-wa { display: none; } }
+@media (prefers-reduced-motion: reduce) { .mn-wa, .mn-wa:hover { transition: none; transform: none; } }
+@media print { .mn-wa { display: none; } }
+
 /* After the first message the suggested questions become one scrolling row above the input, so they never disappear */
 .mn-chat-suggestions.is-compact { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; padding-bottom: 10px; }
 .mn-chat-suggestions.is-compact::-webkit-scrollbar { display: none; }
